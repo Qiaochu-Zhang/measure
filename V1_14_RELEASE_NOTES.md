@@ -4,6 +4,7 @@
 
 - [下载完整代码包](sem_cd_measure_200k_batch_V1_14_complete_package.zip)
 - [使用说明与参数](sem_cd_measure_200k_batch_V1_14_complete_package/README.md)
+- [完整运行说明与全部命令行参数](V1_14_RUN_GUIDE.md)
 - [详细变更记录](sem_cd_measure_200k_batch_V1_14_complete_package/CHANGELOG.md)
 - [完整自检结果](sem_cd_measure_200k_batch_V1_14_complete_package/validation_report.json)
 - [自检脚本](sem_cd_measure_200k_batch_V1_14_complete_package/self_check_V1_14.py)
