@@ -1,0 +1,57 @@
+{
+  "version": "V1_14",
+  "baseline_commit": "05c1ecf",
+  "archive_sha256": "e88b69ae20f4282ebb17116b61d977b6e29df98dc930acf9d81ecac23a8bc735",
+  "archive_file_count": 19,
+  "archive_bytes": 344912,
+  "manifest_and_zip_payload_match": true,
+  "self_check_scenarios": 17,
+  "static_checks": "ruff F/E9 and compileall PASS",
+  "original_source_packages_unchanged": true,
+  "previous_output_discovery_guard": "PASS",
+  "full_plot_export": {
+    "png_count": 36,
+    "diagnostic_errors": 0,
+    "primary_status": "OK"
+  },
+  "isolated_archive_run": {
+    "status": "OK",
+    "diagnostic_errors": 0,
+    "summary_first_columns": [
+      "image",
+      "status",
+      "method"
+    ],
+    "method_order": [
+      "mixed",
+      "V13",
+      "V10"
+    ],
+    "psd_first_columns": [
+      "image",
+      "status",
+      "method"
+    ],
+    "psd_counts": {
+      "V10": 32,
+      "V13": 32
+    },
+    "psd_average_range_px": 1,
+    "psd_group_size": 1,
+    "psd_spectrum_averaging": false
+  },
+  "runtime_source_files": [
+    "cdsem_engine.py",
+    "cdsem_locator.py",
+    "cdsem_psd.py",
+    "cdsem_refinement.py",
+    "cdsem_regions.py",
+    "cdsem_statistics.py",
+    "sem_cd_measure_200k_batch_V1_14.py"
+  ],
+  "limitations": [
+    "Synthetic/example regression only; no user real-SEM mixed-background images supplied.",
+    "No SEM noise debias or absolute CD accuracy certification.",
+    "PowerShell launcher not executed on Linux."
+  ]
+}
