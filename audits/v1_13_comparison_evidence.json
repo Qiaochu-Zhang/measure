@@ -1,0 +1,5329 @@
+{
+  "baseline_commit": "e51945d",
+  "identical_common_python_files": [
+    "cdsem_basin_first_v115.py",
+    "cdsem_batch_v10_hybrid_statistics.py",
+    "cdsem_batch_v5_v115_locator_v2_measure.py",
+    "cdsem_batch_v7_full_pipeline.py",
+    "cdsem_batch_v8_three_candidates.py",
+    "cdsem_batch_v9_m2_statistics.py",
+    "cdsem_pattern_brightness_v114.py",
+    "cdsem_v112_continuity.py",
+    "cdsem_v113_parameters.py",
+    "cdsem_v113_path_erf.py",
+    "cdsem_v113_selection.py",
+    "cdsem_v13_edge_engine.py",
+    "select_cdsem_candidate_methods.py",
+    "sem_cd_measure_200k_batch_V1_7.py"
+  ],
+  "different_common_python_files": [],
+  "fixture_hashes": {
+    "trench": {
+      "sha256": {
+        "original": "c8e9e0f1e46b82d884c86615dc79d034315be9441bb4b07041c358e162785020",
+        "modified": "c8e9e0f1e46b82d884c86615dc79d034315be9441bb4b07041c358e162785020"
+      },
+      "identical": true
+    },
+    "line": {
+      "sha256": {
+        "original": "59ea6f052cf0febcb2707a467fec82719391d2badaed26431ced65f89f2bcb1e",
+        "modified": "59ea6f052cf0febcb2707a467fec82719391d2badaed26431ced65f89f2bcb1e"
+      },
+      "identical": true
+    }
+  },
+  "psd_top_level_function_ast_equal": {
+    "runs": true,
+    "fill_short_gaps": true,
+    "spectrum": true,
+    "scalar_metrics": true,
+    "average_curves": true,
+    "strict_group": true,
+    "strict_group4": true
+  },
+  "max_abs_mixed_metric_difference_nm": {
+    "baseline_trench": 0.0,
+    "baseline_line": 0.0,
+    "one_group": 0.0,
+    "line_path_erf": 0.0
+  },
+  "compared_mixed_metric_count": {
+    "baseline_trench": 8,
+    "baseline_line": 8,
+    "one_group": 8,
+    "line_path_erf": 8
+  },
+  "packages": {
+    "original": {
+      "package": "original",
+      "environment": {
+        "python": "3.12.3",
+        "packages": {
+          "numpy": "2.5.3",
+          "pandas": "3.0.6",
+          "scipy": "1.18.1",
+          "matplotlib": "3.11.2",
+          "opencv-python": "5.0.0.93",
+          "openpyxl": "3.1.5"
+        }
+      },
+      "source_sha256": {
+        "cdsem_v112_psd.py": "fcf241de6f4434cb6ccbf6f5a635e46ff717a50397182acbef4cbebfa307ceb0",
+        "cdsem_v113_selection.py": "94a9b72a898f08bb4016d94b932f396858521198ae4ac31226bd0ab56ae649d7",
+        "cdsem_pattern_brightness_v114.py": "ae2c2758974ff774a5e6f973c6408c3837835027232b1f3dd41518d3d490bb6c",
+        "cdsem_basin_first_v115.py": "0c5dc1ea63594200128e33a71b774c678914b35d155586e7cbf3e789a5b02185",
+        "self_check_V1_12.py": "6aaaa7d0f83238a815515cf60087e15fe8da7dc50c86f886e4a90ca4f29b3b42",
+        "cdsem_v113_path_erf.py": "ae813be327eb7e9a2fff24ecbef5f4ee261638757f26b6feb2eacdcdfad3ad40",
+        "sem_cd_measure_200k_batch_V1_13.py": "bea4b439a52ef903d9f558ab70b094b876a8164a1cfca516ffdaf041c71c12a0",
+        "cdsem_batch_v8_three_candidates.py": "743a44990ce86cc77cd892c4380abd36a472b3ea9de1de997dab88f932d2f4c6",
+        "sem_cd_measure_200k_batch_V1_7.py": "49382b44d77f4988556c9292126d462f253cb065604a455f1e5a5c55525e9066",
+        "cdsem_batch_v5_v115_locator_v2_measure.py": "b46d4ec37ec46fc338d23888782cb7008ab83074ca6e24341ce56e82dc9310c7",
+        "cdsem_batch_v10_hybrid_statistics.py": "c4000607aaa0c3438c31050bdf89e17a59122b486b3d25ab15e14d057cbda220",
+        "select_cdsem_candidate_methods.py": "4e88b4c2186f8eee3239c39fe25a9120d22f3b99fc6b499ca79e4c503fcb325e",
+        "cdsem_v13_edge_engine.py": "fade515779f37cb15072b66da08c9fabed01aa2f39fc0998d4048d285891e973",
+        "sem_cd_measure_200k_batch_V1_10.py": "691ec4fe527e4ce4234012413995800df1724aad69a9c33b62aabdf08ab54cb3",
+        "self_check_V1_10.py": "c360e4a1118cc04edb40a1984206939dd7ef64db4124afbc16320030b078ffa8",
+        "cdsem_v113_parameters.py": "234f9948d82971c5479f963988304cfac1b032a85d25e410508d885eb8a3bab1",
+        "cdsem_batch_v9_m2_statistics.py": "e38565e9e9a40a91ea8beabe5d34822ebbf66bcdb9795f64324bc60d8715fbf5",
+        "self_check_V1_13.py": "a75fbafd0178736b078b547ab29ff539698857140911f406d98a5c8dbca94bb6",
+        "cdsem_batch_v7_full_pipeline.py": "2ec768448895cc06827112884f3ce7c50c36495651c72185f42a6e2479489bd5",
+        "sem_cd_measure_200k_batch_V1_12.py": "d8fe43e4781cc5745df8057d7e80a18a80882249bad5da1a0fbeabc369f7fb0d",
+        "cdsem_v112_continuity.py": "a9de6094e76dc03b753d5fb43ce481903a8670ba2afa93e2c8fb959b50f1919e"
+      },
+      "cli": {
+        "root": {
+          "default": "C:\\Users\\z00027644\\Downloads\\CD measure\\CD measure",
+          "choices": null
+        },
+        "output": {
+          "default": null,
+          "choices": null
+        },
+        "pixel_size": {
+          "default": 1.3181,
+          "choices": null
+        },
+        "pattern": {
+          "default": null,
+          "choices": [
+            "via",
+            "trench",
+            "line"
+          ]
+        },
+        "via_reference_nm": {
+          "default": null,
+          "choices": null
+        },
+        "trench_reference_nm": {
+          "default": null,
+          "choices": null
+        },
+        "space_reference_nm": {
+          "default": null,
+          "choices": null
+        },
+        "save_debug_masks": {
+          "default": false,
+          "choices": null
+        },
+        "stop_on_error": {
+          "default": false,
+          "choices": null
+        },
+        "center_x": {
+          "default": null,
+          "choices": null
+        },
+        "center_y": {
+          "default": null,
+          "choices": null
+        },
+        "search_in": {
+          "default": 33,
+          "choices": null
+        },
+        "search_out": {
+          "default": 30,
+          "choices": null
+        },
+        "extend_length": {
+          "default": null,
+          "choices": null
+        },
+        "sample_number": {
+          "default": 128,
+          "choices": null
+        },
+        "average_range": {
+          "default": 32,
+          "choices": null
+        },
+        "smoothing_pixel": {
+          "default": 3,
+          "choices": null
+        },
+        "peak_order": {
+          "default": 1,
+          "choices": null
+        },
+        "threshold_left": {
+          "default": 50.0,
+          "choices": null
+        },
+        "threshold_right": {
+          "default": 50.0,
+          "choices": null
+        },
+        "max_number": {
+          "default": 3,
+          "choices": null
+        },
+        "min_number": {
+          "default": null,
+          "choices": null
+        },
+        "candidate_dark_tolerance": {
+          "default": null,
+          "choices": null
+        },
+        "candidate_min_contrast": {
+          "default": null,
+          "choices": null
+        },
+        "topology_min_contrast": {
+          "default": 2.5,
+          "choices": null
+        },
+        "tracking_radius": {
+          "default": 13.0,
+          "choices": null
+        },
+        "tracking_retry_radius": {
+          "default": 20.0,
+          "choices": null
+        },
+        "tracking_max_jump": {
+          "default": 8.0,
+          "choices": null
+        },
+        "postfilter_window": {
+          "default": 9,
+          "choices": null
+        },
+        "postfilter_mad_multiplier": {
+          "default": 6.0,
+          "choices": null
+        },
+        "postfilter_edge_tolerance": {
+          "default": 2.5,
+          "choices": null
+        },
+        "minimum_valid_fraction": {
+          "default": 0.7,
+          "choices": null
+        },
+        "allow_incomplete_triplet": {
+          "default": false,
+          "choices": null
+        },
+        "no_recovery": {
+          "default": false,
+          "choices": null
+        },
+        "flyer_mode": {
+          "default": "reserve",
+          "choices": [
+            "reserve",
+            "remove",
+            "replace"
+          ]
+        },
+        "flyer_left_offset": {
+          "default": 20.0,
+          "choices": null
+        },
+        "flyer_right_offset": {
+          "default": 20.0,
+          "choices": null
+        },
+        "group_size": {
+          "default": 4,
+          "choices": null
+        },
+        "no_annotated_images": {
+          "default": false,
+          "choices": null
+        },
+        "compact_sample_output": {
+          "default": false,
+          "choices": null
+        },
+        "machine_excel": {
+          "default": null,
+          "choices": null
+        },
+        "no_auto_machine_comparison": {
+          "default": false,
+          "choices": null
+        },
+        "machine_sheet": {
+          "default": "v2",
+          "choices": null
+        },
+        "machine_start_row": {
+          "default": 2,
+          "choices": null
+        },
+        "machine_end_row": {
+          "default": 84,
+          "choices": null
+        },
+        "machine_image_column": {
+          "default": "B",
+          "choices": null
+        },
+        "machine_cd_column": {
+          "default": "D",
+          "choices": null
+        },
+        "machine_ler_left_column": {
+          "default": "E",
+          "choices": null
+        },
+        "machine_lwr_column": {
+          "default": "F",
+          "choices": null
+        },
+        "skip_statistics_plots": {
+          "default": false,
+          "choices": null
+        },
+        "plot_dpi": {
+          "default": 180,
+          "choices": null
+        },
+        "edge_continuity": {
+          "default": 0,
+          "choices": null
+        },
+        "skip_psd": {
+          "default": false,
+          "choices": null
+        },
+        "psd_axis": {
+          "default": "both",
+          "choices": [
+            "unrotated",
+            "normal",
+            "both"
+          ]
+        },
+        "psd_method": {
+          "default": "welch",
+          "choices": [
+            "welch",
+            "periodogram"
+          ]
+        },
+        "psd_window": {
+          "default": "hann",
+          "choices": [
+            "hann",
+            "boxcar",
+            "blackmanharris"
+          ]
+        },
+        "psd_detrend": {
+          "default": "linear",
+          "choices": [
+            "linear",
+            "constant",
+            "none"
+          ]
+        },
+        "psd_nperseg": {
+          "default": 64,
+          "choices": null
+        },
+        "psd_overlap": {
+          "default": 0.5,
+          "choices": null
+        },
+        "psd_min_segment": {
+          "default": 16,
+          "choices": null
+        },
+        "psd_gap_mode": {
+          "default": "segments",
+          "choices": [
+            "segments",
+            "interpolate"
+          ]
+        },
+        "psd_max_gap": {
+          "default": 2,
+          "choices": null
+        },
+        "psd_include_synthetic": {
+          "default": false,
+          "choices": null
+        },
+        "psd_split_wavelength": {
+          "default": 100.0,
+          "choices": null
+        },
+        "line_reference_nm": {
+          "default": null,
+          "choices": null
+        },
+        "meas_area_width": {
+          "default": null,
+          "choices": null
+        },
+        "meas_area_height": {
+          "default": null,
+          "choices": null
+        },
+        "viterbi": {
+          "default": 0,
+          "choices": [
+            0,
+            1
+          ]
+        },
+        "viterbi_weight": {
+          "default": 5.0,
+          "choices": null
+        },
+        "viterbi_max_jump": {
+          "default": 3.0,
+          "choices": null
+        },
+        "viterbi_gap_cost": {
+          "default": 6.0,
+          "choices": null
+        },
+        "viterbi_candidates": {
+          "default": 5,
+          "choices": null
+        },
+        "erf_fit": {
+          "default": 0,
+          "choices": [
+            0,
+            1
+          ]
+        },
+        "erf_window": {
+          "default": 8,
+          "choices": null
+        },
+        "erf_max_shift": {
+          "default": 2.0,
+          "choices": null
+        },
+        "erf_max_relative_rmse": {
+          "default": 0.2,
+          "choices": null
+        },
+        "check_parameters": {
+          "default": false,
+          "choices": null
+        }
+      },
+      "cases": {
+        "baseline_trench": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "image_name",
+            "result_id",
+            "edge_variant",
+            "stat_mode",
+            "space_count",
+            "aggregation_mode",
+            "mean_cd_px",
+            "ACD_x_nm",
+            "LER_left_nm",
+            "LER_right_nm",
+            "LWR_x_nm",
+            "rho_left_right",
+            "centerline_3sigma_nm",
+            "folder_name",
+            "folder_nominal_nm",
+            "pretreatment_nm",
+            "dose_mj",
+            "sample_id",
+            "metadata_source",
+            "image",
+            "image_key",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "algorithm_version",
+            "method_code",
+            "variant_category",
+            "variant_interpretation",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "source_CD_threshold_mode",
+            "source_LER_threshold_mode",
+            "source_LWR_threshold_mode",
+            "source_CD_result_id",
+            "source_LER_result_id",
+            "source_LWR_result_id",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "status",
+            "v10_measurement_valid",
+            "v13_measurement_valid",
+            "v10_triplet_complete",
+            "v13_triplet_complete",
+            "v10_selected_roles",
+            "v13_selected_roles",
+            "v10_selected_trench_count",
+            "v13_selected_trench_count",
+            "v10_stable_trench_count",
+            "v13_stable_trench_count",
+            "selected_trench_count",
+            "stable_trench_count",
+            "warning",
+            "audit_v10_raw_ACD_x_nm",
+            "audit_v10_raw_LER_left_nm",
+            "audit_v10_raw_LER_right_nm",
+            "audit_v10_raw_LWR_x_nm",
+            "audit_v10_group4_LWR_x_nm",
+            "audit_v13_raw_ACD_x_nm",
+            "audit_v13_raw_LER_left_nm",
+            "audit_v13_raw_LER_right_nm",
+            "audit_v13_raw_LWR_x_nm",
+            "audit_v13_group4_LWR_x_nm",
+            "mean_trench_width_nm",
+            "ler_left_3sigma_nm",
+            "ler_right_3sigma_nm",
+            "lwr_3sigma_nm",
+            "coordinate_definition",
+            "unrotated_CD_nm",
+            "unrotated_LER_left_nm",
+            "unrotated_LER_right_nm",
+            "unrotated_LWR_nm",
+            "rotated_CD_nm",
+            "rotated_LER_left_nm",
+            "rotated_LER_right_nm",
+            "rotated_LWR_nm",
+            "rotation_angle_CD_LWR_mean_deg",
+            "rotation_angle_LER_mean_deg",
+            "rotation_angle_CD_LWR_abs_mean_deg",
+            "rotation_angle_LER_abs_mean_deg",
+            "audit_v13_rotated_raw_CD_nm",
+            "audit_v10_rotated_raw_LER_left_nm",
+            "audit_v10_rotated_raw_LER_right_nm",
+            "audit_v13_rotated_group4_LWR_nm",
+            "edge_continuity",
+            "group_size",
+            "viterbi_enabled",
+            "erf_enabled",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "requested_max_number",
+            "required_min_number",
+            "quality_status_before_synthetic_review",
+            "v10_original_valid_count",
+            "v10_continuity_redetected_count",
+            "v10_synthetic_count",
+            "v10_detected_fraction",
+            "v10_filled_fraction",
+            "v13_original_valid_count",
+            "v13_continuity_redetected_count",
+            "v13_synthetic_count",
+            "v13_detected_fraction",
+            "v13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "REVIEW",
+              "metrics": {
+                "rotated_CD_nm": 59.819355890345584,
+                "rotated_LER_left_nm": 2.294909515513369,
+                "rotated_LER_right_nm": 2.3071893009682287,
+                "rotated_LWR_nm": 0.7311518974546287,
+                "unrotated_CD_nm": 59.8193643016997,
+                "unrotated_LER_left_nm": 2.3006833439051624,
+                "unrotated_LER_right_nm": 2.3153586367855343,
+                "unrotated_LWR_nm": 0.7311520001340084
+              },
+              "warning": "stable SPACE count 0 below Min Number=3; aggregate uses available unstable SPACE results when possible; SPACE 1: valid_fraction=0.328 below 0.700; SPACE 2: valid_fraction=0.352 below 0.700; SPACE 3: valid_fraction=0.344 below 0.700; SPACE 4: valid_fraction=0.344 below 0.700",
+              "error_message": null
+            }
+          ],
+          "errors": [],
+          "sample_rows": 512,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "left",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "right",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "used_for_statistics": true
+            }
+          ],
+          "coordinate_rows": 2,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 1,
+            "error_count": 0,
+            "diagnostic_error_count": null
+          },
+          "psd_statuses": {
+            "V10:OK": 40,
+            "V13:SKIPPED": 40
+          },
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "all_objects_long",
+            "trench_objects",
+            "V10_image_source",
+            "V13_image_source",
+            "V10_trench_source",
+            "V13_trench_source",
+            "V10_base_tracking",
+            "V13_base_tracking",
+            "per_sample_results",
+            "V10_candidate_debug",
+            "V13_candidate_debug",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  错误记录：0",
+            "  Excel：/tmp/measure-original-comparison-gifs0lt1/baseline_trench/CD_measurement_200K_V1_13_results.xlsx",
+            "  V13 CD/LWR Annotated：/tmp/measure-original-comparison-gifs0lt1/baseline_trench/annotated",
+            "  V10 LER Annotated：/tmp/measure-original-comparison-gifs0lt1/baseline_trench/annotated_v10_ler",
+            "  PSD：/tmp/measure-original-comparison-gifs0lt1/baseline_trench/PSD/PSD_summary.xlsx"
+          ]
+        },
+        "baseline_line": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "image_name",
+            "result_id",
+            "edge_variant",
+            "stat_mode",
+            "space_count",
+            "aggregation_mode",
+            "mean_cd_px",
+            "ACD_x_nm",
+            "LER_left_nm",
+            "LER_right_nm",
+            "LWR_x_nm",
+            "rho_left_right",
+            "centerline_3sigma_nm",
+            "folder_name",
+            "folder_nominal_nm",
+            "pretreatment_nm",
+            "dose_mj",
+            "sample_id",
+            "metadata_source",
+            "image",
+            "image_key",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "algorithm_version",
+            "method_code",
+            "variant_category",
+            "variant_interpretation",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "source_CD_threshold_mode",
+            "source_LER_threshold_mode",
+            "source_LWR_threshold_mode",
+            "source_CD_result_id",
+            "source_LER_result_id",
+            "source_LWR_result_id",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "status",
+            "v10_measurement_valid",
+            "v13_measurement_valid",
+            "v10_triplet_complete",
+            "v13_triplet_complete",
+            "v10_selected_roles",
+            "v13_selected_roles",
+            "v10_selected_trench_count",
+            "v13_selected_trench_count",
+            "v10_stable_trench_count",
+            "v13_stable_trench_count",
+            "selected_trench_count",
+            "stable_trench_count",
+            "warning",
+            "audit_v10_raw_ACD_x_nm",
+            "audit_v10_raw_LER_left_nm",
+            "audit_v10_raw_LER_right_nm",
+            "audit_v10_raw_LWR_x_nm",
+            "audit_v10_group4_LWR_x_nm",
+            "audit_v13_raw_ACD_x_nm",
+            "audit_v13_raw_LER_left_nm",
+            "audit_v13_raw_LER_right_nm",
+            "audit_v13_raw_LWR_x_nm",
+            "audit_v13_group4_LWR_x_nm",
+            "mean_trench_width_nm",
+            "ler_left_3sigma_nm",
+            "ler_right_3sigma_nm",
+            "lwr_3sigma_nm",
+            "coordinate_definition",
+            "unrotated_CD_nm",
+            "unrotated_LER_left_nm",
+            "unrotated_LER_right_nm",
+            "unrotated_LWR_nm",
+            "rotated_CD_nm",
+            "rotated_LER_left_nm",
+            "rotated_LER_right_nm",
+            "rotated_LWR_nm",
+            "rotation_angle_CD_LWR_mean_deg",
+            "rotation_angle_LER_mean_deg",
+            "rotation_angle_CD_LWR_abs_mean_deg",
+            "rotation_angle_LER_abs_mean_deg",
+            "audit_v13_rotated_raw_CD_nm",
+            "audit_v10_rotated_raw_LER_left_nm",
+            "audit_v10_rotated_raw_LER_right_nm",
+            "audit_v13_rotated_group4_LWR_nm",
+            "edge_continuity",
+            "group_size",
+            "viterbi_enabled",
+            "erf_enabled",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "requested_max_number",
+            "required_min_number",
+            "quality_status_before_synthetic_review",
+            "v10_original_valid_count",
+            "v10_continuity_redetected_count",
+            "v10_synthetic_count",
+            "v10_detected_fraction",
+            "v10_filled_fraction",
+            "v13_original_valid_count",
+            "v13_continuity_redetected_count",
+            "v13_synthetic_count",
+            "v13_detected_fraction",
+            "v13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "REVIEW",
+              "metrics": {
+                "rotated_CD_nm": 59.819355890345584,
+                "rotated_LER_left_nm": 2.2949095155133685,
+                "rotated_LER_right_nm": 2.307189300968229,
+                "rotated_LWR_nm": 0.7311518974546278,
+                "unrotated_CD_nm": 59.81936430169969,
+                "unrotated_LER_left_nm": 2.300683343905162,
+                "unrotated_LER_right_nm": 2.3153586367855343,
+                "unrotated_LWR_nm": 0.7311520001340055
+              },
+              "warning": "stable SPACE count 0 below Min Number=3; aggregate uses available unstable SPACE results when possible; SPACE 1: valid_fraction=0.328 below 0.700; SPACE 2: valid_fraction=0.352 below 0.700; SPACE 3: valid_fraction=0.344 below 0.700; SPACE 4: valid_fraction=0.344 below 0.700",
+              "error_message": null
+            }
+          ],
+          "errors": [],
+          "sample_rows": 512,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "left",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "right",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "used_for_statistics": true
+            }
+          ],
+          "coordinate_rows": 2,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 1,
+            "error_count": 0,
+            "diagnostic_error_count": null
+          },
+          "psd_statuses": {
+            "V10:OK": 40,
+            "V13:SKIPPED": 40
+          },
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "all_objects_long",
+            "trench_objects",
+            "V10_image_source",
+            "V13_image_source",
+            "V10_trench_source",
+            "V13_trench_source",
+            "V10_base_tracking",
+            "V13_base_tracking",
+            "per_sample_results",
+            "V10_candidate_debug",
+            "V13_candidate_debug",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  错误记录：0",
+            "  Excel：/tmp/measure-original-comparison-gifs0lt1/baseline_line/CD_measurement_200K_V1_13_results.xlsx",
+            "  V13 CD/LWR Annotated：/tmp/measure-original-comparison-gifs0lt1/baseline_line/annotated",
+            "  V10 LER Annotated：/tmp/measure-original-comparison-gifs0lt1/baseline_line/annotated_v10_ler",
+            "  PSD：/tmp/measure-original-comparison-gifs0lt1/baseline_line/PSD/PSD_summary.xlsx"
+          ]
+        },
+        "one_group": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "image_name",
+            "result_id",
+            "edge_variant",
+            "stat_mode",
+            "space_count",
+            "aggregation_mode",
+            "mean_cd_px",
+            "ACD_x_nm",
+            "LER_left_nm",
+            "LER_right_nm",
+            "LWR_x_nm",
+            "rho_left_right",
+            "centerline_3sigma_nm",
+            "folder_name",
+            "folder_nominal_nm",
+            "pretreatment_nm",
+            "dose_mj",
+            "sample_id",
+            "metadata_source",
+            "image",
+            "image_key",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "algorithm_version",
+            "method_code",
+            "variant_category",
+            "variant_interpretation",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "source_CD_threshold_mode",
+            "source_LER_threshold_mode",
+            "source_LWR_threshold_mode",
+            "source_CD_result_id",
+            "source_LER_result_id",
+            "source_LWR_result_id",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "status",
+            "v10_measurement_valid",
+            "v13_measurement_valid",
+            "v10_triplet_complete",
+            "v13_triplet_complete",
+            "v10_selected_roles",
+            "v13_selected_roles",
+            "v10_selected_trench_count",
+            "v13_selected_trench_count",
+            "v10_stable_trench_count",
+            "v13_stable_trench_count",
+            "selected_trench_count",
+            "stable_trench_count",
+            "warning",
+            "audit_v10_raw_ACD_x_nm",
+            "audit_v10_raw_LER_left_nm",
+            "audit_v10_raw_LER_right_nm",
+            "audit_v10_raw_LWR_x_nm",
+            "audit_v10_group128_LWR_x_nm",
+            "audit_v13_raw_ACD_x_nm",
+            "audit_v13_raw_LER_left_nm",
+            "audit_v13_raw_LER_right_nm",
+            "audit_v13_raw_LWR_x_nm",
+            "audit_v13_group128_LWR_x_nm",
+            "mean_trench_width_nm",
+            "ler_left_3sigma_nm",
+            "ler_right_3sigma_nm",
+            "lwr_3sigma_nm",
+            "coordinate_definition",
+            "unrotated_CD_nm",
+            "unrotated_LER_left_nm",
+            "unrotated_LER_right_nm",
+            "unrotated_LWR_nm",
+            "rotated_CD_nm",
+            "rotated_LER_left_nm",
+            "rotated_LER_right_nm",
+            "rotated_LWR_nm",
+            "rotation_angle_CD_LWR_mean_deg",
+            "rotation_angle_LER_mean_deg",
+            "rotation_angle_CD_LWR_abs_mean_deg",
+            "rotation_angle_LER_abs_mean_deg",
+            "audit_v13_rotated_raw_CD_nm",
+            "audit_v10_rotated_raw_LER_left_nm",
+            "audit_v10_rotated_raw_LER_right_nm",
+            "audit_v13_rotated_group128_LWR_nm",
+            "edge_continuity",
+            "group_size",
+            "viterbi_enabled",
+            "erf_enabled",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "requested_max_number",
+            "required_min_number",
+            "quality_status_before_synthetic_review",
+            "v10_original_valid_count",
+            "v10_continuity_redetected_count",
+            "v10_synthetic_count",
+            "v10_detected_fraction",
+            "v10_filled_fraction",
+            "v13_original_valid_count",
+            "v13_continuity_redetected_count",
+            "v13_synthetic_count",
+            "v13_detected_fraction",
+            "v13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "OK",
+              "metrics": {
+                "rotated_CD_nm": 59.8627236728294,
+                "rotated_LER_left_nm": 2.294909515513369,
+                "rotated_LER_right_nm": 2.3071893009682287,
+                "rotated_LWR_nm": 0.0,
+                "unrotated_CD_nm": 59.86273274756772,
+                "unrotated_LER_left_nm": 2.3006833439051624,
+                "unrotated_LER_right_nm": 2.3153586367855343,
+                "unrotated_LWR_nm": 0.0
+              },
+              "warning": "SPACE 1: 86 samples accepted by continuity relaxation; SPACE 2: 83 samples accepted by continuity relaxation; SPACE 3: 84 samples accepted by continuity relaxation; SPACE 4: 84 samples accepted by continuity relaxation",
+              "error_message": null
+            }
+          ],
+          "errors": [],
+          "sample_rows": 512,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "left",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "right",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "used_for_statistics": true
+            }
+          ],
+          "coordinate_rows": 2,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 1,
+            "review_count": 0,
+            "error_count": 0,
+            "diagnostic_error_count": null
+          },
+          "psd_statuses": {
+            "V10:OK": 32,
+            "V10:SKIPPED": 8,
+            "V13:OK": 32,
+            "V13:SKIPPED": 8
+          },
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "all_objects_long",
+            "trench_objects",
+            "V10_image_source",
+            "V13_image_source",
+            "V10_trench_source",
+            "V13_trench_source",
+            "V10_base_tracking",
+            "V13_base_tracking",
+            "per_sample_results",
+            "V10_candidate_debug",
+            "V13_candidate_debug",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  错误记录：0",
+            "  Excel：/tmp/measure-original-comparison-gifs0lt1/one_group/CD_measurement_200K_V1_13_results.xlsx",
+            "  V13 CD/LWR Annotated：/tmp/measure-original-comparison-gifs0lt1/one_group/annotated",
+            "  V10 LER Annotated：/tmp/measure-original-comparison-gifs0lt1/one_group/annotated_v10_ler",
+            "  PSD：/tmp/measure-original-comparison-gifs0lt1/one_group/PSD/PSD_summary.xlsx"
+          ]
+        },
+        "line_path_erf": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "image_name",
+            "result_id",
+            "edge_variant",
+            "stat_mode",
+            "space_count",
+            "aggregation_mode",
+            "mean_cd_px",
+            "ACD_x_nm",
+            "LER_left_nm",
+            "LER_right_nm",
+            "LWR_x_nm",
+            "rho_left_right",
+            "centerline_3sigma_nm",
+            "folder_name",
+            "folder_nominal_nm",
+            "pretreatment_nm",
+            "dose_mj",
+            "sample_id",
+            "metadata_source",
+            "image",
+            "image_key",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "algorithm_version",
+            "method_code",
+            "variant_category",
+            "variant_interpretation",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "source_CD_threshold_mode",
+            "source_LER_threshold_mode",
+            "source_LWR_threshold_mode",
+            "source_CD_result_id",
+            "source_LER_result_id",
+            "source_LWR_result_id",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "status",
+            "v10_measurement_valid",
+            "v13_measurement_valid",
+            "v10_triplet_complete",
+            "v13_triplet_complete",
+            "v10_selected_roles",
+            "v13_selected_roles",
+            "v10_selected_trench_count",
+            "v13_selected_trench_count",
+            "v10_stable_trench_count",
+            "v13_stable_trench_count",
+            "selected_trench_count",
+            "stable_trench_count",
+            "warning",
+            "audit_v10_raw_ACD_x_nm",
+            "audit_v10_raw_LER_left_nm",
+            "audit_v10_raw_LER_right_nm",
+            "audit_v10_raw_LWR_x_nm",
+            "audit_v10_group8_LWR_x_nm",
+            "audit_v13_raw_ACD_x_nm",
+            "audit_v13_raw_LER_left_nm",
+            "audit_v13_raw_LER_right_nm",
+            "audit_v13_raw_LWR_x_nm",
+            "audit_v13_group8_LWR_x_nm",
+            "mean_trench_width_nm",
+            "ler_left_3sigma_nm",
+            "ler_right_3sigma_nm",
+            "lwr_3sigma_nm",
+            "coordinate_definition",
+            "unrotated_CD_nm",
+            "unrotated_LER_left_nm",
+            "unrotated_LER_right_nm",
+            "unrotated_LWR_nm",
+            "rotated_CD_nm",
+            "rotated_LER_left_nm",
+            "rotated_LER_right_nm",
+            "rotated_LWR_nm",
+            "rotation_angle_CD_LWR_mean_deg",
+            "rotation_angle_LER_mean_deg",
+            "rotation_angle_CD_LWR_abs_mean_deg",
+            "rotation_angle_LER_abs_mean_deg",
+            "audit_v13_rotated_raw_CD_nm",
+            "audit_v10_rotated_raw_LER_left_nm",
+            "audit_v10_rotated_raw_LER_right_nm",
+            "audit_v13_rotated_group8_LWR_nm",
+            "edge_continuity",
+            "group_size",
+            "viterbi_enabled",
+            "erf_enabled",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "requested_max_number",
+            "required_min_number",
+            "quality_status_before_synthetic_review",
+            "v10_original_valid_count",
+            "v10_continuity_redetected_count",
+            "v10_synthetic_count",
+            "v10_detected_fraction",
+            "v10_filled_fraction",
+            "v13_original_valid_count",
+            "v13_continuity_redetected_count",
+            "v13_synthetic_count",
+            "v13_detected_fraction",
+            "v13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "OK",
+              "metrics": {
+                "rotated_CD_nm": 60.0010349714879,
+                "rotated_LER_left_nm": 2.0920554045512683,
+                "rotated_LER_right_nm": 2.096199324702797,
+                "rotated_LWR_nm": 0.3489028280843132,
+                "unrotated_CD_nm": 60.00104399233751,
+                "unrotated_LER_left_nm": 2.097799591692908,
+                "unrotated_LER_right_nm": 2.1045446488692727,
+                "unrotated_LWR_nm": 0.3489028805418838
+              },
+              "warning": null,
+              "error_message": null
+            }
+          ],
+          "errors": [],
+          "sample_rows": 512,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "left",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "right",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "used_for_statistics": true
+            }
+          ],
+          "coordinate_rows": 2,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 1,
+            "review_count": 0,
+            "error_count": 0,
+            "diagnostic_error_count": null
+          },
+          "psd_statuses": {
+            "V10:OK": 40,
+            "V13:OK": 40
+          },
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "all_objects_long",
+            "trench_objects",
+            "V10_image_source",
+            "V13_image_source",
+            "V10_trench_source",
+            "V13_trench_source",
+            "V10_base_tracking",
+            "V13_base_tracking",
+            "per_sample_results",
+            "V10_candidate_debug",
+            "V13_candidate_debug",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  错误记录：0",
+            "  Excel：/tmp/measure-original-comparison-gifs0lt1/line_path_erf/CD_measurement_200K_V1_13_results.xlsx",
+            "  V13 CD/LWR Annotated：/tmp/measure-original-comparison-gifs0lt1/line_path_erf/annotated",
+            "  V10 LER Annotated：/tmp/measure-original-comparison-gifs0lt1/line_path_erf/annotated_v10_ler",
+            "  PSD：/tmp/measure-original-comparison-gifs0lt1/line_path_erf/PSD/PSD_summary.xlsx"
+          ]
+        },
+        "v10_exception": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "folder_name",
+            "folder_nominal_nm",
+            "pretreatment_nm",
+            "dose_mj",
+            "sample_id",
+            "metadata_source",
+            "image",
+            "image_key",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "algorithm_version",
+            "status",
+            "error_type",
+            "error_message"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "ERROR",
+              "metrics": {
+                "rotated_CD_nm": null,
+                "rotated_LER_left_nm": null,
+                "rotated_LER_right_nm": null,
+                "rotated_LWR_nm": null,
+                "unrotated_CD_nm": null,
+                "unrotated_LER_left_nm": null,
+                "unrotated_LER_right_nm": null,
+                "unrotated_LWR_nm": null
+              },
+              "warning": null,
+              "error_message": "injected V10 failure"
+            }
+          ],
+          "errors": [
+            {
+              "stage": "v113_dual_coordinate_measurement",
+              "error_type": "RuntimeError",
+              "error_message": "injected V10 failure"
+            }
+          ],
+          "sample_rows": 0,
+          "object_rows": 0,
+          "object_selection_flags": [],
+          "coordinate_rows": 0,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 0,
+            "error_count": 1,
+            "diagnostic_error_count": null
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "all_objects_long",
+            "trench_objects",
+            "V10_image_source",
+            "V13_image_source",
+            "V10_trench_source",
+            "V13_trench_source",
+            "V10_base_tracking",
+            "V13_base_tracking",
+            "per_sample_results",
+            "V10_candidate_debug",
+            "V13_candidate_debug",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  trench 对象：0",
+            "  错误记录：1",
+            "  Excel：/tmp/measure-original-comparison-gifs0lt1/v10_exception/CD_measurement_200K_V1_13_results.xlsx",
+            "  V13 CD/LWR Annotated：/tmp/measure-original-comparison-gifs0lt1/v10_exception/annotated",
+            "  V10 LER Annotated：/tmp/measure-original-comparison-gifs0lt1/v10_exception/annotated_v10_ler"
+          ]
+        },
+        "v13_exception": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "folder_name",
+            "folder_nominal_nm",
+            "pretreatment_nm",
+            "dose_mj",
+            "sample_id",
+            "metadata_source",
+            "image",
+            "image_key",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "algorithm_version",
+            "status",
+            "error_type",
+            "error_message"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "ERROR",
+              "metrics": {
+                "rotated_CD_nm": null,
+                "rotated_LER_left_nm": null,
+                "rotated_LER_right_nm": null,
+                "rotated_LWR_nm": null,
+                "unrotated_CD_nm": null,
+                "unrotated_LER_left_nm": null,
+                "unrotated_LER_right_nm": null,
+                "unrotated_LWR_nm": null
+              },
+              "warning": null,
+              "error_message": "injected V13 failure"
+            }
+          ],
+          "errors": [
+            {
+              "stage": "v113_dual_coordinate_measurement",
+              "error_type": "RuntimeError",
+              "error_message": "injected V13 failure"
+            }
+          ],
+          "sample_rows": 0,
+          "object_rows": 0,
+          "object_selection_flags": [],
+          "coordinate_rows": 0,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 0,
+            "error_count": 1,
+            "diagnostic_error_count": null
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "all_objects_long",
+            "trench_objects",
+            "V10_image_source",
+            "V13_image_source",
+            "V10_trench_source",
+            "V13_trench_source",
+            "V10_base_tracking",
+            "V13_base_tracking",
+            "per_sample_results",
+            "V10_candidate_debug",
+            "V13_candidate_debug",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  trench 对象：0",
+            "  错误记录：1",
+            "  Excel：/tmp/measure-original-comparison-gifs0lt1/v13_exception/CD_measurement_200K_V1_13_results.xlsx",
+            "  V13 CD/LWR Annotated：/tmp/measure-original-comparison-gifs0lt1/v13_exception/annotated",
+            "  V10 LER Annotated：/tmp/measure-original-comparison-gifs0lt1/v13_exception/annotated_v10_ler"
+          ]
+        },
+        "v10_no_candidates": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "folder_name",
+            "folder_nominal_nm",
+            "pretreatment_nm",
+            "dose_mj",
+            "sample_id",
+            "metadata_source",
+            "image",
+            "image_key",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "algorithm_version",
+            "status",
+            "error_type",
+            "error_message"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "ERROR",
+              "metrics": {
+                "rotated_CD_nm": null,
+                "rotated_LER_left_nm": null,
+                "rotated_LER_right_nm": null,
+                "rotated_LWR_nm": null,
+                "unrotated_CD_nm": null,
+                "unrotated_LER_left_nm": null,
+                "unrotated_LER_right_nm": null,
+                "unrotated_LWR_nm": null
+              },
+              "warning": null,
+              "error_message": "V1.13 主结果缺少 V10/V13 raw_v2 或 group4 来源；请检查候选和有效采样比例"
+            }
+          ],
+          "errors": [
+            {
+              "stage": "v113_dual_coordinate_measurement",
+              "error_type": "RuntimeError",
+              "error_message": "V1.13 主结果缺少 V10/V13 raw_v2 或 group4 来源；请检查候选和有效采样比例"
+            }
+          ],
+          "sample_rows": 0,
+          "object_rows": 0,
+          "object_selection_flags": [],
+          "coordinate_rows": 0,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 0,
+            "error_count": 1,
+            "diagnostic_error_count": null
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "all_objects_long",
+            "trench_objects",
+            "V10_image_source",
+            "V13_image_source",
+            "V10_trench_source",
+            "V13_trench_source",
+            "V10_base_tracking",
+            "V13_base_tracking",
+            "per_sample_results",
+            "V10_candidate_debug",
+            "V13_candidate_debug",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  trench 对象：0",
+            "  错误记录：1",
+            "  Excel：/tmp/measure-original-comparison-gifs0lt1/v10_no_candidates/CD_measurement_200K_V1_13_results.xlsx",
+            "  V13 CD/LWR Annotated：/tmp/measure-original-comparison-gifs0lt1/v10_no_candidates/annotated",
+            "  V10 LER Annotated：/tmp/measure-original-comparison-gifs0lt1/v10_no_candidates/annotated_v10_ler"
+          ]
+        },
+        "both_no_candidates": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "folder_name",
+            "folder_nominal_nm",
+            "pretreatment_nm",
+            "dose_mj",
+            "sample_id",
+            "metadata_source",
+            "image",
+            "image_key",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "algorithm_version",
+            "status",
+            "error_type",
+            "error_message"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "ERROR",
+              "metrics": {
+                "rotated_CD_nm": null,
+                "rotated_LER_left_nm": null,
+                "rotated_LER_right_nm": null,
+                "rotated_LWR_nm": null,
+                "unrotated_CD_nm": null,
+                "unrotated_LER_left_nm": null,
+                "unrotated_LER_right_nm": null,
+                "unrotated_LWR_nm": null
+              },
+              "warning": null,
+              "error_message": "V1.13 主结果缺少 V10/V13 raw_v2 或 group4 来源；请检查候选和有效采样比例"
+            }
+          ],
+          "errors": [
+            {
+              "stage": "v113_dual_coordinate_measurement",
+              "error_type": "RuntimeError",
+              "error_message": "V1.13 主结果缺少 V10/V13 raw_v2 或 group4 来源；请检查候选和有效采样比例"
+            }
+          ],
+          "sample_rows": 0,
+          "object_rows": 0,
+          "object_selection_flags": [],
+          "coordinate_rows": 0,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 0,
+            "error_count": 1,
+            "diagnostic_error_count": null
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "all_objects_long",
+            "trench_objects",
+            "V10_image_source",
+            "V13_image_source",
+            "V10_trench_source",
+            "V13_trench_source",
+            "V10_base_tracking",
+            "V13_base_tracking",
+            "per_sample_results",
+            "V10_candidate_debug",
+            "V13_candidate_debug",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  trench 对象：0",
+            "  错误记录：1",
+            "  Excel：/tmp/measure-original-comparison-gifs0lt1/both_no_candidates/CD_measurement_200K_V1_13_results.xlsx",
+            "  V13 CD/LWR Annotated：/tmp/measure-original-comparison-gifs0lt1/both_no_candidates/annotated",
+            "  V10 LER Annotated：/tmp/measure-original-comparison-gifs0lt1/both_no_candidates/annotated_v10_ler"
+          ]
+        },
+        "roles_disjoint": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "folder_name",
+            "folder_nominal_nm",
+            "pretreatment_nm",
+            "dose_mj",
+            "sample_id",
+            "metadata_source",
+            "image",
+            "image_key",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "algorithm_version",
+            "status",
+            "error_type",
+            "error_message"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "ERROR",
+              "metrics": {
+                "rotated_CD_nm": null,
+                "rotated_LER_left_nm": null,
+                "rotated_LER_right_nm": null,
+                "rotated_LWR_nm": null,
+                "unrotated_CD_nm": null,
+                "unrotated_LER_left_nm": null,
+                "unrotated_LER_right_nm": null,
+                "unrotated_LWR_nm": null
+              },
+              "warning": null,
+              "error_message": "V10 与 V13 没有可按 trench role 对齐的对象结果"
+            }
+          ],
+          "errors": [
+            {
+              "stage": "v113_dual_coordinate_measurement",
+              "error_type": "RuntimeError",
+              "error_message": "V10 与 V13 没有可按 trench role 对齐的对象结果"
+            }
+          ],
+          "sample_rows": 0,
+          "object_rows": 0,
+          "object_selection_flags": [],
+          "coordinate_rows": 0,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 0,
+            "error_count": 1,
+            "diagnostic_error_count": null
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "all_objects_long",
+            "trench_objects",
+            "V10_image_source",
+            "V13_image_source",
+            "V10_trench_source",
+            "V13_trench_source",
+            "V10_base_tracking",
+            "V13_base_tracking",
+            "per_sample_results",
+            "V10_candidate_debug",
+            "V13_candidate_debug",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  trench 对象：0",
+            "  错误记录：1",
+            "  Excel：/tmp/measure-original-comparison-gifs0lt1/roles_disjoint/CD_measurement_200K_V1_13_results.xlsx",
+            "  V13 CD/LWR Annotated：/tmp/measure-original-comparison-gifs0lt1/roles_disjoint/annotated",
+            "  V10 LER Annotated：/tmp/measure-original-comparison-gifs0lt1/roles_disjoint/annotated_v10_ler"
+          ]
+        },
+        "unselected_object_flag": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "image_name",
+            "result_id",
+            "edge_variant",
+            "stat_mode",
+            "space_count",
+            "aggregation_mode",
+            "mean_cd_px",
+            "ACD_x_nm",
+            "LER_left_nm",
+            "LER_right_nm",
+            "LWR_x_nm",
+            "rho_left_right",
+            "centerline_3sigma_nm",
+            "folder_name",
+            "folder_nominal_nm",
+            "pretreatment_nm",
+            "dose_mj",
+            "sample_id",
+            "metadata_source",
+            "image",
+            "image_key",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "algorithm_version",
+            "method_code",
+            "variant_category",
+            "variant_interpretation",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "source_CD_threshold_mode",
+            "source_LER_threshold_mode",
+            "source_LWR_threshold_mode",
+            "source_CD_result_id",
+            "source_LER_result_id",
+            "source_LWR_result_id",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "status",
+            "v10_measurement_valid",
+            "v13_measurement_valid",
+            "v10_triplet_complete",
+            "v13_triplet_complete",
+            "v10_selected_roles",
+            "v13_selected_roles",
+            "v10_selected_trench_count",
+            "v13_selected_trench_count",
+            "v10_stable_trench_count",
+            "v13_stable_trench_count",
+            "selected_trench_count",
+            "stable_trench_count",
+            "warning",
+            "audit_v10_raw_ACD_x_nm",
+            "audit_v10_raw_LER_left_nm",
+            "audit_v10_raw_LER_right_nm",
+            "audit_v10_raw_LWR_x_nm",
+            "audit_v10_group4_LWR_x_nm",
+            "audit_v13_raw_ACD_x_nm",
+            "audit_v13_raw_LER_left_nm",
+            "audit_v13_raw_LER_right_nm",
+            "audit_v13_raw_LWR_x_nm",
+            "audit_v13_group4_LWR_x_nm",
+            "mean_trench_width_nm",
+            "ler_left_3sigma_nm",
+            "ler_right_3sigma_nm",
+            "lwr_3sigma_nm",
+            "coordinate_definition",
+            "unrotated_CD_nm",
+            "unrotated_LER_left_nm",
+            "unrotated_LER_right_nm",
+            "unrotated_LWR_nm",
+            "rotated_CD_nm",
+            "rotated_LER_left_nm",
+            "rotated_LER_right_nm",
+            "rotated_LWR_nm",
+            "rotation_angle_CD_LWR_mean_deg",
+            "rotation_angle_LER_mean_deg",
+            "rotation_angle_CD_LWR_abs_mean_deg",
+            "rotation_angle_LER_abs_mean_deg",
+            "audit_v13_rotated_raw_CD_nm",
+            "audit_v10_rotated_raw_LER_left_nm",
+            "audit_v10_rotated_raw_LER_right_nm",
+            "audit_v13_rotated_group4_LWR_nm",
+            "edge_continuity",
+            "group_size",
+            "viterbi_enabled",
+            "erf_enabled",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "requested_max_number",
+            "required_min_number",
+            "quality_status_before_synthetic_review",
+            "v10_original_valid_count",
+            "v10_continuity_redetected_count",
+            "v10_synthetic_count",
+            "v10_detected_fraction",
+            "v10_filled_fraction",
+            "v13_original_valid_count",
+            "v13_continuity_redetected_count",
+            "v13_synthetic_count",
+            "v13_detected_fraction",
+            "v13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "REVIEW",
+              "metrics": {
+                "rotated_CD_nm": 59.82057575731893,
+                "rotated_LER_left_nm": 2.292424706649561,
+                "rotated_LER_right_nm": 2.3075794787251187,
+                "rotated_LWR_nm": 0.7285685134598706,
+                "unrotated_CD_nm": 59.8205839926646,
+                "unrotated_LER_left_nm": 2.298347413571594,
+                "unrotated_LER_right_nm": 2.3157004653975064,
+                "unrotated_LWR_nm": 0.7285686135563841
+              },
+              "warning": "stable SPACE count 0 below Min Number=3; aggregate uses available unstable SPACE results when possible; SPACE 1: valid_fraction=0.328 below 0.700; SPACE 2: valid_fraction=0.352 below 0.700; SPACE 3: valid_fraction=0.344 below 0.700; SPACE 4: valid_fraction=0.344 below 0.700",
+              "error_message": null
+            }
+          ],
+          "errors": [],
+          "sample_rows": 512,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "left",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "right",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "used_for_statistics": true
+            }
+          ],
+          "coordinate_rows": 2,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 1,
+            "error_count": 0,
+            "diagnostic_error_count": null
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "all_objects_long",
+            "trench_objects",
+            "V10_image_source",
+            "V13_image_source",
+            "V10_trench_source",
+            "V13_trench_source",
+            "V10_base_tracking",
+            "V13_base_tracking",
+            "per_sample_results",
+            "V10_candidate_debug",
+            "V13_candidate_debug",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  trench 对象：4",
+            "  错误记录：0",
+            "  Excel：/tmp/measure-original-comparison-gifs0lt1/unselected_object_flag/CD_measurement_200K_V1_13_results.xlsx",
+            "  V13 CD/LWR Annotated：/tmp/measure-original-comparison-gifs0lt1/unselected_object_flag/annotated",
+            "  V10 LER Annotated：/tmp/measure-original-comparison-gifs0lt1/unselected_object_flag/annotated_v10_ler"
+          ],
+          "expected_selected_indices": {
+            "V10": [
+              2,
+              3,
+              4
+            ],
+            "V13": [
+              2,
+              3,
+              4
+            ]
+          },
+          "excluded_roles": {
+            "V10": "center",
+            "V13": "center"
+          }
+        },
+        "unused_v10_group_row_missing": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "folder_name",
+            "folder_nominal_nm",
+            "pretreatment_nm",
+            "dose_mj",
+            "sample_id",
+            "metadata_source",
+            "image",
+            "image_key",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "algorithm_version",
+            "status",
+            "error_type",
+            "error_message"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "ERROR",
+              "metrics": {
+                "rotated_CD_nm": null,
+                "rotated_LER_left_nm": null,
+                "rotated_LER_right_nm": null,
+                "rotated_LWR_nm": null,
+                "unrotated_CD_nm": null,
+                "unrotated_LER_left_nm": null,
+                "unrotated_LER_right_nm": null,
+                "unrotated_LWR_nm": null
+              },
+              "warning": null,
+              "error_message": "V1.13 主结果缺少 V10/V13 raw_v2 或 group4 来源；请检查候选和有效采样比例"
+            }
+          ],
+          "errors": [
+            {
+              "stage": "v113_dual_coordinate_measurement",
+              "error_type": "RuntimeError",
+              "error_message": "V1.13 主结果缺少 V10/V13 raw_v2 或 group4 来源；请检查候选和有效采样比例"
+            }
+          ],
+          "sample_rows": 0,
+          "object_rows": 0,
+          "object_selection_flags": [],
+          "coordinate_rows": 0,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 0,
+            "error_count": 1,
+            "diagnostic_error_count": null
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "all_objects_long",
+            "trench_objects",
+            "V10_image_source",
+            "V13_image_source",
+            "V10_trench_source",
+            "V13_trench_source",
+            "V10_base_tracking",
+            "V13_base_tracking",
+            "per_sample_results",
+            "V10_candidate_debug",
+            "V13_candidate_debug",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  trench 对象：0",
+            "  错误记录：1",
+            "  Excel：/tmp/measure-original-comparison-gifs0lt1/unused_v10_group_row_missing/CD_measurement_200K_V1_13_results.xlsx",
+            "  V13 CD/LWR Annotated：/tmp/measure-original-comparison-gifs0lt1/unused_v10_group_row_missing/annotated",
+            "  V10 LER Annotated：/tmp/measure-original-comparison-gifs0lt1/unused_v10_group_row_missing/annotated_v10_ler"
+          ]
+        },
+        "annotation_failure": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 2,
+          "columns": [
+            "image_name",
+            "result_id",
+            "edge_variant",
+            "stat_mode",
+            "space_count",
+            "aggregation_mode",
+            "mean_cd_px",
+            "ACD_x_nm",
+            "LER_left_nm",
+            "LER_right_nm",
+            "LWR_x_nm",
+            "rho_left_right",
+            "centerline_3sigma_nm",
+            "folder_name",
+            "folder_nominal_nm",
+            "pretreatment_nm",
+            "dose_mj",
+            "sample_id",
+            "metadata_source",
+            "image",
+            "image_key",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "algorithm_version",
+            "method_code",
+            "variant_category",
+            "variant_interpretation",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "source_CD_threshold_mode",
+            "source_LER_threshold_mode",
+            "source_LWR_threshold_mode",
+            "source_CD_result_id",
+            "source_LER_result_id",
+            "source_LWR_result_id",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "status",
+            "v10_measurement_valid",
+            "v13_measurement_valid",
+            "v10_triplet_complete",
+            "v13_triplet_complete",
+            "v10_selected_roles",
+            "v13_selected_roles",
+            "v10_selected_trench_count",
+            "v13_selected_trench_count",
+            "v10_stable_trench_count",
+            "v13_stable_trench_count",
+            "selected_trench_count",
+            "stable_trench_count",
+            "warning",
+            "audit_v10_raw_ACD_x_nm",
+            "audit_v10_raw_LER_left_nm",
+            "audit_v10_raw_LER_right_nm",
+            "audit_v10_raw_LWR_x_nm",
+            "audit_v10_group4_LWR_x_nm",
+            "audit_v13_raw_ACD_x_nm",
+            "audit_v13_raw_LER_left_nm",
+            "audit_v13_raw_LER_right_nm",
+            "audit_v13_raw_LWR_x_nm",
+            "audit_v13_group4_LWR_x_nm",
+            "mean_trench_width_nm",
+            "ler_left_3sigma_nm",
+            "ler_right_3sigma_nm",
+            "lwr_3sigma_nm",
+            "coordinate_definition",
+            "unrotated_CD_nm",
+            "unrotated_LER_left_nm",
+            "unrotated_LER_right_nm",
+            "unrotated_LWR_nm",
+            "rotated_CD_nm",
+            "rotated_LER_left_nm",
+            "rotated_LER_right_nm",
+            "rotated_LWR_nm",
+            "rotation_angle_CD_LWR_mean_deg",
+            "rotation_angle_LER_mean_deg",
+            "rotation_angle_CD_LWR_abs_mean_deg",
+            "rotation_angle_LER_abs_mean_deg",
+            "audit_v13_rotated_raw_CD_nm",
+            "audit_v10_rotated_raw_LER_left_nm",
+            "audit_v10_rotated_raw_LER_right_nm",
+            "audit_v13_rotated_group4_LWR_nm",
+            "edge_continuity",
+            "group_size",
+            "viterbi_enabled",
+            "erf_enabled",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "requested_max_number",
+            "required_min_number",
+            "quality_status_before_synthetic_review",
+            "v10_original_valid_count",
+            "v10_continuity_redetected_count",
+            "v10_synthetic_count",
+            "v10_detected_fraction",
+            "v10_filled_fraction",
+            "v13_original_valid_count",
+            "v13_continuity_redetected_count",
+            "v13_synthetic_count",
+            "v13_detected_fraction",
+            "v13_filled_fraction",
+            "error_type",
+            "error_message"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "REVIEW",
+              "metrics": {
+                "rotated_CD_nm": 59.819355890345584,
+                "rotated_LER_left_nm": 2.294909515513369,
+                "rotated_LER_right_nm": 2.3071893009682287,
+                "rotated_LWR_nm": 0.7311518974546287,
+                "unrotated_CD_nm": 59.8193643016997,
+                "unrotated_LER_left_nm": 2.3006833439051624,
+                "unrotated_LER_right_nm": 2.3153586367855343,
+                "unrotated_LWR_nm": 0.7311520001340084
+              },
+              "warning": "stable SPACE count 0 below Min Number=3; aggregate uses available unstable SPACE results when possible; SPACE 1: valid_fraction=0.328 below 0.700; SPACE 2: valid_fraction=0.352 below 0.700; SPACE 3: valid_fraction=0.344 below 0.700; SPACE 4: valid_fraction=0.344 below 0.700",
+              "error_message": null
+            },
+            {
+              "image_key": "five/test.png",
+              "status": "ERROR",
+              "metrics": {
+                "rotated_CD_nm": null,
+                "rotated_LER_left_nm": null,
+                "rotated_LER_right_nm": null,
+                "rotated_LWR_nm": null,
+                "unrotated_CD_nm": null,
+                "unrotated_LER_left_nm": null,
+                "unrotated_LER_right_nm": null,
+                "unrotated_LWR_nm": null
+              },
+              "warning": null,
+              "error_message": "injected annotation failure"
+            }
+          ],
+          "errors": [
+            {
+              "stage": "v113_dual_coordinate_measurement",
+              "error_type": "OSError",
+              "error_message": "injected annotation failure"
+            }
+          ],
+          "sample_rows": 512,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "left",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "right",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "used_for_statistics": true
+            }
+          ],
+          "coordinate_rows": 2,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 1,
+            "error_count": 1,
+            "diagnostic_error_count": null
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "all_objects_long",
+            "trench_objects",
+            "V10_image_source",
+            "V13_image_source",
+            "V10_trench_source",
+            "V13_trench_source",
+            "V10_base_tracking",
+            "V13_base_tracking",
+            "per_sample_results",
+            "V10_candidate_debug",
+            "V13_candidate_debug",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  trench 对象：4",
+            "  错误记录：1",
+            "  Excel：/tmp/measure-original-comparison-gifs0lt1/annotation_failure/CD_measurement_200K_V1_13_results.xlsx",
+            "  V13 CD/LWR Annotated：/tmp/measure-original-comparison-gifs0lt1/annotation_failure/annotated",
+            "  V10 LER Annotated：/tmp/measure-original-comparison-gifs0lt1/annotation_failure/annotated_v10_ler"
+          ]
+        },
+        "psd_failure": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "folder_name",
+            "folder_nominal_nm",
+            "pretreatment_nm",
+            "dose_mj",
+            "sample_id",
+            "metadata_source",
+            "image",
+            "image_key",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "algorithm_version",
+            "status",
+            "error_type",
+            "error_message"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "ERROR",
+              "metrics": {
+                "rotated_CD_nm": null,
+                "rotated_LER_left_nm": null,
+                "rotated_LER_right_nm": null,
+                "rotated_LWR_nm": null,
+                "unrotated_CD_nm": null,
+                "unrotated_LER_left_nm": null,
+                "unrotated_LER_right_nm": null,
+                "unrotated_LWR_nm": null
+              },
+              "warning": null,
+              "error_message": "injected V13 PSD failure"
+            }
+          ],
+          "errors": [
+            {
+              "stage": "v113_dual_coordinate_measurement",
+              "error_type": "RuntimeError",
+              "error_message": "injected V13 PSD failure"
+            }
+          ],
+          "sample_rows": 0,
+          "object_rows": 0,
+          "object_selection_flags": [],
+          "coordinate_rows": 0,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 0,
+            "error_count": 1,
+            "diagnostic_error_count": null
+          },
+          "psd_statuses": {
+            "V10:OK": 40
+          },
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "all_objects_long",
+            "trench_objects",
+            "V10_image_source",
+            "V13_image_source",
+            "V10_trench_source",
+            "V13_trench_source",
+            "V10_base_tracking",
+            "V13_base_tracking",
+            "per_sample_results",
+            "V10_candidate_debug",
+            "V13_candidate_debug",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  错误记录：1",
+            "  Excel：/tmp/measure-original-comparison-gifs0lt1/psd_failure/CD_measurement_200K_V1_13_results.xlsx",
+            "  V13 CD/LWR Annotated：/tmp/measure-original-comparison-gifs0lt1/psd_failure/annotated",
+            "  V10 LER Annotated：/tmp/measure-original-comparison-gifs0lt1/psd_failure/annotated_v10_ler",
+            "  PSD：/tmp/measure-original-comparison-gifs0lt1/psd_failure/PSD/PSD_summary.xlsx"
+          ]
+        },
+        "machine_unmatched": {
+          "exit_code": 1,
+          "image_summary_exists": false,
+          "image_summary_rows": 0,
+          "columns": [],
+          "images": [],
+          "errors": [],
+          "sample_rows": 0,
+          "object_rows": 0,
+          "object_selection_flags": [],
+          "coordinate_rows": 0,
+          "psd_statuses": {},
+          "main_workbook_exists": false,
+          "log_tail": [
+            "    machine_detail, machine_summary, machine_unmatched = build_machine_comparison(",
+            "                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^",
+            "  File \"/home/ubuntu/projects/measure/sem_cd_measure_200k_batch_V1_13_complete_package/sem_cd_measure_200k_batch_V1_13.py\", line 1188, in build_machine_comparison",
+            "    raise RuntimeError(\"Data.xlsx 与 PNG 文件名没有可匹配记录\")",
+            "RuntimeError: Data.xlsx 与 PNG 文件名没有可匹配记录"
+          ]
+        },
+        "output_schema_collision": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "image_name",
+            "result_id",
+            "edge_variant",
+            "stat_mode",
+            "space_count",
+            "aggregation_mode",
+            "mean_cd_px",
+            "ACD_x_nm",
+            "LER_left_nm",
+            "LER_right_nm",
+            "LWR_x_nm",
+            "rho_left_right",
+            "centerline_3sigma_nm",
+            "folder_name",
+            "folder_nominal_nm",
+            "pretreatment_nm",
+            "dose_mj",
+            "sample_id",
+            "metadata_source",
+            "image",
+            "image_key",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "algorithm_version",
+            "method_code",
+            "variant_category",
+            "variant_interpretation",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "source_CD_threshold_mode",
+            "source_LER_threshold_mode",
+            "source_LWR_threshold_mode",
+            "source_CD_result_id",
+            "source_LER_result_id",
+            "source_LWR_result_id",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "status",
+            "v10_measurement_valid",
+            "v13_measurement_valid",
+            "v10_triplet_complete",
+            "v13_triplet_complete",
+            "v10_selected_roles",
+            "v13_selected_roles",
+            "v10_selected_trench_count",
+            "v13_selected_trench_count",
+            "v10_stable_trench_count",
+            "v13_stable_trench_count",
+            "selected_trench_count",
+            "stable_trench_count",
+            "warning",
+            "audit_v10_raw_ACD_x_nm",
+            "audit_v10_raw_LER_left_nm",
+            "audit_v10_raw_LER_right_nm",
+            "audit_v10_raw_LWR_x_nm",
+            "audit_v10_group4_LWR_x_nm",
+            "audit_v13_raw_ACD_x_nm",
+            "audit_v13_raw_LER_left_nm",
+            "audit_v13_raw_LER_right_nm",
+            "audit_v13_raw_LWR_x_nm",
+            "audit_v13_group4_LWR_x_nm",
+            "mean_trench_width_nm",
+            "ler_left_3sigma_nm",
+            "ler_right_3sigma_nm",
+            "lwr_3sigma_nm",
+            "coordinate_definition",
+            "unrotated_CD_nm",
+            "unrotated_LER_left_nm",
+            "unrotated_LER_right_nm",
+            "unrotated_LWR_nm",
+            "rotated_CD_nm",
+            "rotated_LER_left_nm",
+            "rotated_LER_right_nm",
+            "rotated_LWR_nm",
+            "rotation_angle_CD_LWR_mean_deg",
+            "rotation_angle_LER_mean_deg",
+            "rotation_angle_CD_LWR_abs_mean_deg",
+            "rotation_angle_LER_abs_mean_deg",
+            "audit_v13_rotated_raw_CD_nm",
+            "audit_v10_rotated_raw_LER_left_nm",
+            "audit_v10_rotated_raw_LER_right_nm",
+            "audit_v13_rotated_group4_LWR_nm",
+            "edge_continuity",
+            "group_size",
+            "viterbi_enabled",
+            "erf_enabled",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "requested_max_number",
+            "required_min_number",
+            "quality_status_before_synthetic_review",
+            "v10_original_valid_count",
+            "v10_continuity_redetected_count",
+            "v10_synthetic_count",
+            "v10_detected_fraction",
+            "v10_filled_fraction",
+            "v13_original_valid_count",
+            "v13_continuity_redetected_count",
+            "v13_synthetic_count",
+            "v13_detected_fraction",
+            "v13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "REVIEW",
+              "metrics": {
+                "rotated_CD_nm": 59.819355890345584,
+                "rotated_LER_left_nm": 2.294909515513369,
+                "rotated_LER_right_nm": 2.3071893009682287,
+                "rotated_LWR_nm": 0.7311518974546287,
+                "unrotated_CD_nm": 59.8193643016997,
+                "unrotated_LER_left_nm": 2.3006833439051624,
+                "unrotated_LER_right_nm": 2.3153586367855343,
+                "unrotated_LWR_nm": 0.7311520001340084
+              },
+              "warning": "stable SPACE count 0 below Min Number=3; aggregate uses available unstable SPACE results when possible; SPACE 1: valid_fraction=0.328 below 0.700; SPACE 2: valid_fraction=0.352 below 0.700; SPACE 3: valid_fraction=0.344 below 0.700; SPACE 4: valid_fraction=0.344 below 0.700",
+              "error_message": null
+            }
+          ],
+          "errors": [],
+          "sample_rows": 512,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "left",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "right",
+              "used_for_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "used_for_statistics": true
+            }
+          ],
+          "coordinate_rows": 2,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 1,
+            "error_count": 0,
+            "diagnostic_error_count": null
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "all_objects_long",
+            "trench_objects",
+            "V10_image_source",
+            "V13_image_source",
+            "V10_trench_source",
+            "V13_trench_source",
+            "V10_base_tracking",
+            "V13_base_tracking",
+            "per_sample_results",
+            "V10_candidate_debug",
+            "V13_candidate_debug",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  trench 对象：4",
+            "  错误记录：0",
+            "  Excel：/tmp/measure-original-comparison-gifs0lt1/output_schema_collision/CD_measurement_200K_V1_13_results.xlsx",
+            "  V13 CD/LWR Annotated：/tmp/measure-original-comparison-gifs0lt1/output_schema_collision/annotated",
+            "  V10 LER Annotated：/tmp/measure-original-comparison-gifs0lt1/output_schema_collision/annotated_v10_ler"
+          ],
+          "previous_summary_preserved": false
+        }
+      },
+      "self_checks": {
+        "self_check_V1_13.py": "V1.13 SELF-CHECK PASSED: 77 CLI parameters, 16 invalid combinations, unlimited candidate count, exact Viterbi objective, ERF subpixels, even windows, Flyer propagation, arbitrary grouping, hybrid routing, rotation, PSD, continuity"
+      },
+      "baseline_edges": {
+        "V10": {
+          "slots": 512,
+          "accepted": 512,
+          "failures": {}
+        },
+        "V13": {
+          "slots": 512,
+          "accepted": 175,
+          "failures": {
+            "left_threshold_crossing_not_found": 236,
+            "right_threshold_crossing_not_found": 101
+          }
+        }
+      },
+      "via": {
+        "exit_code": 0,
+        "rows": [
+          {
+            "folder_name": ".",
+            "folder_nominal_nm": null,
+            "pretreatment_nm": null,
+            "dose_mj": null,
+            "sample_id": "via",
+            "metadata_source": "cli_reference",
+            "auto_pattern_score": null,
+            "auto_gradient_x_to_y_ratio": null,
+            "image": "via.png",
+            "path": "/home/ubuntu/projects/measure/sem_cd_measure_200k_batch_V1_13_complete_package/validation/input_via/via.png",
+            "pattern": "via",
+            "status": "OK",
+            "image_height_px": 512,
+            "image_width_px": 512,
+            "design_via_nm": 60.0,
+            "design_trench_nm": null,
+            "design_space_nm": null,
+            "via_count": 9,
+            "via_candidate_count": 15,
+            "via_mean_nm": 61.99967186690012,
+            "via_median_nm": 61.99832822860533,
+            "via_between_object_std_nm": 0.0015959371341993,
+            "via_min_nm": 61.99832350326603,
+            "via_max_nm": 62.00135529713162,
+            "via_bias_nm": 1.9996718669001157,
+            "via_bias_pct": 3.3327864448335256,
+            "via_mean_circularity": 0.9979168932325524,
+            "via_mean_axis_roundness": 0.9718103790393084,
+            "via_mean_solidity": 0.9999971551821442,
+            "via_relaxed_count": 0,
+            "via_zero_result_fallback_used": false,
+            "estimated_pitch_px": 149.99999838960173,
+            "trench_count": 0,
+            "space_count": 0,
+            "trench_mean_nm": null,
+            "trench_bias_nm": null,
+            "trench_bias_pct": null,
+            "space_mean_nm": null,
+            "space_bias_nm": null,
+            "space_bias_pct": null,
+            "response_smoothing_sigma_px": 1.5,
+            "robust_gray_range": 255.0,
+            "raw_contrast_floor": 2.04,
+            "via_pre_recovery_qc_stage_used": true,
+            "via_strict_initial_count": 9,
+            "via_pre_recovery_after_offgrid_count": 9,
+            "via_pre_recovery_after_spacing_count": 9,
+            "via_pre_recovery_after_axis_neighbor_count": 9,
+            "via_pre_recovery_removed_total": 0,
+            "via_grid_relaxation_seed_count": 9,
+            "via_zero_result_fallback_eligible": false,
+            "via_qc_order": "STRICT->OFFGRID_SMOOTH_QC->TOO_CLOSE_QC_ONCE->AXIS_NEIGHBOR_QC_ONCE->GRID_RELAXED_CANDIDATE->GRID_PREDICTED_RECOVERY",
+            "via_square_grid_qc_used": true,
+            "via_offgrid_smooth_rejected_count": 0,
+            "via_square_grid_pitch_px": 149.99999838960173,
+            "via_square_grid_phase_u_px": 49.991789757914496,
+            "via_square_grid_phase_v_px": 49.84092602528202,
+            "via_square_grid_core_count": 9,
+            "via_square_grid_inlier_count": 9,
+            "via_square_grid_inlier_fraction": 1.0,
+            "via_adjacent_spacing_qc_used": true,
+            "via_adjacent_spacing_neighbor_definition": "all_actual_spatial_neighbors",
+            "via_adjacent_spacing_rejected_count": 0,
+            "via_adjacent_spacing_too_close_pair_count": 0,
+            "via_adjacent_spacing_tested_pair_count": 20,
+            "via_adjacent_spacing_average_x_px": 150.61223770194127,
+            "via_adjacent_spacing_average_y_px": 149.94429760142754,
+            "via_adjacent_spacing_reference_pair_count_x": 6,
+            "via_adjacent_spacing_reference_pair_count_y": 6,
+            "via_adjacent_spacing_reject_ratio": 0.6,
+            "via_adjacent_spacing_actual_neighbor_max_pitch_fraction": 1.6,
+            "via_adjacent_spacing_too_close_pair_preorders": null,
+            "via_adjacent_spacing_rejected_preorders": null,
+            "via_adjacent_spacing_average_x_nm": 150.61223770194127,
+            "via_adjacent_spacing_average_y_nm": 149.94429760142754,
+            "via_axis_neighbor_qc_used": true,
+            "via_axis_neighbor_rejected_count": 0,
+            "via_axis_neighbor_rejected_preorders": null,
+            "via_axis_neighbor_average_x_px": 150.61223770194127,
+            "via_axis_neighbor_average_y_px": 149.94429760142754,
+            "via_axis_neighbor_spacing_tolerance_ratio": 0.25,
+            "via_axis_neighbor_orthogonal_gate_ratio": 0.35,
+            "via_axis_neighbor_definition": "at_least_one_horizontal_AND_at_least_one_vertical",
+            "via_axis_neighbor_average_x_nm": 150.61223770194127,
+            "via_axis_neighbor_average_y_nm": 149.94429760142754,
+            "folder_filename_pretreatment_mismatch": false
+          }
+        ],
+        "workbooks": [
+          "CD_measurement_200K_results.xlsx"
+        ],
+        "log_tail": [
+          "处理完成：",
+          "  图像：1",
+          "  Via 圆孔：9",
+          "  Trench：0",
+          "  Space：0",
+          "  错误/警告记录：0",
+          "  Excel：/tmp/measure-original-comparison-gifs0lt1/via/CD_measurement_200K_results.xlsx",
+          "  Annotated：/tmp/measure-original-comparison-gifs0lt1/via/annotated"
+        ]
+      },
+      "source_files_unchanged": true
+    },
+    "modified": {
+      "package": "modified",
+      "environment": {
+        "python": "3.12.3",
+        "packages": {
+          "numpy": "2.5.3",
+          "pandas": "3.0.6",
+          "scipy": "1.18.1",
+          "matplotlib": "3.11.2",
+          "opencv-python": "5.0.0.93",
+          "openpyxl": "3.1.5"
+        }
+      },
+      "source_sha256": {
+        "cdsem_v13_modified_psd.py": "f3222e295d74ebd264e12e538f5bb7849c4e94baeb29bb34b58ba323c9d23861",
+        "cdsem_v113_selection.py": "94a9b72a898f08bb4016d94b932f396858521198ae4ac31226bd0ab56ae649d7",
+        "cdsem_pattern_brightness_v114.py": "ae2c2758974ff774a5e6f973c6408c3837835027232b1f3dd41518d3d490bb6c",
+        "cdsem_basin_first_v115.py": "0c5dc1ea63594200128e33a71b774c678914b35d155586e7cbf3e789a5b02185",
+        "cdsem_v113_path_erf.py": "ae813be327eb7e9a2fff24ecbef5f4ee261638757f26b6feb2eacdcdfad3ad40",
+        "cdsem_batch_v8_three_candidates.py": "743a44990ce86cc77cd892c4380abd36a472b3ea9de1de997dab88f932d2f4c6",
+        "sem_cd_measure_200k_batch_V1_7.py": "49382b44d77f4988556c9292126d462f253cb065604a455f1e5a5c55525e9066",
+        "cdsem_batch_v5_v115_locator_v2_measure.py": "b46d4ec37ec46fc338d23888782cb7008ab83074ca6e24341ce56e82dc9310c7",
+        "cdsem_output_labels.py": "5f9f0c677d1a9c34d277e4ba03acb6eee175a01c9bcf71d977b703f50f21e0e6",
+        "cdsem_batch_v10_hybrid_statistics.py": "c4000607aaa0c3438c31050bdf89e17a59122b486b3d25ab15e14d057cbda220",
+        "select_cdsem_candidate_methods.py": "4e88b4c2186f8eee3239c39fe25a9120d22f3b99fc6b499ca79e4c503fcb325e",
+        "cdsem_v13_edge_engine.py": "fade515779f37cb15072b66da08c9fabed01aa2f39fc0998d4048d285891e973",
+        "self_check_partial_results.py": "243e6c8b75be0003d8bcd795e86e526e52f38647cd996f6d755cbde5f0e95ddb",
+        "cdsem_v113_parameters.py": "234f9948d82971c5479f963988304cfac1b032a85d25e410508d885eb8a3bab1",
+        "cdsem_batch_v9_m2_statistics.py": "e38565e9e9a40a91ea8beabe5d34822ebbf66bcdb9795f64324bc60d8715fbf5",
+        "sem_cd_measure_200k_batch_V13_modified.py": "de89ac6cea435c5067989dc3027454f1ddc31592d3dee9085acbed921ea8ca37",
+        "self_check_V13_modified.py": "8a5afc38764742fc77d69aa8ba7e190ada8829e1e71538a7f29af047f09ef27e",
+        "cdsem_batch_v7_full_pipeline.py": "2ec768448895cc06827112884f3ce7c50c36495651c72185f42a6e2479489bd5",
+        "cdsem_v112_continuity.py": "a9de6094e76dc03b753d5fb43ce481903a8670ba2afa93e2c8fb959b50f1919e"
+      },
+      "cli": {
+        "root": {
+          "default": "C:\\Users\\z00027644\\Downloads\\CD measure\\CD measure",
+          "choices": null
+        },
+        "output": {
+          "default": null,
+          "choices": null
+        },
+        "pixel_size": {
+          "default": 1.3181,
+          "choices": null
+        },
+        "pattern": {
+          "default": null,
+          "choices": [
+            "trench",
+            "line"
+          ]
+        },
+        "trench_reference_nm": {
+          "default": null,
+          "choices": null
+        },
+        "space_reference_nm": {
+          "default": null,
+          "choices": null
+        },
+        "save_debug_masks": {
+          "default": false,
+          "choices": null
+        },
+        "stop_on_error": {
+          "default": false,
+          "choices": null
+        },
+        "center_x": {
+          "default": null,
+          "choices": null
+        },
+        "center_y": {
+          "default": null,
+          "choices": null
+        },
+        "search_in": {
+          "default": 33,
+          "choices": null
+        },
+        "search_out": {
+          "default": 30,
+          "choices": null
+        },
+        "extend_length": {
+          "default": null,
+          "choices": null
+        },
+        "sample_number": {
+          "default": 128,
+          "choices": null
+        },
+        "average_range": {
+          "default": 32,
+          "choices": null
+        },
+        "smoothing_pixel": {
+          "default": 3,
+          "choices": null
+        },
+        "peak_order": {
+          "default": 1,
+          "choices": null
+        },
+        "threshold_left": {
+          "default": 50.0,
+          "choices": null
+        },
+        "threshold_right": {
+          "default": 50.0,
+          "choices": null
+        },
+        "max_number": {
+          "default": 3,
+          "choices": null
+        },
+        "min_number": {
+          "default": null,
+          "choices": null
+        },
+        "candidate_dark_tolerance": {
+          "default": null,
+          "choices": null
+        },
+        "candidate_min_contrast": {
+          "default": null,
+          "choices": null
+        },
+        "topology_min_contrast": {
+          "default": 2.5,
+          "choices": null
+        },
+        "tracking_radius": {
+          "default": 13.0,
+          "choices": null
+        },
+        "tracking_retry_radius": {
+          "default": 20.0,
+          "choices": null
+        },
+        "tracking_max_jump": {
+          "default": 8.0,
+          "choices": null
+        },
+        "postfilter_window": {
+          "default": 9,
+          "choices": null
+        },
+        "postfilter_mad_multiplier": {
+          "default": 6.0,
+          "choices": null
+        },
+        "postfilter_edge_tolerance": {
+          "default": 2.5,
+          "choices": null
+        },
+        "minimum_valid_fraction": {
+          "default": 0.7,
+          "choices": null
+        },
+        "allow_incomplete_triplet": {
+          "default": false,
+          "choices": null
+        },
+        "no_recovery": {
+          "default": false,
+          "choices": null
+        },
+        "flyer_mode": {
+          "default": "reserve",
+          "choices": [
+            "reserve",
+            "remove",
+            "replace"
+          ]
+        },
+        "flyer_left_offset": {
+          "default": 20.0,
+          "choices": null
+        },
+        "flyer_right_offset": {
+          "default": 20.0,
+          "choices": null
+        },
+        "group_size": {
+          "default": 4,
+          "choices": null
+        },
+        "no_annotated_images": {
+          "default": false,
+          "choices": null
+        },
+        "compact_sample_output": {
+          "default": false,
+          "choices": null
+        },
+        "machine_excel": {
+          "default": null,
+          "choices": null
+        },
+        "no_auto_machine_comparison": {
+          "default": false,
+          "choices": null
+        },
+        "machine_sheet": {
+          "default": "v2",
+          "choices": null
+        },
+        "machine_start_row": {
+          "default": 2,
+          "choices": null
+        },
+        "machine_end_row": {
+          "default": 84,
+          "choices": null
+        },
+        "machine_image_column": {
+          "default": "B",
+          "choices": null
+        },
+        "machine_cd_column": {
+          "default": "D",
+          "choices": null
+        },
+        "machine_ler_left_column": {
+          "default": "E",
+          "choices": null
+        },
+        "machine_lwr_column": {
+          "default": "F",
+          "choices": null
+        },
+        "skip_statistics_plots": {
+          "default": false,
+          "choices": null
+        },
+        "plot_dpi": {
+          "default": 180,
+          "choices": null
+        },
+        "edge_continuity": {
+          "default": 0,
+          "choices": null
+        },
+        "skip_psd": {
+          "default": false,
+          "choices": null
+        },
+        "psd_axis": {
+          "default": "both",
+          "choices": [
+            "normal",
+            "unrotated",
+            "both"
+          ]
+        },
+        "psd_method": {
+          "default": "welch",
+          "choices": [
+            "welch",
+            "periodogram"
+          ]
+        },
+        "psd_window": {
+          "default": "hann",
+          "choices": [
+            "hann",
+            "boxcar",
+            "blackmanharris"
+          ]
+        },
+        "psd_detrend": {
+          "default": "linear",
+          "choices": [
+            "linear",
+            "constant",
+            "none"
+          ]
+        },
+        "psd_nperseg": {
+          "default": 64,
+          "choices": null
+        },
+        "psd_overlap": {
+          "default": 0.5,
+          "choices": null
+        },
+        "psd_min_segment": {
+          "default": 16,
+          "choices": null
+        },
+        "psd_gap_mode": {
+          "default": "segments",
+          "choices": [
+            "segments",
+            "interpolate"
+          ]
+        },
+        "psd_max_gap": {
+          "default": 2,
+          "choices": null
+        },
+        "psd_include_synthetic": {
+          "default": false,
+          "choices": null
+        },
+        "psd_split_wavelength": {
+          "default": 100.0,
+          "choices": null
+        },
+        "line_reference_nm": {
+          "default": null,
+          "choices": null
+        },
+        "meas_area_width": {
+          "default": null,
+          "choices": null
+        },
+        "meas_area_height": {
+          "default": null,
+          "choices": null
+        },
+        "viterbi": {
+          "default": 0,
+          "choices": [
+            0,
+            1
+          ]
+        },
+        "viterbi_weight": {
+          "default": 5.0,
+          "choices": null
+        },
+        "viterbi_max_jump": {
+          "default": 3.0,
+          "choices": null
+        },
+        "viterbi_gap_cost": {
+          "default": 6.0,
+          "choices": null
+        },
+        "viterbi_candidates": {
+          "default": 5,
+          "choices": null
+        },
+        "erf_fit": {
+          "default": 0,
+          "choices": [
+            0,
+            1
+          ]
+        },
+        "erf_window": {
+          "default": 8,
+          "choices": null
+        },
+        "erf_max_shift": {
+          "default": 2.0,
+          "choices": null
+        },
+        "erf_max_relative_rmse": {
+          "default": 0.2,
+          "choices": null
+        },
+        "check_parameters": {
+          "default": false,
+          "choices": null
+        }
+      },
+      "cases": {
+        "baseline_trench": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "旋转_mixed_CD_nm",
+            "旋转_mixed_LER_left_nm",
+            "旋转_mixed_LER_right_nm",
+            "旋转_mixed_LWR_nm",
+            "旋转_V13_CD_nm",
+            "旋转_V13_LER_left_nm",
+            "旋转_V13_LER_right_nm",
+            "旋转_V13_LWR_nm",
+            "旋转_V10_CD_nm",
+            "旋转_V10_LER_left_nm",
+            "旋转_V10_LER_right_nm",
+            "旋转_V10_LWR_nm",
+            "未旋转_mixed_CD_nm",
+            "未旋转_mixed_LER_left_nm",
+            "未旋转_mixed_LER_right_nm",
+            "未旋转_mixed_LWR_nm",
+            "未旋转_V13_CD_nm",
+            "未旋转_V13_LER_left_nm",
+            "未旋转_V13_LER_right_nm",
+            "未旋转_V13_LWR_nm",
+            "未旋转_V10_CD_nm",
+            "未旋转_V10_LER_left_nm",
+            "未旋转_V10_LER_right_nm",
+            "未旋转_V10_LWR_nm",
+            "image_key",
+            "image",
+            "folder_name",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "status",
+            "warning",
+            "algorithm_version",
+            "坐标状态",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "group_size",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "V13_rotation_angle_mean_deg",
+            "V13_rotation_angle_abs_mean_deg",
+            "V13_selected_count",
+            "V10_rotation_angle_mean_deg",
+            "V10_rotation_angle_abs_mean_deg",
+            "V10_selected_count",
+            "v10_measurement_valid",
+            "v10_triplet_complete",
+            "v10_selected_roles",
+            "v10_selected_trench_count",
+            "v10_stable_trench_count",
+            "V10_selection_fallback",
+            "V10_missing_metrics",
+            "V10_issues",
+            "v13_measurement_valid",
+            "v13_triplet_complete",
+            "v13_selected_roles",
+            "v13_selected_trench_count",
+            "v13_stable_trench_count",
+            "V13_selection_fallback",
+            "V13_missing_metrics",
+            "V13_issues",
+            "旋转_mixed_complete",
+            "all_result_groups_complete",
+            "patch_version",
+            "edge_continuity",
+            "viterbi_enabled",
+            "erf_enabled",
+            "requested_max_number",
+            "required_min_number",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "quality_status_before_synthetic_review",
+            "V10_synthetic_count",
+            "V10_original_valid_count",
+            "V10_continuity_redetected_count",
+            "V10_detected_fraction",
+            "V10_filled_fraction",
+            "V13_synthetic_count",
+            "V13_original_valid_count",
+            "V13_continuity_redetected_count",
+            "V13_detected_fraction",
+            "V13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "REVIEW",
+              "metrics": {
+                "rotated_CD_nm": 59.819355890345584,
+                "rotated_LER_left_nm": 2.294909515513369,
+                "rotated_LER_right_nm": 2.3071893009682287,
+                "rotated_LWR_nm": 0.7311518974546287,
+                "unrotated_CD_nm": 59.8193643016997,
+                "unrotated_LER_left_nm": 2.3006833439051624,
+                "unrotated_LER_right_nm": 2.3153586367855343,
+                "unrotated_LWR_nm": 0.7311520001340084
+              },
+              "warning": "V13: stable SPACE count 0 below Min Number=3; aggregate uses available unstable SPACE results when possible; SPACE 1: valid_fraction=0.328 below 0.700; SPACE 2: valid_fraction=0.352 below 0.700; SPACE 3: valid_fraction=0.344 below 0.700; SPACE 4: valid_fraction=0.344 below 0.700",
+              "error_message": null
+            }
+          ],
+          "errors": [],
+          "sample_rows": 1024,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "right",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            }
+          ],
+          "coordinate_rows": 6,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 1,
+            "error_count": 0,
+            "diagnostic_error_count": 0
+          },
+          "psd_statuses": {
+            "V10:OK": 40,
+            "V13:SKIPPED": 40
+          },
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "trench_objects",
+            "engine_objects",
+            "per_sample_results",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  未旋转 V13: CD=59.8194  LER_left=2.0611  LER_right=2.1066  LWR=0.7312 nm",
+            "  未旋转 V10: CD=57.6449  LER_left=2.3007  LER_right=2.3154  LWR=0.7019 nm",
+            "",
+            "处理完成：1 张 PNG，4 个结构结果，0 条错误。",
+            "Excel：/tmp/measure-modified-comparison-cq1p1r85/baseline_trench/CD_measurement_200K_V13_modified_results.xlsx"
+          ]
+        },
+        "baseline_line": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "旋转_mixed_CD_nm",
+            "旋转_mixed_LER_left_nm",
+            "旋转_mixed_LER_right_nm",
+            "旋转_mixed_LWR_nm",
+            "旋转_V13_CD_nm",
+            "旋转_V13_LER_left_nm",
+            "旋转_V13_LER_right_nm",
+            "旋转_V13_LWR_nm",
+            "旋转_V10_CD_nm",
+            "旋转_V10_LER_left_nm",
+            "旋转_V10_LER_right_nm",
+            "旋转_V10_LWR_nm",
+            "未旋转_mixed_CD_nm",
+            "未旋转_mixed_LER_left_nm",
+            "未旋转_mixed_LER_right_nm",
+            "未旋转_mixed_LWR_nm",
+            "未旋转_V13_CD_nm",
+            "未旋转_V13_LER_left_nm",
+            "未旋转_V13_LER_right_nm",
+            "未旋转_V13_LWR_nm",
+            "未旋转_V10_CD_nm",
+            "未旋转_V10_LER_left_nm",
+            "未旋转_V10_LER_right_nm",
+            "未旋转_V10_LWR_nm",
+            "image_key",
+            "image",
+            "folder_name",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "status",
+            "warning",
+            "algorithm_version",
+            "坐标状态",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "group_size",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "V13_rotation_angle_mean_deg",
+            "V13_rotation_angle_abs_mean_deg",
+            "V13_selected_count",
+            "V10_rotation_angle_mean_deg",
+            "V10_rotation_angle_abs_mean_deg",
+            "V10_selected_count",
+            "v10_measurement_valid",
+            "v10_triplet_complete",
+            "v10_selected_roles",
+            "v10_selected_trench_count",
+            "v10_stable_trench_count",
+            "V10_selection_fallback",
+            "V10_missing_metrics",
+            "V10_issues",
+            "v13_measurement_valid",
+            "v13_triplet_complete",
+            "v13_selected_roles",
+            "v13_selected_trench_count",
+            "v13_stable_trench_count",
+            "V13_selection_fallback",
+            "V13_missing_metrics",
+            "V13_issues",
+            "旋转_mixed_complete",
+            "all_result_groups_complete",
+            "patch_version",
+            "edge_continuity",
+            "viterbi_enabled",
+            "erf_enabled",
+            "requested_max_number",
+            "required_min_number",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "quality_status_before_synthetic_review",
+            "V10_synthetic_count",
+            "V10_original_valid_count",
+            "V10_continuity_redetected_count",
+            "V10_detected_fraction",
+            "V10_filled_fraction",
+            "V13_synthetic_count",
+            "V13_original_valid_count",
+            "V13_continuity_redetected_count",
+            "V13_detected_fraction",
+            "V13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "REVIEW",
+              "metrics": {
+                "rotated_CD_nm": 59.819355890345584,
+                "rotated_LER_left_nm": 2.2949095155133685,
+                "rotated_LER_right_nm": 2.307189300968229,
+                "rotated_LWR_nm": 0.7311518974546278,
+                "unrotated_CD_nm": 59.81936430169969,
+                "unrotated_LER_left_nm": 2.300683343905162,
+                "unrotated_LER_right_nm": 2.3153586367855343,
+                "unrotated_LWR_nm": 0.7311520001340055
+              },
+              "warning": "V13: stable SPACE count 0 below Min Number=3; aggregate uses available unstable SPACE results when possible; SPACE 1: valid_fraction=0.328 below 0.700; SPACE 2: valid_fraction=0.352 below 0.700; SPACE 3: valid_fraction=0.344 below 0.700; SPACE 4: valid_fraction=0.344 below 0.700",
+              "error_message": null
+            }
+          ],
+          "errors": [],
+          "sample_rows": 1024,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "right",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            }
+          ],
+          "coordinate_rows": 6,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 1,
+            "error_count": 0,
+            "diagnostic_error_count": 0
+          },
+          "psd_statuses": {
+            "V10:OK": 40,
+            "V13:SKIPPED": 40
+          },
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "trench_objects",
+            "engine_objects",
+            "per_sample_results",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  未旋转 V13: CD=59.8194  LER_left=2.0611  LER_right=2.1066  LWR=0.7312 nm",
+            "  未旋转 V10: CD=57.6449  LER_left=2.3007  LER_right=2.3154  LWR=0.7019 nm",
+            "",
+            "处理完成：1 张 PNG，4 个结构结果，0 条错误。",
+            "Excel：/tmp/measure-modified-comparison-cq1p1r85/baseline_line/CD_measurement_200K_V13_modified_results.xlsx"
+          ]
+        },
+        "one_group": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "旋转_mixed_CD_nm",
+            "旋转_mixed_LER_left_nm",
+            "旋转_mixed_LER_right_nm",
+            "旋转_mixed_LWR_nm",
+            "旋转_V13_CD_nm",
+            "旋转_V13_LER_left_nm",
+            "旋转_V13_LER_right_nm",
+            "旋转_V13_LWR_nm",
+            "旋转_V10_CD_nm",
+            "旋转_V10_LER_left_nm",
+            "旋转_V10_LER_right_nm",
+            "旋转_V10_LWR_nm",
+            "未旋转_mixed_CD_nm",
+            "未旋转_mixed_LER_left_nm",
+            "未旋转_mixed_LER_right_nm",
+            "未旋转_mixed_LWR_nm",
+            "未旋转_V13_CD_nm",
+            "未旋转_V13_LER_left_nm",
+            "未旋转_V13_LER_right_nm",
+            "未旋转_V13_LWR_nm",
+            "未旋转_V10_CD_nm",
+            "未旋转_V10_LER_left_nm",
+            "未旋转_V10_LER_right_nm",
+            "未旋转_V10_LWR_nm",
+            "image_key",
+            "image",
+            "folder_name",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "status",
+            "warning",
+            "algorithm_version",
+            "坐标状态",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "group_size",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "V13_rotation_angle_mean_deg",
+            "V13_rotation_angle_abs_mean_deg",
+            "V13_selected_count",
+            "V10_rotation_angle_mean_deg",
+            "V10_rotation_angle_abs_mean_deg",
+            "V10_selected_count",
+            "v10_measurement_valid",
+            "v10_triplet_complete",
+            "v10_selected_roles",
+            "v10_selected_trench_count",
+            "v10_stable_trench_count",
+            "V10_selection_fallback",
+            "V10_missing_metrics",
+            "V10_issues",
+            "v13_measurement_valid",
+            "v13_triplet_complete",
+            "v13_selected_roles",
+            "v13_selected_trench_count",
+            "v13_stable_trench_count",
+            "V13_selection_fallback",
+            "V13_missing_metrics",
+            "V13_issues",
+            "旋转_mixed_complete",
+            "all_result_groups_complete",
+            "patch_version",
+            "edge_continuity",
+            "viterbi_enabled",
+            "erf_enabled",
+            "requested_max_number",
+            "required_min_number",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "quality_status_before_synthetic_review",
+            "V10_synthetic_count",
+            "V10_original_valid_count",
+            "V10_continuity_redetected_count",
+            "V10_detected_fraction",
+            "V10_filled_fraction",
+            "V13_synthetic_count",
+            "V13_original_valid_count",
+            "V13_continuity_redetected_count",
+            "V13_detected_fraction",
+            "V13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "OK",
+              "metrics": {
+                "rotated_CD_nm": 59.8627236728294,
+                "rotated_LER_left_nm": 2.294909515513369,
+                "rotated_LER_right_nm": 2.3071893009682287,
+                "rotated_LWR_nm": 0.0,
+                "unrotated_CD_nm": 59.86273274756772,
+                "unrotated_LER_left_nm": 2.3006833439051624,
+                "unrotated_LER_right_nm": 2.3153586367855343,
+                "unrotated_LWR_nm": 0.0
+              },
+              "warning": "V13: SPACE 1: 86 samples accepted by continuity relaxation; SPACE 2: 83 samples accepted by continuity relaxation; SPACE 3: 84 samples accepted by continuity relaxation; SPACE 4: 84 samples accepted by continuity relaxation",
+              "error_message": null
+            }
+          ],
+          "errors": [],
+          "sample_rows": 1024,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "right",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            }
+          ],
+          "coordinate_rows": 6,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 1,
+            "review_count": 0,
+            "error_count": 0,
+            "diagnostic_error_count": 0
+          },
+          "psd_statuses": {
+            "V10:OK": 32,
+            "V10:SKIPPED": 8,
+            "V13:OK": 32,
+            "V13:SKIPPED": 8
+          },
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "trench_objects",
+            "engine_objects",
+            "per_sample_results",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  未旋转 V13: CD=59.8627  LER_left=2.1177  LER_right=2.1382  LWR=0.0000 nm",
+            "  未旋转 V10: CD=57.6449  LER_left=2.3007  LER_right=2.3154  LWR=0.0000 nm",
+            "",
+            "处理完成：1 张 PNG，4 个结构结果，0 条错误。",
+            "Excel：/tmp/measure-modified-comparison-cq1p1r85/one_group/CD_measurement_200K_V13_modified_results.xlsx"
+          ]
+        },
+        "line_path_erf": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "旋转_mixed_CD_nm",
+            "旋转_mixed_LER_left_nm",
+            "旋转_mixed_LER_right_nm",
+            "旋转_mixed_LWR_nm",
+            "旋转_V13_CD_nm",
+            "旋转_V13_LER_left_nm",
+            "旋转_V13_LER_right_nm",
+            "旋转_V13_LWR_nm",
+            "旋转_V10_CD_nm",
+            "旋转_V10_LER_left_nm",
+            "旋转_V10_LER_right_nm",
+            "旋转_V10_LWR_nm",
+            "未旋转_mixed_CD_nm",
+            "未旋转_mixed_LER_left_nm",
+            "未旋转_mixed_LER_right_nm",
+            "未旋转_mixed_LWR_nm",
+            "未旋转_V13_CD_nm",
+            "未旋转_V13_LER_left_nm",
+            "未旋转_V13_LER_right_nm",
+            "未旋转_V13_LWR_nm",
+            "未旋转_V10_CD_nm",
+            "未旋转_V10_LER_left_nm",
+            "未旋转_V10_LER_right_nm",
+            "未旋转_V10_LWR_nm",
+            "image_key",
+            "image",
+            "folder_name",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "status",
+            "warning",
+            "algorithm_version",
+            "坐标状态",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "group_size",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "V13_rotation_angle_mean_deg",
+            "V13_rotation_angle_abs_mean_deg",
+            "V13_selected_count",
+            "V10_rotation_angle_mean_deg",
+            "V10_rotation_angle_abs_mean_deg",
+            "V10_selected_count",
+            "v10_measurement_valid",
+            "v10_triplet_complete",
+            "v10_selected_roles",
+            "v10_selected_trench_count",
+            "v10_stable_trench_count",
+            "V10_selection_fallback",
+            "V10_missing_metrics",
+            "V10_issues",
+            "v13_measurement_valid",
+            "v13_triplet_complete",
+            "v13_selected_roles",
+            "v13_selected_trench_count",
+            "v13_stable_trench_count",
+            "V13_selection_fallback",
+            "V13_missing_metrics",
+            "V13_issues",
+            "旋转_mixed_complete",
+            "all_result_groups_complete",
+            "patch_version",
+            "edge_continuity",
+            "viterbi_enabled",
+            "erf_enabled",
+            "requested_max_number",
+            "required_min_number",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "quality_status_before_synthetic_review",
+            "V10_synthetic_count",
+            "V10_original_valid_count",
+            "V10_continuity_redetected_count",
+            "V10_detected_fraction",
+            "V10_filled_fraction",
+            "V13_synthetic_count",
+            "V13_original_valid_count",
+            "V13_continuity_redetected_count",
+            "V13_detected_fraction",
+            "V13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "OK",
+              "metrics": {
+                "rotated_CD_nm": 60.0010349714879,
+                "rotated_LER_left_nm": 2.0920554045512683,
+                "rotated_LER_right_nm": 2.096199324702797,
+                "rotated_LWR_nm": 0.3489028280843132,
+                "unrotated_CD_nm": 60.00104399233751,
+                "unrotated_LER_left_nm": 2.097799591692908,
+                "unrotated_LER_right_nm": 2.1045446488692727,
+                "unrotated_LWR_nm": 0.3489028805418838
+              },
+              "warning": null,
+              "error_message": null
+            }
+          ],
+          "errors": [],
+          "sample_rows": 1024,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "right",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            }
+          ],
+          "coordinate_rows": 6,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 1,
+            "review_count": 0,
+            "error_count": 0,
+            "diagnostic_error_count": 0
+          },
+          "psd_statuses": {
+            "V10:OK": 40,
+            "V13:OK": 40
+          },
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "trench_objects",
+            "engine_objects",
+            "per_sample_results",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  未旋转 V13: CD=60.0010  LER_left=2.0975  LER_right=2.1038  LWR=0.3489 nm",
+            "  未旋转 V10: CD=60.0037  LER_left=2.0978  LER_right=2.1045  LWR=0.3495 nm",
+            "",
+            "处理完成：1 张 PNG，4 个结构结果，0 条错误。",
+            "Excel：/tmp/measure-modified-comparison-cq1p1r85/line_path_erf/CD_measurement_200K_V13_modified_results.xlsx"
+          ]
+        },
+        "v10_exception": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "旋转_mixed_CD_nm",
+            "旋转_mixed_LER_left_nm",
+            "旋转_mixed_LER_right_nm",
+            "旋转_mixed_LWR_nm",
+            "旋转_V13_CD_nm",
+            "旋转_V13_LER_left_nm",
+            "旋转_V13_LER_right_nm",
+            "旋转_V13_LWR_nm",
+            "旋转_V10_CD_nm",
+            "旋转_V10_LER_left_nm",
+            "旋转_V10_LER_right_nm",
+            "旋转_V10_LWR_nm",
+            "未旋转_mixed_CD_nm",
+            "未旋转_mixed_LER_left_nm",
+            "未旋转_mixed_LER_right_nm",
+            "未旋转_mixed_LWR_nm",
+            "未旋转_V13_CD_nm",
+            "未旋转_V13_LER_left_nm",
+            "未旋转_V13_LER_right_nm",
+            "未旋转_V13_LWR_nm",
+            "未旋转_V10_CD_nm",
+            "未旋转_V10_LER_left_nm",
+            "未旋转_V10_LER_right_nm",
+            "未旋转_V10_LWR_nm",
+            "image_key",
+            "image",
+            "folder_name",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "status",
+            "warning",
+            "algorithm_version",
+            "坐标状态",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "group_size",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "V13_rotation_angle_mean_deg",
+            "V13_rotation_angle_abs_mean_deg",
+            "V13_selected_count",
+            "V10_rotation_angle_mean_deg",
+            "V10_rotation_angle_abs_mean_deg",
+            "V10_selected_count",
+            "v10_measurement_valid",
+            "v10_triplet_complete",
+            "v10_selected_roles",
+            "v10_selected_trench_count",
+            "v10_stable_trench_count",
+            "V10_selection_fallback",
+            "V10_missing_metrics",
+            "V10_issues",
+            "v13_measurement_valid",
+            "v13_triplet_complete",
+            "v13_selected_roles",
+            "v13_selected_trench_count",
+            "v13_stable_trench_count",
+            "V13_selection_fallback",
+            "V13_missing_metrics",
+            "V13_issues",
+            "旋转_mixed_complete",
+            "all_result_groups_complete",
+            "patch_version",
+            "edge_continuity",
+            "viterbi_enabled",
+            "erf_enabled",
+            "requested_max_number",
+            "required_min_number",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "quality_status_before_synthetic_review",
+            "V10_synthetic_count",
+            "V10_original_valid_count",
+            "V10_continuity_redetected_count",
+            "V10_detected_fraction",
+            "V10_filled_fraction",
+            "V13_synthetic_count",
+            "V13_original_valid_count",
+            "V13_continuity_redetected_count",
+            "V13_detected_fraction",
+            "V13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "REVIEW",
+              "metrics": {
+                "rotated_CD_nm": 59.819355890345584,
+                "rotated_LER_left_nm": null,
+                "rotated_LER_right_nm": null,
+                "rotated_LWR_nm": 0.7311518974546287,
+                "unrotated_CD_nm": 59.8193643016997,
+                "unrotated_LER_left_nm": null,
+                "unrotated_LER_right_nm": null,
+                "unrotated_LWR_nm": 0.7311520001340084
+              },
+              "warning": "V10 measurement: RuntimeError: injected V10 failure | 缺项: 旋转_V10_CD_nm; 旋转_V10_LER_left_nm; 旋转_V10_LER_right_nm; 旋转_V10_LWR_nm; 未旋转_V10_CD_nm; 未旋转_V10_LER_left_nm; 未旋转_V10_LER_right_nm; 未旋转_V10_LWR_nm | V13: stable SPACE count 0 below Min Number=3; aggregate uses available unstable SPACE results when possible; SPACE 1: valid_fraction=0.328 below 0.700; SPACE 2: valid_fraction=0.352 below 0.700; SPACE 3: valid_fraction=0.344 below 0.700; SPACE 4: valid_fraction=0.344 below 0.700",
+              "error_message": null
+            }
+          ],
+          "errors": [
+            {
+              "stage": "V10_measurement",
+              "error_type": "RuntimeError",
+              "error_message": "V10 measurement: RuntimeError: injected V10 failure"
+            }
+          ],
+          "sample_rows": 512,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "V10_used_for_image_statistics": false,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left",
+              "V10_used_for_image_statistics": false,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "right",
+              "V10_used_for_image_statistics": false,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "V10_used_for_image_statistics": false,
+              "V13_used_for_image_statistics": true
+            }
+          ],
+          "coordinate_rows": 6,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 1,
+            "error_count": 0,
+            "diagnostic_error_count": 1
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "trench_objects",
+            "engine_objects",
+            "per_sample_results",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  未旋转 V13: CD=59.8194  LER_left=2.0611  LER_right=2.1066  LWR=0.7312 nm",
+            "  未旋转 V10: CD=nan  LER_left=nan  LER_right=nan  LWR=nan nm",
+            "",
+            "处理完成：1 张 PNG，4 个结构结果，1 条错误。",
+            "Excel：/tmp/measure-modified-comparison-cq1p1r85/v10_exception/CD_measurement_200K_V13_modified_results.xlsx"
+          ]
+        },
+        "v13_exception": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "旋转_mixed_CD_nm",
+            "旋转_mixed_LER_left_nm",
+            "旋转_mixed_LER_right_nm",
+            "旋转_mixed_LWR_nm",
+            "旋转_V13_CD_nm",
+            "旋转_V13_LER_left_nm",
+            "旋转_V13_LER_right_nm",
+            "旋转_V13_LWR_nm",
+            "旋转_V10_CD_nm",
+            "旋转_V10_LER_left_nm",
+            "旋转_V10_LER_right_nm",
+            "旋转_V10_LWR_nm",
+            "未旋转_mixed_CD_nm",
+            "未旋转_mixed_LER_left_nm",
+            "未旋转_mixed_LER_right_nm",
+            "未旋转_mixed_LWR_nm",
+            "未旋转_V13_CD_nm",
+            "未旋转_V13_LER_left_nm",
+            "未旋转_V13_LER_right_nm",
+            "未旋转_V13_LWR_nm",
+            "未旋转_V10_CD_nm",
+            "未旋转_V10_LER_left_nm",
+            "未旋转_V10_LER_right_nm",
+            "未旋转_V10_LWR_nm",
+            "image_key",
+            "image",
+            "folder_name",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "status",
+            "warning",
+            "algorithm_version",
+            "坐标状态",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "group_size",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "V13_rotation_angle_mean_deg",
+            "V13_rotation_angle_abs_mean_deg",
+            "V13_selected_count",
+            "V10_rotation_angle_mean_deg",
+            "V10_rotation_angle_abs_mean_deg",
+            "V10_selected_count",
+            "v10_measurement_valid",
+            "v10_triplet_complete",
+            "v10_selected_roles",
+            "v10_selected_trench_count",
+            "v10_stable_trench_count",
+            "V10_selection_fallback",
+            "V10_missing_metrics",
+            "V10_issues",
+            "v13_measurement_valid",
+            "v13_triplet_complete",
+            "v13_selected_roles",
+            "v13_selected_trench_count",
+            "v13_stable_trench_count",
+            "V13_selection_fallback",
+            "V13_missing_metrics",
+            "V13_issues",
+            "旋转_mixed_complete",
+            "all_result_groups_complete",
+            "patch_version",
+            "edge_continuity",
+            "viterbi_enabled",
+            "erf_enabled",
+            "requested_max_number",
+            "required_min_number",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "quality_status_before_synthetic_review",
+            "V10_synthetic_count",
+            "V10_original_valid_count",
+            "V10_continuity_redetected_count",
+            "V10_detected_fraction",
+            "V10_filled_fraction",
+            "V13_synthetic_count",
+            "V13_original_valid_count",
+            "V13_continuity_redetected_count",
+            "V13_detected_fraction",
+            "V13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "REVIEW",
+              "metrics": {
+                "rotated_CD_nm": null,
+                "rotated_LER_left_nm": 2.294909515513369,
+                "rotated_LER_right_nm": 2.3071893009682287,
+                "rotated_LWR_nm": null,
+                "unrotated_CD_nm": null,
+                "unrotated_LER_left_nm": 2.3006833439051624,
+                "unrotated_LER_right_nm": 2.3153586367855343,
+                "unrotated_LWR_nm": null
+              },
+              "warning": "V13 measurement: RuntimeError: injected V13 failure | 缺项: 旋转_V13_CD_nm; 旋转_V13_LER_left_nm; 旋转_V13_LER_right_nm; 旋转_V13_LWR_nm; 未旋转_V13_CD_nm; 未旋转_V13_LER_left_nm; 未旋转_V13_LER_right_nm; 未旋转_V13_LWR_nm",
+              "error_message": null
+            }
+          ],
+          "errors": [
+            {
+              "stage": "V13_measurement",
+              "error_type": "RuntimeError",
+              "error_message": "V13 measurement: RuntimeError: injected V13 failure"
+            }
+          ],
+          "sample_rows": 512,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": false
+            },
+            {
+              "space_role": "left",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": false
+            },
+            {
+              "space_role": "right",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": false
+            },
+            {
+              "space_role": "left2",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": false
+            }
+          ],
+          "coordinate_rows": 6,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 1,
+            "error_count": 0,
+            "diagnostic_error_count": 1
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "trench_objects",
+            "engine_objects",
+            "per_sample_results",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  未旋转 V13: CD=nan  LER_left=nan  LER_right=nan  LWR=nan nm",
+            "  未旋转 V10: CD=57.6449  LER_left=2.3007  LER_right=2.3154  LWR=0.7019 nm",
+            "",
+            "处理完成：1 张 PNG，4 个结构结果，1 条错误。",
+            "Excel：/tmp/measure-modified-comparison-cq1p1r85/v13_exception/CD_measurement_200K_V13_modified_results.xlsx"
+          ]
+        },
+        "v10_no_candidates": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "旋转_mixed_CD_nm",
+            "旋转_mixed_LER_left_nm",
+            "旋转_mixed_LER_right_nm",
+            "旋转_mixed_LWR_nm",
+            "旋转_V13_CD_nm",
+            "旋转_V13_LER_left_nm",
+            "旋转_V13_LER_right_nm",
+            "旋转_V13_LWR_nm",
+            "旋转_V10_CD_nm",
+            "旋转_V10_LER_left_nm",
+            "旋转_V10_LER_right_nm",
+            "旋转_V10_LWR_nm",
+            "未旋转_mixed_CD_nm",
+            "未旋转_mixed_LER_left_nm",
+            "未旋转_mixed_LER_right_nm",
+            "未旋转_mixed_LWR_nm",
+            "未旋转_V13_CD_nm",
+            "未旋转_V13_LER_left_nm",
+            "未旋转_V13_LER_right_nm",
+            "未旋转_V13_LWR_nm",
+            "未旋转_V10_CD_nm",
+            "未旋转_V10_LER_left_nm",
+            "未旋转_V10_LER_right_nm",
+            "未旋转_V10_LWR_nm",
+            "image_key",
+            "image",
+            "folder_name",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "status",
+            "warning",
+            "algorithm_version",
+            "坐标状态",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "group_size",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "V13_rotation_angle_mean_deg",
+            "V13_rotation_angle_abs_mean_deg",
+            "V13_selected_count",
+            "V10_rotation_angle_mean_deg",
+            "V10_rotation_angle_abs_mean_deg",
+            "V10_selected_count",
+            "v10_measurement_valid",
+            "v10_triplet_complete",
+            "v10_selected_roles",
+            "v10_selected_trench_count",
+            "v10_stable_trench_count",
+            "V10_selection_fallback",
+            "V10_missing_metrics",
+            "V10_issues",
+            "v13_measurement_valid",
+            "v13_triplet_complete",
+            "v13_selected_roles",
+            "v13_selected_trench_count",
+            "v13_stable_trench_count",
+            "V13_selection_fallback",
+            "V13_missing_metrics",
+            "V13_issues",
+            "旋转_mixed_complete",
+            "all_result_groups_complete",
+            "patch_version",
+            "edge_continuity",
+            "viterbi_enabled",
+            "erf_enabled",
+            "requested_max_number",
+            "required_min_number",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "quality_status_before_synthetic_review",
+            "V10_synthetic_count",
+            "V10_original_valid_count",
+            "V10_continuity_redetected_count",
+            "V10_detected_fraction",
+            "V10_filled_fraction",
+            "V13_synthetic_count",
+            "V13_original_valid_count",
+            "V13_continuity_redetected_count",
+            "V13_detected_fraction",
+            "V13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "REVIEW",
+              "metrics": {
+                "rotated_CD_nm": 59.819355890345584,
+                "rotated_LER_left_nm": null,
+                "rotated_LER_right_nm": null,
+                "rotated_LWR_nm": 0.7311518974546287,
+                "unrotated_CD_nm": 59.8193643016997,
+                "unrotated_LER_left_nm": null,
+                "unrotated_LER_right_nm": null,
+                "unrotated_LWR_nm": 0.7311520001340084
+              },
+              "warning": "V10: injected no candidates | V10: 没有可用 CD/LER/LWR；候选数=0，采样数=0 | 缺项: 旋转_V10_CD_nm; 旋转_V10_LER_left_nm; 旋转_V10_LER_right_nm; 旋转_V10_LWR_nm; 未旋转_V10_CD_nm; 未旋转_V10_LER_left_nm; 未旋转_V10_LER_right_nm; 未旋转_V10_LWR_nm | V13: stable SPACE count 0 below Min Number=3; aggregate uses available unstable SPACE results when possible; SPACE 1: valid_fraction=0.328 below 0.700; SPACE 2: valid_fraction=0.352 below 0.700; SPACE 3: valid_fraction=0.344 below 0.700; SPACE 4: valid_fraction=0.344 below 0.700",
+              "error_message": null
+            }
+          ],
+          "errors": [],
+          "sample_rows": 512,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "V10_used_for_image_statistics": false,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left",
+              "V10_used_for_image_statistics": false,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "right",
+              "V10_used_for_image_statistics": false,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "V10_used_for_image_statistics": false,
+              "V13_used_for_image_statistics": true
+            }
+          ],
+          "coordinate_rows": 6,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 1,
+            "error_count": 0,
+            "diagnostic_error_count": 0
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "trench_objects",
+            "engine_objects",
+            "per_sample_results",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  未旋转 V13: CD=59.8194  LER_left=2.0611  LER_right=2.1066  LWR=0.7312 nm",
+            "  未旋转 V10: CD=nan  LER_left=nan  LER_right=nan  LWR=nan nm",
+            "",
+            "处理完成：1 张 PNG，4 个结构结果，0 条错误。",
+            "Excel：/tmp/measure-modified-comparison-cq1p1r85/v10_no_candidates/CD_measurement_200K_V13_modified_results.xlsx"
+          ]
+        },
+        "both_no_candidates": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "旋转_mixed_CD_nm",
+            "旋转_mixed_LER_left_nm",
+            "旋转_mixed_LER_right_nm",
+            "旋转_mixed_LWR_nm",
+            "旋转_V13_CD_nm",
+            "旋转_V13_LER_left_nm",
+            "旋转_V13_LER_right_nm",
+            "旋转_V13_LWR_nm",
+            "旋转_V10_CD_nm",
+            "旋转_V10_LER_left_nm",
+            "旋转_V10_LER_right_nm",
+            "旋转_V10_LWR_nm",
+            "未旋转_mixed_CD_nm",
+            "未旋转_mixed_LER_left_nm",
+            "未旋转_mixed_LER_right_nm",
+            "未旋转_mixed_LWR_nm",
+            "未旋转_V13_CD_nm",
+            "未旋转_V13_LER_left_nm",
+            "未旋转_V13_LER_right_nm",
+            "未旋转_V13_LWR_nm",
+            "未旋转_V10_CD_nm",
+            "未旋转_V10_LER_left_nm",
+            "未旋转_V10_LER_right_nm",
+            "未旋转_V10_LWR_nm",
+            "image_key",
+            "image",
+            "folder_name",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "status",
+            "warning",
+            "algorithm_version",
+            "坐标状态",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "group_size",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "V13_rotation_angle_mean_deg",
+            "V13_rotation_angle_abs_mean_deg",
+            "V13_selected_count",
+            "V10_rotation_angle_mean_deg",
+            "V10_rotation_angle_abs_mean_deg",
+            "V10_selected_count",
+            "v10_measurement_valid",
+            "v10_triplet_complete",
+            "v10_selected_roles",
+            "v10_selected_trench_count",
+            "v10_stable_trench_count",
+            "V10_selection_fallback",
+            "V10_missing_metrics",
+            "V10_issues",
+            "v13_measurement_valid",
+            "v13_triplet_complete",
+            "v13_selected_roles",
+            "v13_selected_trench_count",
+            "v13_stable_trench_count",
+            "V13_selection_fallback",
+            "V13_missing_metrics",
+            "V13_issues",
+            "旋转_mixed_complete",
+            "all_result_groups_complete",
+            "patch_version",
+            "edge_continuity",
+            "viterbi_enabled",
+            "erf_enabled",
+            "requested_max_number",
+            "required_min_number",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "quality_status_before_synthetic_review",
+            "V10_synthetic_count",
+            "V10_original_valid_count",
+            "V10_continuity_redetected_count",
+            "V10_detected_fraction",
+            "V10_filled_fraction",
+            "V13_synthetic_count",
+            "V13_original_valid_count",
+            "V13_continuity_redetected_count",
+            "V13_detected_fraction",
+            "V13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "ERROR",
+              "metrics": {
+                "rotated_CD_nm": null,
+                "rotated_LER_left_nm": null,
+                "rotated_LER_right_nm": null,
+                "rotated_LWR_nm": null,
+                "unrotated_CD_nm": null,
+                "unrotated_LER_left_nm": null,
+                "unrotated_LER_right_nm": null,
+                "unrotated_LWR_nm": null
+              },
+              "warning": "V10: injected no candidates | V10: 没有可用 CD/LER/LWR；候选数=0，采样数=0 | 缺项: 旋转_V10_CD_nm; 旋转_V10_LER_left_nm; 旋转_V10_LER_right_nm; 旋转_V10_LWR_nm; 未旋转_V10_CD_nm; 未旋转_V10_LER_left_nm; 未旋转_V10_LER_right_nm; 未旋转_V10_LWR_nm | V13: injected no candidates | V13: 没有可用 CD/LER/LWR；候选数=0，采样数=0 | 缺项: 旋转_V13_CD_nm; 旋转_V13_LER_left_nm; 旋转_V13_LER_right_nm; 旋转_V13_LWR_nm; 未旋转_V13_CD_nm; 未旋转_V13_LER_left_nm; 未旋转_V13_LER_right_nm; 未旋转_V13_LWR_nm",
+              "error_message": null
+            }
+          ],
+          "errors": [
+            {
+              "stage": "metric_availability",
+              "error_type": "NoUsableMetrics",
+              "error_message": "V10: injected no candidates | V10: 没有可用 CD/LER/LWR；候选数=0，采样数=0 | 缺项: 旋转_V10_CD_nm; 旋转_V10_LER_left_nm; 旋转_V10_LER_right_nm; 旋转_V10_LWR_nm; 未旋转_V10_CD_nm; 未旋转_V10_LER_left_nm; 未旋转_V10_LER_right_nm; 未旋转_V10_LWR_nm | V13: injected no candidates | V13: 没有可用 CD/LER/LWR；候选数=0，采样数=0 | 缺项: 旋转_V13_CD_nm; 旋转_V13_LER_left_nm; 旋转_V13_LER_right_nm; 旋转_V13_LWR_nm; 未旋转_V13_CD_nm; 未旋转_V13_LER_left_nm; 未旋转_V13_LER_right_nm; 未旋转_V13_LWR_nm"
+            }
+          ],
+          "sample_rows": 0,
+          "object_rows": 0,
+          "object_selection_flags": [],
+          "coordinate_rows": 0,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 0,
+            "error_count": 1,
+            "diagnostic_error_count": 1
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "trench_objects",
+            "engine_objects",
+            "per_sample_results",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  未旋转 V13: CD=nan  LER_left=nan  LER_right=nan  LWR=nan nm",
+            "  未旋转 V10: CD=nan  LER_left=nan  LER_right=nan  LWR=nan nm",
+            "",
+            "处理完成：1 张 PNG，0 个结构结果，1 条错误。",
+            "Excel：/tmp/measure-modified-comparison-cq1p1r85/both_no_candidates/CD_measurement_200K_V13_modified_results.xlsx"
+          ]
+        },
+        "roles_disjoint": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "旋转_mixed_CD_nm",
+            "旋转_mixed_LER_left_nm",
+            "旋转_mixed_LER_right_nm",
+            "旋转_mixed_LWR_nm",
+            "旋转_V13_CD_nm",
+            "旋转_V13_LER_left_nm",
+            "旋转_V13_LER_right_nm",
+            "旋转_V13_LWR_nm",
+            "旋转_V10_CD_nm",
+            "旋转_V10_LER_left_nm",
+            "旋转_V10_LER_right_nm",
+            "旋转_V10_LWR_nm",
+            "未旋转_mixed_CD_nm",
+            "未旋转_mixed_LER_left_nm",
+            "未旋转_mixed_LER_right_nm",
+            "未旋转_mixed_LWR_nm",
+            "未旋转_V13_CD_nm",
+            "未旋转_V13_LER_left_nm",
+            "未旋转_V13_LER_right_nm",
+            "未旋转_V13_LWR_nm",
+            "未旋转_V10_CD_nm",
+            "未旋转_V10_LER_left_nm",
+            "未旋转_V10_LER_right_nm",
+            "未旋转_V10_LWR_nm",
+            "image_key",
+            "image",
+            "folder_name",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "status",
+            "warning",
+            "algorithm_version",
+            "坐标状态",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "group_size",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "V13_rotation_angle_mean_deg",
+            "V13_rotation_angle_abs_mean_deg",
+            "V13_selected_count",
+            "V10_rotation_angle_mean_deg",
+            "V10_rotation_angle_abs_mean_deg",
+            "V10_selected_count",
+            "v10_measurement_valid",
+            "v10_triplet_complete",
+            "v10_selected_roles",
+            "v10_selected_trench_count",
+            "v10_stable_trench_count",
+            "V10_selection_fallback",
+            "V10_missing_metrics",
+            "V10_issues",
+            "v13_measurement_valid",
+            "v13_triplet_complete",
+            "v13_selected_roles",
+            "v13_selected_trench_count",
+            "v13_stable_trench_count",
+            "V13_selection_fallback",
+            "V13_missing_metrics",
+            "V13_issues",
+            "旋转_mixed_complete",
+            "all_result_groups_complete",
+            "patch_version",
+            "edge_continuity",
+            "viterbi_enabled",
+            "erf_enabled",
+            "requested_max_number",
+            "required_min_number",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "quality_status_before_synthetic_review",
+            "V10_synthetic_count",
+            "V10_original_valid_count",
+            "V10_continuity_redetected_count",
+            "V10_detected_fraction",
+            "V10_filled_fraction",
+            "V13_synthetic_count",
+            "V13_original_valid_count",
+            "V13_continuity_redetected_count",
+            "V13_detected_fraction",
+            "V13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "REVIEW",
+              "metrics": {
+                "rotated_CD_nm": 59.819355890345584,
+                "rotated_LER_left_nm": 2.294909515513369,
+                "rotated_LER_right_nm": 2.3071893009682287,
+                "rotated_LWR_nm": 0.7311518974546287,
+                "unrotated_CD_nm": 59.8193643016997,
+                "unrotated_LER_left_nm": 2.3006833439051624,
+                "unrotated_LER_right_nm": 2.3153586367855343,
+                "unrotated_LWR_nm": 0.7311520001340084
+              },
+              "warning": "V13: stable SPACE count 0 below Min Number=3; aggregate uses available unstable SPACE results when possible; SPACE 1: valid_fraction=0.328 below 0.700; SPACE 2: valid_fraction=0.352 below 0.700; SPACE 3: valid_fraction=0.344 below 0.700; SPACE 4: valid_fraction=0.344 below 0.700",
+              "error_message": null
+            }
+          ],
+          "errors": [],
+          "sample_rows": 1024,
+          "object_rows": 8,
+          "object_selection_flags": [
+            {
+              "space_role": "V13_center",
+              "V10_used_for_image_statistics": false,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "V13_left",
+              "V10_used_for_image_statistics": false,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "V13_right",
+              "V10_used_for_image_statistics": false,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "V13_left2",
+              "V10_used_for_image_statistics": false,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "V10_center",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": false
+            },
+            {
+              "space_role": "V10_left",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": false
+            },
+            {
+              "space_role": "V10_right",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": false
+            },
+            {
+              "space_role": "V10_left2",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": false
+            }
+          ],
+          "coordinate_rows": 6,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 1,
+            "error_count": 0,
+            "diagnostic_error_count": 0
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "trench_objects",
+            "engine_objects",
+            "per_sample_results",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  未旋转 V13: CD=59.8194  LER_left=2.0611  LER_right=2.1066  LWR=0.7312 nm",
+            "  未旋转 V10: CD=57.6449  LER_left=2.3007  LER_right=2.3154  LWR=0.7019 nm",
+            "",
+            "处理完成：1 张 PNG，8 个结构结果，0 条错误。",
+            "Excel：/tmp/measure-modified-comparison-cq1p1r85/roles_disjoint/CD_measurement_200K_V13_modified_results.xlsx"
+          ]
+        },
+        "unselected_object_flag": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "旋转_mixed_CD_nm",
+            "旋转_mixed_LER_left_nm",
+            "旋转_mixed_LER_right_nm",
+            "旋转_mixed_LWR_nm",
+            "旋转_V13_CD_nm",
+            "旋转_V13_LER_left_nm",
+            "旋转_V13_LER_right_nm",
+            "旋转_V13_LWR_nm",
+            "旋转_V10_CD_nm",
+            "旋转_V10_LER_left_nm",
+            "旋转_V10_LER_right_nm",
+            "旋转_V10_LWR_nm",
+            "未旋转_mixed_CD_nm",
+            "未旋转_mixed_LER_left_nm",
+            "未旋转_mixed_LER_right_nm",
+            "未旋转_mixed_LWR_nm",
+            "未旋转_V13_CD_nm",
+            "未旋转_V13_LER_left_nm",
+            "未旋转_V13_LER_right_nm",
+            "未旋转_V13_LWR_nm",
+            "未旋转_V10_CD_nm",
+            "未旋转_V10_LER_left_nm",
+            "未旋转_V10_LER_right_nm",
+            "未旋转_V10_LWR_nm",
+            "image_key",
+            "image",
+            "folder_name",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "status",
+            "warning",
+            "algorithm_version",
+            "坐标状态",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "group_size",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "V13_rotation_angle_mean_deg",
+            "V13_rotation_angle_abs_mean_deg",
+            "V13_selected_count",
+            "V10_rotation_angle_mean_deg",
+            "V10_rotation_angle_abs_mean_deg",
+            "V10_selected_count",
+            "v10_measurement_valid",
+            "v10_triplet_complete",
+            "v10_selected_roles",
+            "v10_selected_trench_count",
+            "v10_stable_trench_count",
+            "V10_selection_fallback",
+            "V10_missing_metrics",
+            "V10_issues",
+            "v13_measurement_valid",
+            "v13_triplet_complete",
+            "v13_selected_roles",
+            "v13_selected_trench_count",
+            "v13_stable_trench_count",
+            "V13_selection_fallback",
+            "V13_missing_metrics",
+            "V13_issues",
+            "旋转_mixed_complete",
+            "all_result_groups_complete",
+            "patch_version",
+            "edge_continuity",
+            "viterbi_enabled",
+            "erf_enabled",
+            "requested_max_number",
+            "required_min_number",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "quality_status_before_synthetic_review",
+            "V10_synthetic_count",
+            "V10_original_valid_count",
+            "V10_continuity_redetected_count",
+            "V10_detected_fraction",
+            "V10_filled_fraction",
+            "V13_synthetic_count",
+            "V13_original_valid_count",
+            "V13_continuity_redetected_count",
+            "V13_detected_fraction",
+            "V13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "REVIEW",
+              "metrics": {
+                "rotated_CD_nm": 59.82057575731893,
+                "rotated_LER_left_nm": 2.292424706649561,
+                "rotated_LER_right_nm": 2.3075794787251187,
+                "rotated_LWR_nm": 0.7285685134598706,
+                "unrotated_CD_nm": 59.8205839926646,
+                "unrotated_LER_left_nm": 2.298347413571594,
+                "unrotated_LER_right_nm": 2.3157004653975064,
+                "unrotated_LWR_nm": 0.7285686135563841
+              },
+              "warning": "V13: stable SPACE count 0 below Min Number=3; aggregate uses available unstable SPACE results when possible; SPACE 1: valid_fraction=0.328 below 0.700; SPACE 2: valid_fraction=0.352 below 0.700; SPACE 3: valid_fraction=0.344 below 0.700; SPACE 4: valid_fraction=0.344 below 0.700",
+              "error_message": null
+            }
+          ],
+          "errors": [],
+          "sample_rows": 1024,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "V10_used_for_image_statistics": false,
+              "V13_used_for_image_statistics": false
+            },
+            {
+              "space_role": "left",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "right",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            }
+          ],
+          "coordinate_rows": 6,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 1,
+            "error_count": 0,
+            "diagnostic_error_count": 0
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "trench_objects",
+            "engine_objects",
+            "per_sample_results",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  未旋转 V13: CD=59.8206  LER_left=2.0604  LER_right=2.1123  LWR=0.7286 nm",
+            "  未旋转 V10: CD=57.6462  LER_left=2.2983  LER_right=2.3157  LWR=0.7046 nm",
+            "",
+            "处理完成：1 张 PNG，4 个结构结果，0 条错误。",
+            "Excel：/tmp/measure-modified-comparison-cq1p1r85/unselected_object_flag/CD_measurement_200K_V13_modified_results.xlsx"
+          ],
+          "expected_selected_indices": {
+            "V10": [
+              2,
+              3,
+              4
+            ],
+            "V13": [
+              2,
+              3,
+              4
+            ]
+          },
+          "excluded_roles": {
+            "V10": "center",
+            "V13": "center"
+          }
+        },
+        "unused_v10_group_row_missing": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "旋转_mixed_CD_nm",
+            "旋转_mixed_LER_left_nm",
+            "旋转_mixed_LER_right_nm",
+            "旋转_mixed_LWR_nm",
+            "旋转_V13_CD_nm",
+            "旋转_V13_LER_left_nm",
+            "旋转_V13_LER_right_nm",
+            "旋转_V13_LWR_nm",
+            "旋转_V10_CD_nm",
+            "旋转_V10_LER_left_nm",
+            "旋转_V10_LER_right_nm",
+            "旋转_V10_LWR_nm",
+            "未旋转_mixed_CD_nm",
+            "未旋转_mixed_LER_left_nm",
+            "未旋转_mixed_LER_right_nm",
+            "未旋转_mixed_LWR_nm",
+            "未旋转_V13_CD_nm",
+            "未旋转_V13_LER_left_nm",
+            "未旋转_V13_LER_right_nm",
+            "未旋转_V13_LWR_nm",
+            "未旋转_V10_CD_nm",
+            "未旋转_V10_LER_left_nm",
+            "未旋转_V10_LER_right_nm",
+            "未旋转_V10_LWR_nm",
+            "image_key",
+            "image",
+            "folder_name",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "status",
+            "warning",
+            "algorithm_version",
+            "坐标状态",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "group_size",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "V13_rotation_angle_mean_deg",
+            "V13_rotation_angle_abs_mean_deg",
+            "V13_selected_count",
+            "V10_rotation_angle_mean_deg",
+            "V10_rotation_angle_abs_mean_deg",
+            "V10_selected_count",
+            "v10_measurement_valid",
+            "v10_triplet_complete",
+            "v10_selected_roles",
+            "v10_selected_trench_count",
+            "v10_stable_trench_count",
+            "V10_selection_fallback",
+            "V10_missing_metrics",
+            "V10_issues",
+            "v13_measurement_valid",
+            "v13_triplet_complete",
+            "v13_selected_roles",
+            "v13_selected_trench_count",
+            "v13_stable_trench_count",
+            "V13_selection_fallback",
+            "V13_missing_metrics",
+            "V13_issues",
+            "旋转_mixed_complete",
+            "all_result_groups_complete",
+            "patch_version",
+            "edge_continuity",
+            "viterbi_enabled",
+            "erf_enabled",
+            "requested_max_number",
+            "required_min_number",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "quality_status_before_synthetic_review",
+            "V10_synthetic_count",
+            "V10_original_valid_count",
+            "V10_continuity_redetected_count",
+            "V10_detected_fraction",
+            "V10_filled_fraction",
+            "V13_synthetic_count",
+            "V13_original_valid_count",
+            "V13_continuity_redetected_count",
+            "V13_detected_fraction",
+            "V13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "REVIEW",
+              "metrics": {
+                "rotated_CD_nm": 59.819355890345584,
+                "rotated_LER_left_nm": 2.294909515513369,
+                "rotated_LER_right_nm": 2.3071893009682287,
+                "rotated_LWR_nm": 0.7311518974546287,
+                "unrotated_CD_nm": 59.8193643016997,
+                "unrotated_LER_left_nm": 2.3006833439051624,
+                "unrotated_LER_right_nm": 2.3153586367855343,
+                "unrotated_LWR_nm": 0.7311520001340084
+              },
+              "warning": "V13: stable SPACE count 0 below Min Number=3; aggregate uses available unstable SPACE results when possible; SPACE 1: valid_fraction=0.328 below 0.700; SPACE 2: valid_fraction=0.352 below 0.700; SPACE 3: valid_fraction=0.344 below 0.700; SPACE 4: valid_fraction=0.344 below 0.700",
+              "error_message": null
+            }
+          ],
+          "errors": [],
+          "sample_rows": 1024,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "right",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            }
+          ],
+          "coordinate_rows": 6,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 1,
+            "error_count": 0,
+            "diagnostic_error_count": 0
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "trench_objects",
+            "engine_objects",
+            "per_sample_results",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  未旋转 V13: CD=59.8194  LER_left=2.0611  LER_right=2.1066  LWR=0.7312 nm",
+            "  未旋转 V10: CD=57.6449  LER_left=2.3007  LER_right=2.3154  LWR=0.7019 nm",
+            "",
+            "处理完成：1 张 PNG，4 个结构结果，0 条错误。",
+            "Excel：/tmp/measure-modified-comparison-cq1p1r85/unused_v10_group_row_missing/CD_measurement_200K_V13_modified_results.xlsx"
+          ]
+        },
+        "annotation_failure": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "旋转_mixed_CD_nm",
+            "旋转_mixed_LER_left_nm",
+            "旋转_mixed_LER_right_nm",
+            "旋转_mixed_LWR_nm",
+            "旋转_V13_CD_nm",
+            "旋转_V13_LER_left_nm",
+            "旋转_V13_LER_right_nm",
+            "旋转_V13_LWR_nm",
+            "旋转_V10_CD_nm",
+            "旋转_V10_LER_left_nm",
+            "旋转_V10_LER_right_nm",
+            "旋转_V10_LWR_nm",
+            "未旋转_mixed_CD_nm",
+            "未旋转_mixed_LER_left_nm",
+            "未旋转_mixed_LER_right_nm",
+            "未旋转_mixed_LWR_nm",
+            "未旋转_V13_CD_nm",
+            "未旋转_V13_LER_left_nm",
+            "未旋转_V13_LER_right_nm",
+            "未旋转_V13_LWR_nm",
+            "未旋转_V10_CD_nm",
+            "未旋转_V10_LER_left_nm",
+            "未旋转_V10_LER_right_nm",
+            "未旋转_V10_LWR_nm",
+            "image_key",
+            "image",
+            "folder_name",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "status",
+            "warning",
+            "algorithm_version",
+            "坐标状态",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "group_size",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "V13_rotation_angle_mean_deg",
+            "V13_rotation_angle_abs_mean_deg",
+            "V13_selected_count",
+            "V10_rotation_angle_mean_deg",
+            "V10_rotation_angle_abs_mean_deg",
+            "V10_selected_count",
+            "v10_measurement_valid",
+            "v10_triplet_complete",
+            "v10_selected_roles",
+            "v10_selected_trench_count",
+            "v10_stable_trench_count",
+            "V10_selection_fallback",
+            "V10_missing_metrics",
+            "V10_issues",
+            "v13_measurement_valid",
+            "v13_triplet_complete",
+            "v13_selected_roles",
+            "v13_selected_trench_count",
+            "v13_stable_trench_count",
+            "V13_selection_fallback",
+            "V13_missing_metrics",
+            "V13_issues",
+            "旋转_mixed_complete",
+            "all_result_groups_complete",
+            "patch_version",
+            "edge_continuity",
+            "viterbi_enabled",
+            "erf_enabled",
+            "requested_max_number",
+            "required_min_number",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "quality_status_before_synthetic_review",
+            "V10_synthetic_count",
+            "V10_original_valid_count",
+            "V10_continuity_redetected_count",
+            "V10_detected_fraction",
+            "V10_filled_fraction",
+            "V13_synthetic_count",
+            "V13_original_valid_count",
+            "V13_continuity_redetected_count",
+            "V13_detected_fraction",
+            "V13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "REVIEW",
+              "metrics": {
+                "rotated_CD_nm": 59.819355890345584,
+                "rotated_LER_left_nm": 2.294909515513369,
+                "rotated_LER_right_nm": 2.3071893009682287,
+                "rotated_LWR_nm": 0.7311518974546287,
+                "unrotated_CD_nm": 59.8193643016997,
+                "unrotated_LER_left_nm": 2.3006833439051624,
+                "unrotated_LER_right_nm": 2.3153586367855343,
+                "unrotated_LWR_nm": 0.7311520001340084
+              },
+              "warning": "V13: stable SPACE count 0 below Min Number=3; aggregate uses available unstable SPACE results when possible; SPACE 1: valid_fraction=0.328 below 0.700; SPACE 2: valid_fraction=0.352 below 0.700; SPACE 3: valid_fraction=0.344 below 0.700; SPACE 4: valid_fraction=0.344 below 0.700 | V13 annotation: OSError: injected annotation failure",
+              "error_message": null
+            }
+          ],
+          "errors": [
+            {
+              "stage": "V13_annotation",
+              "error_type": "OSError",
+              "error_message": "V13 annotation: OSError: injected annotation failure"
+            }
+          ],
+          "sample_rows": 1024,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "right",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            }
+          ],
+          "coordinate_rows": 6,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 1,
+            "error_count": 0,
+            "diagnostic_error_count": 1
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "trench_objects",
+            "engine_objects",
+            "per_sample_results",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  未旋转 V13: CD=59.8194  LER_left=2.0611  LER_right=2.1066  LWR=0.7312 nm",
+            "  未旋转 V10: CD=57.6449  LER_left=2.3007  LER_right=2.3154  LWR=0.7019 nm",
+            "",
+            "处理完成：1 张 PNG，4 个结构结果，1 条错误。",
+            "Excel：/tmp/measure-modified-comparison-cq1p1r85/annotation_failure/CD_measurement_200K_V13_modified_results.xlsx"
+          ]
+        },
+        "psd_failure": {
+          "exit_code": 0,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "旋转_mixed_CD_nm",
+            "旋转_mixed_LER_left_nm",
+            "旋转_mixed_LER_right_nm",
+            "旋转_mixed_LWR_nm",
+            "旋转_V13_CD_nm",
+            "旋转_V13_LER_left_nm",
+            "旋转_V13_LER_right_nm",
+            "旋转_V13_LWR_nm",
+            "旋转_V10_CD_nm",
+            "旋转_V10_LER_left_nm",
+            "旋转_V10_LER_right_nm",
+            "旋转_V10_LWR_nm",
+            "未旋转_mixed_CD_nm",
+            "未旋转_mixed_LER_left_nm",
+            "未旋转_mixed_LER_right_nm",
+            "未旋转_mixed_LWR_nm",
+            "未旋转_V13_CD_nm",
+            "未旋转_V13_LER_left_nm",
+            "未旋转_V13_LER_right_nm",
+            "未旋转_V13_LWR_nm",
+            "未旋转_V10_CD_nm",
+            "未旋转_V10_LER_left_nm",
+            "未旋转_V10_LER_right_nm",
+            "未旋转_V10_LWR_nm",
+            "image_key",
+            "image",
+            "folder_name",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "status",
+            "warning",
+            "algorithm_version",
+            "坐标状态",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "group_size",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "V13_rotation_angle_mean_deg",
+            "V13_rotation_angle_abs_mean_deg",
+            "V13_selected_count",
+            "V10_rotation_angle_mean_deg",
+            "V10_rotation_angle_abs_mean_deg",
+            "V10_selected_count",
+            "v10_measurement_valid",
+            "v10_triplet_complete",
+            "v10_selected_roles",
+            "v10_selected_trench_count",
+            "v10_stable_trench_count",
+            "V10_selection_fallback",
+            "V10_missing_metrics",
+            "V10_issues",
+            "v13_measurement_valid",
+            "v13_triplet_complete",
+            "v13_selected_roles",
+            "v13_selected_trench_count",
+            "v13_stable_trench_count",
+            "V13_selection_fallback",
+            "V13_missing_metrics",
+            "V13_issues",
+            "旋转_mixed_complete",
+            "all_result_groups_complete",
+            "patch_version",
+            "edge_continuity",
+            "viterbi_enabled",
+            "erf_enabled",
+            "requested_max_number",
+            "required_min_number",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "quality_status_before_synthetic_review",
+            "V10_synthetic_count",
+            "V10_original_valid_count",
+            "V10_continuity_redetected_count",
+            "V10_detected_fraction",
+            "V10_filled_fraction",
+            "V13_synthetic_count",
+            "V13_original_valid_count",
+            "V13_continuity_redetected_count",
+            "V13_detected_fraction",
+            "V13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "REVIEW",
+              "metrics": {
+                "rotated_CD_nm": 59.819355890345584,
+                "rotated_LER_left_nm": 2.294909515513369,
+                "rotated_LER_right_nm": 2.3071893009682287,
+                "rotated_LWR_nm": 0.7311518974546287,
+                "unrotated_CD_nm": 59.8193643016997,
+                "unrotated_LER_left_nm": 2.3006833439051624,
+                "unrotated_LER_right_nm": 2.3153586367855343,
+                "unrotated_LWR_nm": 0.7311520001340084
+              },
+              "warning": "V13: stable SPACE count 0 below Min Number=3; aggregate uses available unstable SPACE results when possible; SPACE 1: valid_fraction=0.328 below 0.700; SPACE 2: valid_fraction=0.352 below 0.700; SPACE 3: valid_fraction=0.344 below 0.700; SPACE 4: valid_fraction=0.344 below 0.700 | V13 PSD: RuntimeError: injected V13 PSD failure",
+              "error_message": null
+            }
+          ],
+          "errors": [
+            {
+              "stage": "V13_PSD",
+              "error_type": "RuntimeError",
+              "error_message": "V13 PSD: RuntimeError: injected V13 PSD failure"
+            }
+          ],
+          "sample_rows": 1024,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "right",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            }
+          ],
+          "coordinate_rows": 6,
+          "counts": {
+            "processed_png_count": 1,
+            "ok_count": 0,
+            "review_count": 1,
+            "error_count": 0,
+            "diagnostic_error_count": 1
+          },
+          "psd_statuses": {
+            "V10:OK": 40
+          },
+          "main_workbook_exists": true,
+          "sheets": [
+            "image_summary",
+            "coordinate_results",
+            "condition_summary",
+            "trench_objects",
+            "engine_objects",
+            "per_sample_results",
+            "processing_errors",
+            "settings"
+          ],
+          "log_tail": [
+            "  未旋转 V13: CD=59.8194  LER_left=2.0611  LER_right=2.1066  LWR=0.7312 nm",
+            "  未旋转 V10: CD=57.6449  LER_left=2.3007  LER_right=2.3154  LWR=0.7019 nm",
+            "",
+            "处理完成：1 张 PNG，4 个结构结果，1 条错误。",
+            "Excel：/tmp/measure-modified-comparison-cq1p1r85/psd_failure/CD_measurement_200K_V13_modified_results.xlsx"
+          ]
+        },
+        "machine_unmatched": {
+          "exit_code": 1,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "旋转_mixed_CD_nm",
+            "旋转_mixed_LER_left_nm",
+            "旋转_mixed_LER_right_nm",
+            "旋转_mixed_LWR_nm",
+            "旋转_V13_CD_nm",
+            "旋转_V13_LER_left_nm",
+            "旋转_V13_LER_right_nm",
+            "旋转_V13_LWR_nm",
+            "旋转_V10_CD_nm",
+            "旋转_V10_LER_left_nm",
+            "旋转_V10_LER_right_nm",
+            "旋转_V10_LWR_nm",
+            "未旋转_mixed_CD_nm",
+            "未旋转_mixed_LER_left_nm",
+            "未旋转_mixed_LER_right_nm",
+            "未旋转_mixed_LWR_nm",
+            "未旋转_V13_CD_nm",
+            "未旋转_V13_LER_left_nm",
+            "未旋转_V13_LER_right_nm",
+            "未旋转_V13_LWR_nm",
+            "未旋转_V10_CD_nm",
+            "未旋转_V10_LER_left_nm",
+            "未旋转_V10_LER_right_nm",
+            "未旋转_V10_LWR_nm",
+            "image_key",
+            "image",
+            "folder_name",
+            "path",
+            "pattern",
+            "pixel_size_nm",
+            "design_trench_nm",
+            "design_space_nm",
+            "status",
+            "warning",
+            "algorithm_version",
+            "坐标状态",
+            "source_CD_engine",
+            "source_LER_engine",
+            "source_LWR_engine",
+            "group_size",
+            "CD_stat_mode",
+            "LER_stat_mode",
+            "LWR_stat_mode",
+            "V13_rotation_angle_mean_deg",
+            "V13_rotation_angle_abs_mean_deg",
+            "V13_selected_count",
+            "V10_rotation_angle_mean_deg",
+            "V10_rotation_angle_abs_mean_deg",
+            "V10_selected_count",
+            "v10_measurement_valid",
+            "v10_triplet_complete",
+            "v10_selected_roles",
+            "v10_selected_trench_count",
+            "v10_stable_trench_count",
+            "V10_selection_fallback",
+            "V10_missing_metrics",
+            "V10_issues",
+            "v13_measurement_valid",
+            "v13_triplet_complete",
+            "v13_selected_roles",
+            "v13_selected_trench_count",
+            "v13_stable_trench_count",
+            "V13_selection_fallback",
+            "V13_missing_metrics",
+            "V13_issues",
+            "旋转_mixed_complete",
+            "all_result_groups_complete",
+            "patch_version",
+            "edge_continuity",
+            "viterbi_enabled",
+            "erf_enabled",
+            "requested_max_number",
+            "required_min_number",
+            "threshold_left_pct",
+            "threshold_right_pct",
+            "quality_status_before_synthetic_review",
+            "V10_synthetic_count",
+            "V10_original_valid_count",
+            "V10_continuity_redetected_count",
+            "V10_detected_fraction",
+            "V10_filled_fraction",
+            "V13_synthetic_count",
+            "V13_original_valid_count",
+            "V13_continuity_redetected_count",
+            "V13_detected_fraction",
+            "V13_filled_fraction"
+          ],
+          "images": [
+            {
+              "image_key": "five/test.png",
+              "status": "REVIEW",
+              "metrics": {
+                "rotated_CD_nm": 59.819355890345584,
+                "rotated_LER_left_nm": 2.294909515513369,
+                "rotated_LER_right_nm": 2.3071893009682287,
+                "rotated_LWR_nm": 0.7311518974546287,
+                "unrotated_CD_nm": 59.8193643016997,
+                "unrotated_LER_left_nm": 2.3006833439051624,
+                "unrotated_LER_right_nm": 2.3153586367855343,
+                "unrotated_LWR_nm": 0.7311520001340084
+              },
+              "warning": "V13: stable SPACE count 0 below Min Number=3; aggregate uses available unstable SPACE results when possible; SPACE 1: valid_fraction=0.328 below 0.700; SPACE 2: valid_fraction=0.352 below 0.700; SPACE 3: valid_fraction=0.344 below 0.700; SPACE 4: valid_fraction=0.344 below 0.700",
+              "error_message": null
+            }
+          ],
+          "errors": [],
+          "sample_rows": 1024,
+          "object_rows": 4,
+          "object_selection_flags": [
+            {
+              "space_role": "center",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "right",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            },
+            {
+              "space_role": "left2",
+              "V10_used_for_image_statistics": true,
+              "V13_used_for_image_statistics": true
+            }
+          ],
+          "coordinate_rows": 6,
+          "psd_statuses": {},
+          "main_workbook_exists": false,
+          "log_tail": [
+            "    detail, summary, unmatched = build_machine_comparison(valid_images, Path(machine_excel), args, output_dir)",
+            "                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+            "  File \"/home/ubuntu/projects/measure/sem_cd_measure_200k_batch_V13_modified_complete_package/sem_cd_measure_200k_batch_V13_modified.py\", line 822, in build_machine_comparison",
+            "    raise RuntimeError(\"Data.xlsx 与 PNG 文件名没有可匹配记录\")",
+            "RuntimeError: Data.xlsx 与 PNG 文件名没有可匹配记录"
+          ]
+        },
+        "output_schema_collision": {
+          "exit_code": 1,
+          "image_summary_exists": true,
+          "image_summary_rows": 1,
+          "columns": [
+            "previous_result"
+          ],
+          "images": [
+            {
+              "image_key": null,
+              "status": null,
+              "metrics": {
+                "rotated_CD_nm": null,
+                "rotated_LER_left_nm": null,
+                "rotated_LER_right_nm": null,
+                "rotated_LWR_nm": null,
+                "unrotated_CD_nm": null,
+                "unrotated_LER_left_nm": null,
+                "unrotated_LER_right_nm": null,
+                "unrotated_LWR_nm": null
+              },
+              "warning": null,
+              "error_message": null
+            }
+          ],
+          "errors": [],
+          "sample_rows": 0,
+          "object_rows": 0,
+          "object_selection_flags": [],
+          "coordinate_rows": 0,
+          "counts": {
+            "processed_png_count": null,
+            "ok_count": null,
+            "review_count": null,
+            "error_count": null,
+            "diagnostic_error_count": null
+          },
+          "psd_statuses": {},
+          "main_workbook_exists": false,
+          "log_tail": [
+            "  File \"/home/ubuntu/projects/measure/sem_cd_measure_200k_batch_V13_modified_complete_package/sem_cd_measure_200k_batch_V13_modified.py\", line 1413, in main",
+            "    process_trench(general, args)",
+            "  File \"/home/ubuntu/projects/measure/sem_cd_measure_200k_batch_V13_modified_complete_package/sem_cd_measure_200k_batch_V13_modified.py\", line 1111, in process_trench",
+            "    raise ValueError(\"请为本版 V13_modified 使用新的空输出目录，以免混入旧版列名或结果。\")",
+            "ValueError: 请为本版 V13_modified 使用新的空输出目录，以免混入旧版列名或结果。"
+          ],
+          "previous_summary_preserved": true
+        }
+      },
+      "self_checks": {
+        "self_check_V13_modified.py": "PASS: rotated/unrotated analytic CD/LER/LWR, groups 1/4/8, tilted straight-edge distinction, 24 labeled columns",
+        "self_check_partial_results.py": "{\n  \"only_required_metrics\": \"PASS\",\n  \"v10_exception\": \"PASS\",\n  \"v13_exception\": \"PASS\",\n  \"v10_no_candidates\": \"PASS\",\n  \"both_no_candidates\": \"PASS\",\n  \"roles_differ\": \"PASS\",\n  \"selection_fallback\": \"PASS\",\n  \"annotation_failure\": \"PASS\"\n}"
+      },
+      "baseline_edges": {
+        "V10": {
+          "slots": 512,
+          "accepted": 512,
+          "failures": {}
+        },
+        "V13": {
+          "slots": 512,
+          "accepted": 175,
+          "failures": {
+            "left_threshold_crossing_not_found": 236,
+            "right_threshold_crossing_not_found": 101
+          }
+        }
+      },
+      "source_files_unchanged": true
+    }
+  }
+}
