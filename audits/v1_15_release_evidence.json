@@ -1,0 +1,35 @@
+{
+  "documentation": {
+    "cli_options": 86,
+    "validated_examples": 16
+  },
+  "unchanged_algorithm_modules_after_version_rename": [
+    "cdsem_locator.py",
+    "cdsem_refinement.py",
+    "cdsem_statistics.py",
+    "cdsem_psd.py"
+  ],
+  "edge_engine_changed_functions": [
+    "detect_space_candidates",
+    "measure_image"
+  ],
+  "archive": {
+    "files_verified": 23,
+    "sha256": "533758f707e5515c0e280ef077583f978535d4a3014bff877acec097e3696645"
+  },
+  "unpacked_quick_self_check": "Analytical/background tests: PASS\nV1_15 SELF-CHECK PASSED",
+  "unpacked_full_export": {
+    "status": "PASS",
+    "image_statuses": [
+      "OK"
+    ],
+    "locator_modes": [
+      "dark-line"
+    ],
+    "processing_errors": 0,
+    "machine_rows": 1,
+    "psd_curves": 48,
+    "png_exports": 36,
+    "mixed_cd_nm": 59.93011584724277
+  }
+}
