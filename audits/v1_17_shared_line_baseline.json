@@ -1,0 +1,64 @@
+{
+  "fixture": {
+    "generator": "check_localization.synthetic_pattern(dark_line=True, stain_width=76)",
+    "pixel_size_nm": 1,
+    "physical_trench_width_px": 60,
+    "physical_line_width_px": 100,
+    "interior_stain_width_px": 76,
+    "pitch_px": 160,
+    "max_number": 3,
+    "reference_nm": {
+      "trench": 60,
+      "line": 100
+    },
+    "data_kind": "synthetic"
+  },
+  "V1_16_trench": {
+    "status": [
+      "OK"
+    ],
+    "cd_nm": [
+      59.8859941496249
+    ],
+    "pitch_cd_nm": [
+      160.00934985721997,
+      160.00934985721997,
+      159.95499336822374
+    ],
+    "warning": [
+      ""
+    ]
+  },
+  "V1_16_line": {
+    "status": [
+      "ERROR"
+    ],
+    "cd_nm": [
+      null
+    ],
+    "pitch_cd_nm": [
+      null,
+      null,
+      null
+    ],
+    "warning": [
+      "V10: no valid SPACE candidate found | V10: 没有可用 CD/LER/LWR；候选数=0，采样数=0 | 缺项: 旋转_V10_CD_nm; 旋转_V10_LER_left_nm; 旋转_V10_LER_right_nm; 旋转_V10_LWR_nm; 未旋转_V10_CD_nm; 未旋转_V10_LER_left_nm; 未旋转_V10_LER_right_nm; 未旋转_V10_LWR_nm | V13: no valid SPACE candidate found | V13: 没有可用 CD/LER/LWR；候选数=0，采样数=0 | 缺项: 旋转_V13_CD_nm; 旋转_V13_LER_left_nm; 旋转_V13_LER_right_nm; 旋转_V13_LWR_nm; 未旋转_V13_CD_nm; 未旋转_V13_LER_left_nm; 未旋转_V13_LER_right_nm; 未旋转_V13_LWR_nm"
+    ]
+  },
+  "V1_17_line": {
+    "status": [
+      "OK"
+    ],
+    "cd_nm": [
+      100.113317114626
+    ],
+    "pitch_cd_nm": [
+      159.999311350604,
+      159.999311350604,
+      160.0146714331235
+    ],
+    "warning": [
+      ""
+    ]
+  }
+}

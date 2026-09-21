@@ -1,0 +1,140 @@
+{
+  "version_migration": {
+    "status": "PASS",
+    "baseline_commit": "c0ae220406543f8a49e9fb880ef9398021ab806f",
+    "old_version_files_verified": 63,
+    "old_zip_sha256": {
+      "V1_15": "533758f707e5515c0e280ef077583f978535d4a3014bff877acec097e3696645",
+      "V1_16": "4707da503409e9a305f7731781d18541172750d2c12088a02fb535281f48b73e"
+    }
+  },
+  "documentation": {
+    "cli_options": 86,
+    "validated_examples": 18
+  },
+  "unchanged_algorithm_modules_after_version_rename": [
+    "cdsem_locator.py",
+    "cdsem_localization.py",
+    "cdsem_refinement.py",
+    "cdsem_statistics.py",
+    "cdsem_psd.py"
+  ],
+  "edge_engine_changed_functions": [
+    "detect_space_candidates",
+    "measure_image"
+  ],
+  "unchanged_main_statistics_functions": [
+    "coordinate_metrics_by_space",
+    "aggregate_coordinate_metrics"
+  ],
+  "trench_numerical_compatibility": {
+    "stained_default": {
+      "status": "PASS",
+      "exact_tables": {
+        "per_sample_results.csv": 768,
+        "pitch_periods.csv": 6,
+        "pitch_samples.csv": 768
+      },
+      "exact_summary_columns": [
+        "status",
+        "method",
+        "旋转_CD_nm",
+        "旋转_LER_left_nm",
+        "旋转_LER_right_nm",
+        "旋转_LWR_nm",
+        "未旋转_CD_nm",
+        "未旋转_LER_left_nm",
+        "未旋转_LER_right_nm",
+        "未旋转_LWR_nm",
+        "pitch_source",
+        "pitch_count",
+        "pitch_requested_count",
+        "pitch_status",
+        "旋转_pitch_CD_nm"
+      ]
+    },
+    "bright_optional": {
+      "status": "PASS",
+      "exact_tables": {
+        "per_sample_results.csv": 768,
+        "pitch_periods.csv": 6,
+        "pitch_samples.csv": 768
+      },
+      "exact_summary_columns": [
+        "status",
+        "method",
+        "旋转_CD_nm",
+        "旋转_LER_left_nm",
+        "旋转_LER_right_nm",
+        "旋转_LWR_nm",
+        "未旋转_CD_nm",
+        "未旋转_LER_left_nm",
+        "未旋转_LER_right_nm",
+        "未旋转_LWR_nm",
+        "pitch_source",
+        "pitch_count",
+        "pitch_requested_count",
+        "pitch_status",
+        "旋转_pitch_CD_nm"
+      ]
+    }
+  },
+  "archive": {
+    "files_verified": 27,
+    "sha256": "d35811f57e926718ebad4ee160db16914dd4d7e2272f3a6b6f8207afe38375b4"
+  },
+  "unpacked_quick_self_check": "Analytical/background tests: PASS\nV1_17 SELF-CHECK PASSED",
+  "unpacked_full_export": {
+    "status": "PASS",
+    "image_statuses": [
+      "OK"
+    ],
+    "locator_modes": [
+      "dark-line"
+    ],
+    "processing_errors": 0,
+    "machine_rows": 1,
+    "psd_curves": 48,
+    "png_exports": 36,
+    "mixed_cd_nm": 59.93011584724277,
+    "pitch_count": [
+      3,
+      3,
+      3
+    ],
+    "rotated_pitch_cd_nm": [
+      159.99805972300103,
+      159.99805972300103,
+      159.95499336822374
+    ]
+  },
+  "unpacked_stained_line_export": {
+    "status": "PASS",
+    "shared_edges": {
+      "valid_shared_samples": 768,
+      "source_trenches": {
+        "V10": 5,
+        "V13": 5
+      },
+      "selected_lines": {
+        "V10": 3,
+        "V13": 3
+      }
+    },
+    "viterbi": true,
+    "erf": true,
+    "processing_errors": 0,
+    "psd_curves": 48,
+    "rotated_pitch_cd_nm": [
+      160.0001046169654,
+      160.0001046169654,
+      160.00010622478314
+    ],
+    "pitch_count": [
+      3,
+      3,
+      3
+    ],
+    "mixed_cd_nm": 99.99995275646064
+  }
+}
