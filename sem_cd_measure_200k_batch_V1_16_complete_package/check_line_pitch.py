@@ -168,7 +168,7 @@ def integration_tests(temp, execute, require):
             "mixed uses V13 pitch",
         )
         book = load_workbook(
-            out / "CD_measurement_200K_V1_15_results.xlsx", read_only=True
+            out / "CD_measurement_200K_V1_16_results.xlsx", read_only=True
         )
         for sheet in [
             "measurement_summary",

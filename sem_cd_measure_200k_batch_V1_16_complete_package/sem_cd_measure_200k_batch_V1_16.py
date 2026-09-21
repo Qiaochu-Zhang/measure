@@ -3,7 +3,7 @@
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""V1_15: background-aware dual-edge measurement and unaveraged PSD.
+"""V1_16: background-aware dual-edge measurement and unaveraged PSD.
 
 Summary: filename/status/method first, mixed before V13/V10. CD/LER are
 ungrouped; scalar LWR retains --group-size. PSD never groups edge samples.
@@ -33,14 +33,15 @@ import cdsem_statistics as statistics
 import cdsem_engine as edges
 import cdsem_localization as localization
 from cdsem_psd import PSDBatch
+import cdsem_pitch as pitch
 
 
-SCRIPT_VERSION = "V1_15"
+SCRIPT_VERSION = "V1_16"
 DEFAULT_ROOT = regions.DEFAULT_ROOT
-DEFAULT_OUTPUT_NAME = "CD_measure_output_200K_V1_15"
+DEFAULT_OUTPUT_NAME = "CD_measure_output_200K_V1_16"
 EPS = 1e-12
 PUBLIC_GROUP_SIZE = 4
-V113_METHOD_CODE = "V1_15_DualCoordinates_V13CD_V10LER_V13LWR"
+V113_METHOD_CODE = "V1_16_DualCoordinates_V13CD_V10LER_V13LWR"
 V113_RESULT_ID = "dual_coordinates__v13_cd__v10_ler__v13_group4_lwr"
 V113_STAT_MODE = "rotated_then_unrotated"
 V113_AGGREGATION = "mean_per_space"
@@ -50,8 +51,8 @@ V13_ALGORITHM_VERSION = "V13_V17_THRESHOLD_V10_STATISTICS"
 METRICS = ("CD", "LER_left", "LER_right", "LWR")
 GROUPS = ("mixed", "V13", "V10")
 MODES = ("rotated", "unrotated")
-OUTPUT_SCHEMA = "metadata_first_methods_raw_psd_v115"
-PATCH_VERSION = "V1_15"
+OUTPUT_SCHEMA = "metadata_first_methods_raw_psd_v116_pitch"
+PATCH_VERSION = "V1_16"
 RESULT_COLUMNS = [
     f"{mode}_{group}_{metric}_nm"
     for mode in MODES
@@ -696,7 +697,7 @@ def configure_statistics_for_v110() -> None:
         "edge_variant": "v13_raw_cd_lwr__v10_raw_ler",
         "stat_mode": V113_STAT_MODE,
         "aggregation_mode": V113_AGGREGATION,
-        "cn_name": "V1_15 旋转/未旋转混合结果",
+        "cn_name": "V1_16 旋转/未旋转混合结果",
         "physical_meaning": (
             "V13/V1.7侧带50%阈值边缘提供raw CD与group4 LWR；"
             "V10峰值中位数50%阈值边缘提供raw LER；"
@@ -869,10 +870,10 @@ def generate_coordinate_statistics(
                 )
 
     summary = pd.DataFrame(summary_rows)
-    write_csv(summary, output_dir / "V1_15_statistics_summary.csv")
-    write_csv(pd.DataFrame(plot_rows), output_dir / "V1_15_plot_index.csv")
+    write_csv(summary, output_dir / "V1_16_statistics_summary.csv")
+    write_csv(pd.DataFrame(plot_rows), output_dir / "V1_16_plot_index.csv")
     write_workbook(
-        output_dir / "V1_15_statistics_and_machine_comparison.xlsx",
+        output_dir / "V1_16_statistics_and_machine_comparison.xlsx",
         {
             "Statistics_Summary": summary,
             "Machine_Per_Image": detailed,
@@ -1044,7 +1045,12 @@ def result_first(frame: pd.DataFrame) -> pd.DataFrame:
     ]
     meta = [name for name in meta if name not in leading]
     rest = [name for name in rest if name not in leading]
-    return frame[leading + meta + RESULT_COLUMNS + rest]
+    ordered = frame[leading + meta + RESULT_COLUMNS + rest]
+    if pitch.PITCH_COLUMN in ordered:
+        ordered = ordered[
+            [c for c in ordered if c != pitch.PITCH_COLUMN] + [pitch.PITCH_COLUMN]
+        ]
+    return ordered
 
 
 def corrected_image_row(
@@ -1102,6 +1108,13 @@ def method_summary(image_df):
     ]
     columns += [f"{mode}_{metric}_nm" for mode in MODES for metric in METRICS]
     columns += ["method_complete", "CD_source", "LER_source", "LWR_source", "warning"]
+    columns += [
+        "pitch_source",
+        "pitch_count",
+        "pitch_requested_count",
+        "pitch_status",
+        pitch.PITCH_COLUMN,
+    ]
     rows = []
     for image in image_df.to_dict("records"):
         for method in GROUPS:
@@ -1118,6 +1131,16 @@ def method_summary(image_df):
                     row[f"{mode}_{metric}_nm"] = finite_float(
                         image.get(f"{mode}_{method}_{metric}_nm")
                     )
+            pitch_engine = "V13" if method == "mixed" else method
+            row.update(
+                pitch_source=pitch_engine,
+                pitch_count=image.get(f"{pitch_engine}_pitch_count", 0),
+                pitch_requested_count=image.get("requested_max_number"),
+                pitch_status=image.get(f"{pitch_engine}_pitch_status", "UNAVAILABLE"),
+            )
+            row[pitch.PITCH_COLUMN] = finite_float(
+                image.get(f"{pitch_engine}_rotated_pitch_CD_nm")
+            )
             row["method_complete"] = all(
                 np.isfinite(row[f"{mode}_{metric}_nm"])
                 for mode in MODES
@@ -1351,7 +1374,7 @@ def save_internal_plots(image_df, output_dir, dpi):
             ax.grid(True, alpha=0.25)
             ax.legend()
         axes[-1, col].set_xlabel("Processed PNG index")
-    fig.suptitle("V1_15: rotated first, unrotated second")
+    fig.suptitle("V1_16: rotated first, unrotated second")
     fig.tight_layout()
     fig.savefig(
         target / "旋转_未旋转_metrics_by_image.png", dpi=dpi, bbox_inches="tight"
@@ -1441,6 +1464,7 @@ def process_trench(
         [],
         [],
     )
+    pitch_rows, pitch_samples = [], []
     roi_rows = []
     locator_rows = []
     locator_candidates = []
@@ -1594,6 +1618,40 @@ def process_trench(
                 threshold_left_pct=args.threshold_left,
                 threshold_right_pct=args.threshold_right,
             )
+            for engine, measurement, params in (("V10", m10, p10), ("V13", m13, p13)):
+                summary = {
+                    "pitch_count": 0,
+                    "pitch_status": "UNAVAILABLE",
+                    "rotated_pitch_CD_nm": math.nan,
+                }
+                if measurement is not None:
+                    try:
+                        summary, periods, samples = pitch.measure_pitch(
+                            measurement, params, mask
+                        )
+                        pitch_rows.extend(
+                            {"image_key": key, "engine": engine, **r} for r in periods
+                        )
+                        pitch_samples.extend(
+                            {"image_key": key, "engine": engine, **r} for r in samples
+                        )
+                    except Exception as exc:
+                        errors.append(
+                            {
+                                **meta,
+                                "stage": f"{engine}_pitch",
+                                "error_type": type(exc).__name__,
+                                "error_message": str(exc),
+                                "traceback": traceback.format_exc(),
+                            }
+                        )
+                primary.update({f"{engine}_{k}": v for k, v in summary.items()})
+                if summary["pitch_status"] != "OK" and primary["status"] != "ERROR":
+                    primary["status"] = "REVIEW"
+                    primary["warning"] += (
+                        f" | {engine} pitch: {summary['pitch_count']}/{args.max_number} valid periods"
+                    )
+            primary[pitch.PITCH_COLUMN] = primary["V13_rotated_pitch_CD_nm"]
             primary["quality_status_before_synthetic_review"] = primary["status"]
             for engine, samples in (("V10", s10), ("V13", s13)):
                 synthetic = sum(
@@ -1813,6 +1871,9 @@ def process_trench(
             stopped_on_error = True
             break
 
+    for row in image_rows:
+        row.setdefault("requested_max_number", args.max_number)
+        row.setdefault(pitch.PITCH_COLUMN, math.nan)
     image_df = result_first(pd.DataFrame(image_rows))
     object_df = result_first(pd.DataFrame(object_rows))
     measured_images = image_df[image_df["status"].isin(["OK", "REVIEW"])].copy()
@@ -1854,6 +1915,8 @@ def process_trench(
         "condition_summary": condition_df,
         "trench_objects": object_df,
         "engine_objects": engine_df,
+        "pitch_periods": pd.DataFrame(pitch_rows, columns=pitch.PERIOD_COLUMNS),
+        "pitch_samples": pd.DataFrame(pitch_samples, columns=pitch.SAMPLE_COLUMNS),
         "per_sample_results": sample_df,
         "processing_errors": error_df,
         "roi_summary": pd.DataFrame(roi_rows),
@@ -1873,7 +1936,7 @@ def process_trench(
         ),
     }
     outputs = {
-        "excel": output_dir / "CD_measurement_200K_V1_15_results.xlsx",
+        "excel": output_dir / "CD_measurement_200K_V1_16_results.xlsx",
         "settings": settings_path,
     }
     for name, frame in frames.items():
@@ -1949,6 +2012,7 @@ def process_trench(
             "LWR": f"3 sigma of group{args.group_size} mean widths, separately for each coordinate system",
             "image_aggregation": "arithmetic mean per selected structure, independently for each engine",
             "rotation": "each engine independently fits a PCA centerline per structure",
+            "pitch_CD": "rotated only; same-side edges of consecutive bands define one band + one adjacent gap; PCA normal projection; mean per period then equal mean of max-number nearest valid periods; mixed uses V13; partial counts marked REVIEW; synthetic samples excluded",
         },
         "group_size": args.group_size,
         "general": jsonable(asdict(general)),
@@ -2008,7 +2072,7 @@ def process_trench(
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description=(
-            "V1_15：同时输出旋转和未旋转结果；先旋转 mixed/V13/V10，再未旋转 mixed/V13/V10；"
+            "V1_16：同时输出旋转和未旋转结果；先旋转 mixed/V13/V10，再未旋转 mixed/V13/V10；"
             "V13计算CD/LWR，V10计算LER；递归处理所有PNG，"
             "不按目录名/文件名过滤，由 --pattern 指定整目录图案。"
         )
@@ -2143,7 +2207,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--psd-method",
         choices=("periodogram",),
         default="periodogram",
-        help="V1_15 PSD 不平均：逐结构、逐连续段 periodogram",
+        help="V1_16 PSD 不平均：逐结构、逐连续段 periodogram",
     )
     parser.add_argument(
         "--psd-window", choices=("hann", "boxcar", "blackmanharris"), default="hann"

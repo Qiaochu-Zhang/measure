@@ -20,7 +20,7 @@ import numpy as np
 import pandas as pd
 from openpyxl import Workbook, load_workbook
 
-import sem_cd_measure_200k_batch_V1_15 as app
+import sem_cd_measure_200k_batch_V1_16 as app
 from cdsem_psd import segment_spectra, scalar_metrics
 from cdsem_refinement import viterbi_path, fit_erf
 from scipy.special import erf
@@ -155,16 +155,52 @@ def analytical_tests():
         else:
             raise AssertionError("Background accepted: " + name)
     report["background_rejection"] = list(blanks)
+    require(
+        app.SCRIPT_VERSION == "V1_16" and app.PATCH_VERSION == "V1_16",
+        "independent V1_16 version",
+    )
+    with tempfile.TemporaryDirectory(prefix="v116-version-check-") as directory:
+        root = Path(directory)
+        gray = app.regions.read_gray_png(BASE / "examples/input_trench/five/test.png")
+        app.regions.unicode_imwrite(root / "input.png", gray)
+        for version in ("V1_14", "V1_15", "V1_16"):
+            output = root / (version + "_results")
+            output.mkdir()
+            (output / "settings.json").write_text(
+                json.dumps({"script_version": version})
+            )
+            (output / "annotation.png").write_bytes(
+                b"generated result must not be scanned"
+            )
+        config = app.regions.GeneralConfig(
+            root_dir=root, force_pattern="trench", pixel_size_nm=1
+        )
+        require(
+            config.resolved_output_dir().name == "CD_measure_output_200K_V1_16",
+            "V1_16 default output",
+        )
+        images, errors = app.regions.discover_images(config)
+        require(
+            not errors and [r.path.name for r in images] == ["input.png"],
+            "skip old and new version outputs",
+        )
+    report["v116_version_isolation"] = {
+        "status": "PASS",
+        "excluded_output_versions": ["V1_14", "V1_15", "V1_16"],
+    }
     from check_localization import analytical_tests as locator_tests
 
     report["v115_localization"] = locator_tests(require, app)
+    from check_line_pitch import analytical_tests as pitch_tests
+
+    report["line_pitch"] = pitch_tests(require, app)
     return report
 
 
 def integration_tests(temp):
     cases, cached = {}, {}
 
-    def execute(name, root=None, extra=(), pattern="trench"):
+    def execute(name, root=None, extra=(), pattern="trench", reference=60):
         output = temp / name
         fixture = root or BASE / f"examples/input_{pattern}"
         args = [
@@ -176,8 +212,11 @@ def integration_tests(temp):
             pattern,
             "--pixel-size",
             "1",
-            f"--{pattern}-reference-nm",
-            "60",
+            *(
+                [f"--{pattern}-reference-nm", str(reference)]
+                if reference is not None
+                else []
+            ),
             "--max-number",
             "4",
             "--no-auto-machine-comparison",
@@ -191,13 +230,17 @@ def integration_tests(temp):
         require(rc == 0, f"{name} returned {rc}\n" + log.getvalue())
         frame = pd.read_csv(output / "image_summary.csv")
         book = load_workbook(
-            output / "CD_measurement_200K_V1_15_results.xlsx", read_only=True
+            output / "CD_measurement_200K_V1_16_results.xlsx", read_only=True
         )
         require(
             book.sheetnames[0] == "measurement_summary",
             "summary must be first worksheet",
         )
         summary = book["measurement_summary"]
+        require(
+            next(summary.values)[-1] == "旋转_pitch_CD_nm",
+            "pitch must be last even on failure/blank images",
+        )
         require(
             [c.value for c in next(summary.iter_rows())][:3]
             == ["image", "status", "method"],
@@ -363,6 +406,15 @@ def integration_tests(temp):
         excluded.any() and not sample.loc[excluded, "valid"].any(),
         "continuity must not fill background",
     )
+    pitch_audit = pd.read_csv(output / "pitch_samples.csv")
+    require(
+        pitch_audit.background_excluded.any()
+        and not pitch_audit.loc[pitch_audit.background_excluded, "valid"].any()
+        and pitch_audit.loc[pitch_audit.background_excluded, "旋转_pitch_CD_nm"]
+        .isna()
+        .all(),
+        "pitch cannot use background even with forced continuity",
+    )
     psd_audit = pd.read_csv(output / "PSD/edge_coordinates.csv")
     require(
         not psd_audit.loc[psd_audit.background_excluded, "valid"].any(),
@@ -391,6 +443,7 @@ def integration_tests(temp):
         "both_engines_failure",
         "annotation_failure",
         "psd_failure",
+        "pitch_failure",
         "unmatched_machine",
         "missing_machine",
     ):
@@ -423,6 +476,18 @@ def integration_tests(temp):
                     side_effect=OSError("injected annotation failure"),
                 ):
                     output, result = execute(fault, extra=extras)
+            elif fault == "pitch_failure":
+                with patch.object(
+                    app.pitch,
+                    "measure_pitch",
+                    side_effect=RuntimeError("injected pitch failure"),
+                ):
+                    output, result = execute(fault, extra=extras)
+                require(
+                    result.status.eq("REVIEW").all()
+                    and result["旋转_pitch_CD_nm"].isna().all(),
+                    "pitch failure retains primary metrics and empty pitch",
+                )
             elif fault == "psd_failure":
                 with patch.object(
                     app.PSDBatch,
@@ -486,6 +551,9 @@ def integration_tests(temp):
     from check_localization import integration_tests as locator_tests
 
     cases["v115_localization"] = locator_tests(temp, execute, require)
+    from check_line_pitch import integration_tests as pitch_tests
+
+    cases["line_pitch"] = pitch_tests(temp, execute, require)
     return cases
 
 
@@ -507,7 +575,8 @@ if __name__ == "__main__":
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     result = dict(
-        version="V1_15",
+        version="V1_16",
+        patch_version=app.PATCH_VERSION,
         python=platform.python_version(),
         dependencies={
             p: importlib.metadata.version(p)
@@ -524,7 +593,7 @@ if __name__ == "__main__":
     )
     print("Analytical/background tests: PASS", flush=True)
     if not args.quick:
-        with tempfile.TemporaryDirectory(prefix="measure-v114-check-") as temp:
+        with tempfile.TemporaryDirectory(prefix="measure-v116-check-") as temp:
             result["integration"] = integration_tests(Path(temp))
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -532,4 +601,4 @@ if __name__ == "__main__":
             json.dumps(clean(result), ensure_ascii=False, indent=2, allow_nan=False)
             + "\n"
         )
-    print("V1_15 SELF-CHECK PASSED", flush=True)
+    print("V1_16 SELF-CHECK PASSED", flush=True)

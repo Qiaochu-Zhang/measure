@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the self-contained V1_15 release archive; exclude caches and outputs."""
+"""Build the self-contained V1_16 release archive; exclude caches and outputs."""
 
 from argparse import ArgumentParser
 import hashlib
@@ -7,7 +7,7 @@ from pathlib import Path
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGE = ROOT / "sem_cd_measure_200k_batch_V1_15_complete_package"
+PACKAGE = ROOT / "sem_cd_measure_200k_batch_V1_16_complete_package"
 
 
 def package_files():
@@ -34,7 +34,7 @@ def main():
     parser.add_argument(
         "--replace",
         action="store_true",
-        help="Explicitly replace the V1_15 archive only",
+        help="Explicitly replace the V1_16 archive only",
     )
     args = parser.parse_args()
     archive = ROOT / (PACKAGE.name + ".zip")
@@ -42,7 +42,7 @@ def main():
         raise SystemExit(f"Archive exists; use --replace to rebuild: {archive}")
     if not (PACKAGE / "validation_report.json").is_file():
         raise SystemExit(
-            "Run self_check_V1_15.py --output validation_report.json before packaging"
+            "Run self_check_V1_16.py --output validation_report.json before packaging"
         )
     manifest = PACKAGE / "PACKAGE_SHA256.txt"
     lines = [
@@ -57,7 +57,7 @@ def main():
         for path in package_files():
             info = zipfile.ZipInfo(
                 (Path(PACKAGE.name) / path.relative_to(PACKAGE)).as_posix(),
-                date_time=(2026, 9, 19, 0, 0, 0),
+                date_time=(2026, 9, 21, 0, 0, 0),
             )
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = (0o100755 if path.suffix == ".sh" else 0o100644) << 16

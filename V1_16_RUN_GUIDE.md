@@ -1,15 +1,15 @@
-# V1_15 完整运行说明与参数手册
+# V1_16 完整运行说明与参数手册
 
-适用版本：`sem_cd_measure_200k_batch_V1_15.py`，基于 V1_14 改进，按本次 V1_15 发布的实际参数解析、校验和执行代码编写。本文覆盖主程序全部 **86 个参数选项（包括帮助选项，`-h` 和 `--help` 为同一个选项）**，另列自检脚本参数。没有在命令行开放的内部常量，不应当作可传入参数。
+适用版本：`V1_16`（2026-09-21）。主程序：`sem_cd_measure_200k_batch_V1_16.py`，基于原始 V1_15（41e3294）加入 line 修复与 pitch 测量，按本次 V1_16 发布的实际参数解析、校验和执行代码编写。本文覆盖主程序全部 **86 个参数选项（包括帮助选项，`-h` 和 `--help` 为同一个选项）**，另列自检脚本参数。没有在命令行开放的内部常量，不应当作可传入参数。
 
-- [完整代码 ZIP](sem_cd_measure_200k_batch_V1_15_complete_package.zip)
-- [版本概述](V1_15_RELEASE_NOTES.md)
-- [包内 README](sem_cd_measure_200k_batch_V1_15_complete_package/README.md)
-- [主程序源码](sem_cd_measure_200k_batch_V1_15_complete_package/sem_cd_measure_200k_batch_V1_15.py)
+- [完整代码 ZIP](sem_cd_measure_200k_batch_V1_16_complete_package.zip)
+- [版本概述](V1_16_RELEASE_NOTES.md)
+- [包内 README](sem_cd_measure_200k_batch_V1_16_complete_package/README.md)
+- [主程序源码](sem_cd_measure_200k_batch_V1_16_complete_package/sem_cd_measure_200k_batch_V1_16.py)
 
 ## 1. 先了解默认行为
 
-程序用于 PNG 图像中近竖直的暗沟槽 `trench` 或亮线 `line` 的 CD、LER、LWR 测量。一次运行的整个输入目录只能使用一种图案类型；不同类型请分开运行。本版不支持 via，也不自动逐图判断 trench/line。
+程序用于 PNG 图像中近竖直的暗沟槽 `trench` 或亮线 `line` 的 CD、LER、LWR 测量。一次运行的整个输入目录只能使用一种图案类型；不同类型请分开运行。本版不支持 via，也不自动逐图判断 trench/line。V1_16 可单独解压运行，输出版本标识、Excel 及默认目录均为 V1_16；递归扫描仍排除 V1_14/V1_15/V1_16 的历史结果。建议不同版本结果放在输入目录之外。
 
 默认会：
 
@@ -18,7 +18,7 @@
 3. 分别运行 V10、V13 边缘算法。总结表中每张图按 `mixed → V13 → V10` 排列。
 4. 主测量使用 128 个采样位置、32 行灰度平均、3 像素横向平滑；CD/LER 不分组，LWR 使用 group4。
 5. PSD 另外用单行、1 px 沿线步长、无横向平滑重新提取 V10/V13 边缘；逐结构、逐连续段计算，不做 group4、Welch 或跨结构/跨图片频谱平均。
-6. 输出旋转与未旋转两套结果、Excel/CSV、标注图和 PSD；若输入根目录存在 `Data.xlsx`，尝试与其机台数据对比。
+6. 无论 line/trench 都自动测 pitch CD：按 max-number 个相邻完整周期求均值，只输出旋转结果，放在主汇总表最后一列。原 CD/LER/LWR 仍输出旋转与未旋转两套结果、Excel/CSV、标注图和 PSD；若输入根目录存在 `Data.xlsx`，尝试与其机台数据对比。
 
 参考宽度只是检测先验，不是测量真值。像素尺寸必须来自你的图像标定，不能仅凭“200K”倍率推断。
 
@@ -26,12 +26,12 @@
 
 ### 2.1 安装
 
-解压完整 ZIP，进入包含主程序和 `requirements_V1_15.txt` 的目录。建议 Python 3.12；代码使用 Python 3.10+ 语法，实际测试版本见包内 `validation_report.json`。
+解压完整 ZIP，进入包含主程序和 `requirements_V1_16.txt` 的目录。建议 Python 3.12；代码使用 Python 3.10+ 语法，实际测试版本见包内 `validation_report.json`。
 
 ```bash
 python --version
-python -m pip install -r requirements_V1_15.txt
-python self_check_V1_15.py --quick
+python -m pip install -r requirements_V1_16.txt
+python self_check_V1_16.py --quick
 ```
 
 如果系统命令叫 `python3`，将命令中的 `python` 替换成 `python3`。建议使用独立虚拟环境安装依赖。`requirements-tested.txt` 记录已测的直接依赖版本，不是完整的跨平台依赖锁定文件。
@@ -39,7 +39,7 @@ python self_check_V1_15.py --quick
 ### 2.2 跑随包示例
 
 ```bash
-python sem_cd_measure_200k_batch_V1_15.py --root examples/input_trench --pattern trench --pixel-size 1 --trench-reference-nm 60 --max-number 4 --output demo_output --no-auto-machine-comparison
+python sem_cd_measure_200k_batch_V1_16.py --root examples/input_trench --pattern trench --pixel-size 1 --trench-reference-nm 60 --max-number 4 --output demo_output --no-auto-machine-comparison
 ```
 
 `demo_output` 必须不存在或为空。重复运行请换一个输出目录，例如 `demo_output_02`；程序不会覆盖已有结果。
@@ -51,16 +51,16 @@ python sem_cd_measure_200k_batch_V1_15.py --root examples/input_trench --pattern
 暗沟槽：
 
 ```bash
-python sem_cd_measure_200k_batch_V1_15.py --root "D:/SEM/input_trench" --pattern trench --pixel-size 1.3181 --trench-reference-nm 60 --output "D:/SEM/results_trench_01" --no-auto-machine-comparison
+python sem_cd_measure_200k_batch_V1_16.py --root "D:/SEM/input_trench" --pattern trench --pixel-size 1.3181 --trench-reference-nm 60 --output "D:/SEM/results_trench_01" --no-auto-machine-comparison
 ```
 
 亮线：
 
 ```bash
-python sem_cd_measure_200k_batch_V1_15.py --root "D:/SEM/input_line" --pattern line --pixel-size 1.3181 --line-reference-nm 60 --output "D:/SEM/results_line_01" --no-auto-machine-comparison
+python sem_cd_measure_200k_batch_V1_16.py --root "D:/SEM/input_line" --pattern line --pixel-size 1.3181 --line-reference-nm 60 --output "D:/SEM/results_line_01" --no-auto-machine-comparison
 ```
 
-Linux/macOS 把路径替换为 `/path/to/images` 等实际路径。相对路径基于终端的当前工作目录；含空格的路径加引号。Windows 也可使用 `./RUN_V1_15.ps1`，Linux/macOS 可用 `./run_V1_15.sh` 替代 `python sem_cd_measure_200k_batch_V1_15.py`，参数相同。PowerShell 包装脚本未在本次 Linux 环境执行验证。
+Linux/macOS 把路径替换为 `/path/to/images` 等实际路径。相对路径基于终端的当前工作目录；含空格的路径加引号。Windows 也可使用 `./RUN_V1_16.ps1`，Linux/macOS 可用 `./run_V1_16.sh` 替代 `python sem_cd_measure_200k_batch_V1_16.py`，参数相同。PowerShell 包装脚本未在本次 Linux 环境执行验证。
 
 输入可以包含背景，程序自动筛选目标区域并排除端部。保留原始像素和正确标定；不要将 trench、line 和历史输出图混放。彩色图会转灰度，8bit 灰度保持原强度；非 8bit 图像会归一化，需要额外检查低动态范围图像。
 
@@ -81,7 +81,7 @@ Linux/macOS 把路径替换为 `/path/to/images` 等实际路径。相对路径�
 |---|---|---|
 | `-h` / `--help` | 开关 | 显示内置帮助并退出；不需要同时指定 pattern。部分内置帮助较简略，以本手册中的实际执行说明为补充。 |
 | `--root` | 路径；`.` | 输入根目录，递归扫描 PNG；必须是存在的文件夹，不是单张图片路径。 |
-| `--output` | 路径；自动 | 默认 `root/CD_measure_output_200K_V1_15`。目录必须不存在或为空。不要直接指定到包含输入图的目录。 |
+| `--output` | 路径；自动 | 默认 `root/CD_measure_output_200K_V1_16`。目录必须不存在或为空。不要直接指定到包含输入图的目录。 |
 | `--pattern` | **必填**；`trench` / `line` | `trench` 测暗沟槽，`line` 测亮线；对 root 下所有图片统一生效。支持大小写归一化。 |
 | `--pixel-size` | 浮点数；`1.3181` nm/px | 像素标定，必须 >0。影响 CD/LER/LWR、宽度先验换算和 PSD 的频率/密度单位。 |
 | `--stop-on-error` | 开关；默认不启用 | 逐图主处理发生致命异常或产生 ERROR 时停止后续处理，并先导出已处理结果。**不是对所有错误的全局即时停止**：预扫描读取错误、REVIEW、背景跳过或批次附属导出错误不一定触发停止，详见第 9 节。 |
@@ -94,10 +94,10 @@ Linux/macOS 把路径替换为 `/path/to/images` 等实际路径。相对路径�
 |---|---|---|
 | `--locator-mode` | `auto` / `dark-line` / `bright-line`；`auto` | trench 粗定位模式。dark-line 保留 V1_14 的盆地定位及跳过 line 内假暗条的周期规则；bright-line 用两个自适应灰度类识别整体亮 line 和整体暗 trench，相邻真实暗区为相邻周期；auto 从整个观测区域的 X 灰度轮廓逐图判断。支持大小写。与测量目标 pattern、边缘引擎 V10/V13 是不同选项，详见第 11 节。 |
 | `--locator-majority` | 浮点数；`0.70` | bright-line 候选核心低于自适应阈值、两侧 line 核心高于该阈值的最小像素比例，范围 `(0.5,1]`。同时使用内部均匀性检查。增大更严格；dark-line 原算法不使用此候选门槛。auto 分析也用该值检查有效列支持比例。不是绝对灰度阈值，也不是边缘交点百分比。 |
-| `--trench-reference-nm` | 浮点数；自动估计 | 暗沟槽参考宽度，必须 >0。不填时从图像灰度轮廓估计，复杂背景可能使估计不准。line 模式也接受此兼容参数。 |
+| `--trench-reference-nm` | 浮点数；自动估计 | 暗沟槽参考宽度，必须 >0。不填时从图像灰度轮廓估计，复杂背景可能使估计不准。line 模式也接受此兼容参数，但数值必须是亮线的参考宽度，不是原 trench 的宽度。 |
 | `--line-reference-nm` | 浮点数；自动估计 | 亮线参考宽度，必须 >0，只能用于 line。若与 trench-reference-nm 同时填写，两者必须相同。 |
 | `--space-reference-nm` | 浮点数；不显式约束 | 目标之间的间隙宽度，必须 >0，**不是中心距**。显式设置后，候选邻居排序会参考“目标宽度 + 间隙宽度”的节距；不设置时估计值可写入元数据，但不启用此显式排序先验。 |
-| `--max-number` | 整数；`3` | 每张图每个引擎最多选取的结构数量，≥1；不是图片数量，也不是采样点数。 |
+| `--max-number` | 整数；`3` | 每张图每个引擎最多选取的结构数量，≥1；同时为 pitch 求平均的目标周期数。N 个完整 pitch 需要 N+1 条同类结构的边缘，额外结构仅用于 pitch。不是图片数量，也不是采样点数。 |
 | `--min-number` | 整数；`min(3,max-number)` | 质量判定要求的最少稳定结构数，≥1 且不能超过 max-number。不足时仍尽可能保留已有结果，但通常标记 REVIEW。 |
 | `--allow-incomplete-triplet` | 开关；默认不启用 | 取消“中心结构及左右邻居齐全”的额外质量要求。不会取消 min-number 要求，也不会凭空增加候选；max-number <3 时原本就不要求完整三条。 |
 | `--candidate-dark-tolerance` | 浮点数；`None` | 可选的候选核心灰度容差，≥0：以中心候选核心灰度为参考，过滤比其更亮且超出容差的候选。line 使用反相后的工作灰度，因此不是按原图直接找暗线。不是左右边缘阈值。 |
@@ -138,7 +138,7 @@ Linux/macOS 把路径替换为 `/path/to/images` 等实际路径。相对路径�
 | `--threshold-search` | `bounded` / `legacy`；`bounded` | bounded 在受限搜索窗口内找正确极性的阈值交点，修复交点在梯度峰外侧导致的漏检；legacy 保留旧搜索逻辑，仅用于复核旧结果。 |
 | `--topology-min-contrast` | 浮点数；`2.5` 灰度级 | 边缘内外侧必须满足的最低明暗拓扑对比度，≥0；太高会漏检，太低可能把内部纹理当作边缘。与 ROI 和候选对比度是不同层次的检查。 |
 
-V10 使用中心暗参考及峰附近参考，V13 使用侧带均值等参考；即使同为 50%，交点也不一定相同。line 模式在反相后的工作图上执行这些暗目标规则。
+V10 通常使用中心暗参考及峰附近参考，V13 使用侧带均值等参考；当中心受内部条带污染、两侧内部平台一致且更暗时，改用两侧内部平台的中位数均值作为暗参考，具体触发常数见第 12 节。即使同为 50%，交点也不一定相同。line 模式在反相后的工作图上执行这些暗目标规则。
 
 主采样槽位间距约为 `(extend-length−1)/(sample-number−1)` px。增加 sample-number 并不增加图像真实分辨率，32 行平均窗口还可能高度重叠。single-row PSD 改用连续整数行，但自动 extend-length 的推导仍会受到上面的 average-range 设置影响。
 
@@ -238,7 +238,7 @@ PSD 每个引擎输出 `left`、`right`、`width`、`center` 四类信号；cent
 ### 5.1 只测量图片，不自动对比机台
 
 ```bash
-python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --pixel-size 1.3181 --trench-reference-nm 60 --output results_basic --no-auto-machine-comparison
+python sem_cd_measure_200k_batch_V1_16.py --root input --pattern trench --pixel-size 1.3181 --trench-reference-nm 60 --output results_basic --no-auto-machine-comparison
 ```
 
 仍会输出正常 Excel 和两套 PSD。不要同时填写 machine-excel，否则仍会触发显式对比。
@@ -246,7 +246,7 @@ python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --pixel-
 ### 5.2 对比自己的机台 Excel
 
 ```bash
-python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --pixel-size 1.3181 --trench-reference-nm 60 --output results_machine --machine-excel reference.xlsx --machine-sheet Sheet1 --machine-start-row 2 --machine-end-row 0 --machine-image-column A --machine-cd-column B --machine-ler-left-column C --machine-lwr-column D
+python sem_cd_measure_200k_batch_V1_16.py --root input --pattern trench --pixel-size 1.3181 --trench-reference-nm 60 --output results_machine --machine-excel reference.xlsx --machine-sheet Sheet1 --machine-start-row 2 --machine-end-row 0 --machine-image-column A --machine-cd-column B --machine-ler-left-column C --machine-lwr-column D
 ```
 
 列位置仅为示例。参考 Excel 不需要放在输入目录里。
@@ -254,7 +254,7 @@ python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --pixel-
 ### 5.3 手动 ROI（仍裁去端部）
 
 ```bash
-python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --pixel-size 1.3181 --trench-reference-nm 60 --no-auto-roi --center-x 300 --center-y 250 --meas-area-width 400 --meas-area-height 300 --extend-length 240 --output results_manual --no-auto-machine-comparison
+python sem_cd_measure_200k_batch_V1_16.py --root input --pattern trench --pixel-size 1.3181 --trench-reference-nm 60 --no-auto-roi --center-x 300 --center-y 250 --meas-area-width 400 --meas-area-height 300 --extend-length 240 --output results_manual --no-auto-machine-comparison
 ```
 
 示例中心和尺寸必须适合你的原图。本命令仍从手动区域上下各去掉 5%；若需关闭端部排除，再加 `--end-trim-fraction 0`。只填写 center-x/center-y 不等于关闭背景排除。
@@ -262,7 +262,7 @@ python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --pixel-
 ### 5.4 只测一条线，并输出未分组主 LWR
 
 ```bash
-python sem_cd_measure_200k_batch_V1_15.py --root input --pattern line --pixel-size 1.3181 --line-reference-nm 60 --max-number 1 --min-number 1 --group-size 1 --output results_single --no-auto-machine-comparison
+python sem_cd_measure_200k_batch_V1_16.py --root input --pattern line --pixel-size 1.3181 --line-reference-nm 60 --max-number 1 --min-number 1 --group-size 1 --output results_single --no-auto-machine-comparison
 ```
 
 主边缘仍使用默认 32 行平均、3 px 横向平滑；group-size=1 只取消后续 LWR 分组。如需主测量也取消这两种灰度平均，另加 `--average-range 1 --smoothing-pixel 1`，并重新评估噪声影响。
@@ -270,7 +270,7 @@ python sem_cd_measure_200k_batch_V1_15.py --root input --pattern line --pixel-si
 ### 5.5 默认单行 PSD，并允许最多 2 个位置的内部缺口插值
 
 ```bash
-python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --pixel-size 1.3181 --trench-reference-nm 60 --psd-edge-source single-row --psd-gap-mode interpolate --psd-max-gap 2 --output results_psd_interpolate --no-auto-machine-comparison
+python sem_cd_measure_200k_batch_V1_16.py --root input --pattern trench --pixel-size 1.3181 --trench-reference-nm 60 --psd-edge-source single-row --psd-gap-mode interpolate --psd-max-gap 2 --output results_psd_interpolate --no-auto-machine-comparison
 ```
 
 这是对缺失数据的显式处理，不是实测点；背景缺口不会插值。若不希望任何 PSD 缺口插值，保持默认 segments。
@@ -278,7 +278,7 @@ python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --pixel-
 ### 5.6 PSD 复用主测量边缘，不进行后续分组平均
 
 ```bash
-python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --pixel-size 1.3181 --trench-reference-nm 60 --psd-edge-source measurement --output results_psd_reuse --no-auto-machine-comparison
+python sem_cd_measure_200k_batch_V1_16.py --root input --pattern trench --pixel-size 1.3181 --trench-reference-nm 60 --psd-edge-source measurement --output results_psd_reuse --no-auto-machine-comparison
 ```
 
 此配方继承主测量的 32 行灰度平均和横向平滑，与默认 single-row 的谱不应直接混作同一配方比较。
@@ -286,7 +286,7 @@ python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --pixel-
 ### 5.7 启用路径优化与 ERF 拟合
 
 ```bash
-python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --pixel-size 1.3181 --trench-reference-nm 60 --viterbi 1 --viterbi-weight 5 --viterbi-max-jump 3 --erf-fit 1 --erf-window 8 --save-debug-masks --output results_path_erf --no-auto-machine-comparison
+python sem_cd_measure_200k_batch_V1_16.py --root input --pattern trench --pixel-size 1.3181 --trench-reference-nm 60 --viterbi 1 --viterbi-weight 5 --viterbi-max-jump 3 --erf-fit 1 --erf-window 8 --save-debug-masks --output results_path_erf --no-auto-machine-comparison
 ```
 
 这是可选实验配方，不保证比默认结果更准确。先对照原图、轨迹和已知标准样，再决定是否批量使用。
@@ -294,7 +294,7 @@ python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --pixel-
 ### 5.8 先只看主指标、减少图表输出
 
 ```bash
-python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --pixel-size 1.3181 --trench-reference-nm 60 --skip-psd --skip-statistics-plots --no-annotated-images --compact-sample-output --output results_fast --no-auto-machine-comparison
+python sem_cd_measure_200k_batch_V1_16.py --root input --pattern trench --pixel-size 1.3181 --trench-reference-nm 60 --skip-psd --skip-statistics-plots --no-annotated-images --compact-sample-output --output results_fast --no-auto-machine-comparison
 ```
 
 这不是完全不输出图片：自动 ROI 开启时仍保留 ROI 预览。不要在该命令中继续添加 psd-axis 等 PSD 参数。
@@ -302,7 +302,7 @@ python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --pixel-
 ### 5.9 只检查参数，不跑图片
 
 ```bash
-python sem_cd_measure_200k_batch_V1_15.py --pattern trench --max-number 4 --group-size 8 --check-parameters
+python sem_cd_measure_200k_batch_V1_16.py --pattern trench --max-number 4 --group-size 8 --check-parameters
 ```
 
 用于检查拼写、取值和参数冲突；不能证明图片/参考文件可读或 ROI 尺寸正确。
@@ -322,15 +322,16 @@ python sem_cd_measure_200k_batch_V1_15.py --pattern trench --max-number 4 --grou
 
 ## 7. 输出文件怎么看
 
-先打开 `CD_measurement_200K_V1_15_results.xlsx` 的 `measurement_summary`，再核查 `ROI/` 和双引擎标注图。
+先打开 `CD_measurement_200K_V1_16_results.xlsx` 的 `measurement_summary`，再核查 `ROI/` 和双引擎标注图。
 
 | 输出 | 主要用途 |
 |---|---|
-| `measurement_summary` 工作表 / CSV | 文件名、status、method 在前；每张图 mixed、V13、V10 三行，均含旋转/未旋转指标。 |
+| `measurement_summary` 工作表 / CSV | 文件名、status、method 在前；每张图 mixed、V13、V10 三行，均含原旋转/未旋转指标；最后一列 `旋转_pitch_CD_nm`，之前为 pitch_source/count/requested_count/status。 |
 | `image_summary` | 每图一行的完整宽表、质量状态与诊断字段。 |
 | `coordinate_results` | 按坐标/方法展开的长表。 |
 | `condition_summary` | 按文件夹汇总，默认仅 OK。 |
 | `trench_objects`、`engine_objects` | 每条结构、每个引擎的值、支持数和实际入选信息。 |
+| `pitch_periods` / `pitch_samples` | 逐周期和逐采样的 pitch 审计，含入选标记、候选编号、实际支持点、背景/补点排除；最后一列均为 `旋转_pitch_CD_nm`。 |
 | `per_sample_results` | 主测量每个采样位置的边缘、有效性、失败原因及补点标记；非 compact 输出还含 average_y0/y1（半开区间）以核查整个平均窗口。 |
 | `ROI/`、`roi_summary.csv` | 背景保留区域图和原图坐标范围；绿色框是包围框，暗化部分为排除背景或端部；roi_summary 记录估计长度、每端裁剪像素数及裁前/裁后边界。 |
 | `locator_summary.csv` / 同名工作表 | 每图请求/实际/建议定位模式，自动判断分数、歧义标志、周期及阈值。V10/V13_locator_threshold_raw 是定位用阈值，profile_threshold 是模式判断用阈值。 |
@@ -342,7 +343,7 @@ python sem_cd_measure_200k_batch_V1_15.py --pattern trench --max-number 4 --grou
 | `PSD/per_structure_psd_summary.csv`、`PSD/per_structure_psd_curves.csv` | 两引擎数据合并存放的长表，未做跨引擎/结构平均。 |
 | `PSD/edge_coordinates.csv` | 实际用于 PSD 的单独边缘轨迹；默认不等于主逐点表。 |
 | `PSD/measurement_manifest.csv`、`PSD/PSD_settings.json` | PSD 边缘来源、实际平均/平滑值、设置与支持数。 |
-| `machine_comparison_detailed.csv`、`V1_15_statistics_and_machine_comparison.xlsx` | 有参考表时的逐图机台对比和统计摘要；另查 unmatched 表定位匹配问题。 |
+| `machine_comparison_detailed.csv`、`V1_16_statistics_and_machine_comparison.xlsx` | 有参考表时的逐图机台对比和统计摘要；另查 unmatched 表定位匹配问题。 |
 
 mixed 的 CD/LWR 来自 V13，左/右 LER 来自 V10；它是兼容性的跨引擎组合，不是一套单一边缘坐标推导的全部统计。旋转是用结构中心线 PCA 做坐标变换，不是重新旋转并插值整幅原图。
 
@@ -399,7 +400,7 @@ PSD 表中的 `OK` 只表示该连续段足以计算频谱，**不等同于主�
 
 ## 10. 自检脚本与文档核对
 
-自检脚本 `self_check_V1_15.py` 不是主测量入口，它的参数为：
+自检脚本 `self_check_V1_16.py` 不是主测量入口，它的参数为：
 
 | 参数 | 默认值 | 含义 |
 |---|---|---|
@@ -408,17 +409,17 @@ PSD 表中的 `OK` 只表示该连续段足以计算频谱，**不等同于主�
 | `--output` | 不写报告文件 | 保存本次 JSON 报告的路径；**这个自检选项会覆盖同名报告**，建议使用新文件名，别覆盖随包基准 validation_report.json。 |
 
 ```bash
-python self_check_V1_15.py --quick
-python self_check_V1_15.py --output my_validation_report.json
-python sem_cd_measure_200k_batch_V1_15.py --help
+python self_check_V1_16.py --quick
+python self_check_V1_16.py --output my_validation_report.json
+python sem_cd_measure_200k_batch_V1_16.py --help
 ```
 
 随包报告包含原有端到端/故障场景，以及新增模式判断、两种定位、端部与 PSD 排除、参数检查；这些是软件回归与随包/合成图验证，不替代真实 SEM 标准样验证。
 
-本手册的覆盖范围以主程序 `build_parser()` 的全部选项为准：编写后逐项检查参数表是否包含每个公开参数，并使用实际解析器检查示例命令及相互冲突的参数。内部 `via_reference_nm` 等历史兼容字段并不是公开接口。本版只在新包内改动；V1_14 包和 ZIP 保留。包内附有同内容的 RUN_GUIDE.md，离线解压即可查阅全部参数。
+本手册的覆盖范围以主程序 `build_parser()` 的全部选项为准：编写后逐项检查参数表是否包含每个公开参数，并使用实际解析器检查示例命令及相互冲突的参数。内部 `via_reference_nm` 等历史兼容字段并不是公开接口。本版使用独立 V1_16 包；原 V1_15 的代码、文档、测试报告和 ZIP 与提交 41e3294 保持字节一致。包内附有同内容的 RUN_GUIDE.md，离线解压即可查阅全部参数。
 
 
-## 11. V1_15 算法、默认行为和复现
+## 11. 继承自 V1_15 的定位、端部排除和复现
 
 ### 11.1 两种定位与 auto
 
@@ -449,25 +450,65 @@ no-auto-roi 时将手动矩形（未给尺寸则整图）视为可观察区域�
 自动模式、每端默认 5%：
 
 ```bash
-python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --locator-mode auto --pixel-size 1.3181 --trench-reference-nm 60 --output result_auto --no-auto-machine-comparison
+python sem_cd_measure_200k_batch_V1_16.py --root input --pattern trench --locator-mode auto --pixel-size 1.3181 --trench-reference-nm 60 --output result_auto --no-auto-machine-comparison
 ```
 
 已知 line 内有假暗条：
 
 ```bash
-python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --locator-mode dark-line --pixel-size 1.3181 --trench-reference-nm 60 --output result_dark_line --no-auto-machine-comparison
+python sem_cd_measure_200k_batch_V1_16.py --root input --pattern trench --locator-mode dark-line --pixel-size 1.3181 --trench-reference-nm 60 --output result_dark_line --no-auto-machine-comparison
 ```
 
 已知 line 整体亮：
 
 ```bash
-python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --locator-mode bright-line --locator-majority 0.7 --end-trim-fraction 0.05 --pixel-size 1.3181 --trench-reference-nm 60 --output result_bright_line --no-auto-machine-comparison
+python sem_cd_measure_200k_batch_V1_16.py --root input --pattern trench --locator-mode bright-line --locator-majority 0.7 --end-trim-fraction 0.05 --pixel-size 1.3181 --trench-reference-nm 60 --output result_bright_line --no-auto-machine-comparison
 ```
 
 复现 V1_14 关闭自动 ROI 时的行为（仍使用 V1_14 默认 bounded 边缘搜索）：
 
 ```bash
-python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --locator-mode dark-line --no-auto-roi --end-trim-fraction 0 --pixel-size 1.3181 --trench-reference-nm 60 --output result_v114_compatible --no-auto-machine-comparison
+python sem_cd_measure_200k_batch_V1_16.py --root input --pattern trench --locator-mode dark-line --no-auto-roi --end-trim-fraction 0 --pixel-size 1.3181 --trench-reference-nm 60 --output result_v114_compatible --no-auto-machine-comparison
 ```
 
 若复现的是 V1_14 的 threshold-search=legacy 配方，还需同步加上 `--threshold-search legacy`。其余标定、ROI、采样、参考宽度和统计参数也须一致。开启新区域裁剪会改变参与测量的像素/长度，因此不能要求结果与未裁剪版本数值一致。
+
+
+## 12. line 修复与自动 pitch CD（2026-09-21）
+
+### 12.1 line 失败原因与修复
+
+旧版已在估宽、ROI 和边缘引擎中反相，但定位/灰度模型并非在所有结构上对称：
+
+- 旧盆地宽度限幅实际为 13.5–145 nm，与用户目标宽度无关。180 nm line 被标为 `basin_too_wide`。现使用 `min(30,参考宽度) × 0.45` 至 `max(100,参考宽度) × 1.45` nm，保留既有范围并覆盖目标宽度；双极性采用相同规则。
+- 100 nm line 内有 40 nm 假暗条时，反相后成为中间亮条，两侧亮线被拆成约 30 nm 小段。自动估宽可能估成 33 nm；显式给 100 nm 时背景掩码可能只保留外围，最终无候选。
+- 新增内部条带识别：对测量极性的灰度轮廓做三类划分，动态范围至少 12，两个类间距均至少占动态范围的 20%；仅在至少两个完整区间中，较高阈值恰好连接两个低灰度平台时启用。每个平台至少 3px、至少占区间 12%，中间间隔至少 3px 和区间 8%；已知参考宽度时完整区间须在其 0.65–1.35 倍内。此识别用于估宽、ROI 和定位，原图像素不会被涂改。
+- 边缘阈值的中心参考若比左右 10%–22% 内侧平台均值高出 `max(12,4×两侧差值)`，改用这些平台的中位数均值，保留近边缘真实梯度、跟踪、Viterbi/ERF 和背景约束。逐点 `threshold_reference_mode` 会带 `_edge_interior_reference`。
+
+line 参数填写 line 的参考宽度；同图 trench=60nm、line=100nm 时，不能仅更改 pattern 并仍把参考宽度固定为 60nm。auto/bright-line 的名称按反相后的工作图解释。真实灰度不能区分的结构仍须核查标注。
+
+### 12.2 pitch 定义、旋转和输出
+
+一个 pitch = 一个完整 line + 紧邻的一个完整 trench。使用相邻同类结构的**左边缘到左边缘**定义周期：trench 模式是 trench+line，line 模式是 line+trench。使用实际边缘，不直接相加两个独立平均 CD，也不使用名义参考节距作为测量值。
+
+对周期两边在共同有效 Y 上的边缘中点做 PCA 拟合，沿法向计算 `pitch(y) = (x_next_left(y)-x_left(y)) × |cos(theta)| × pixel_size`。先对一个周期的有效点取均值，再对离测量中心最近的 `max-number` 个不同周期等权平均。仅报告旋转后的 nm 数值。mixed 和 V13 行使用 V13 pitch，V10 行使用 V10 pitch。
+
+主测量选择 N 条结构时通常只有 N−1 个完整周期，所以 pitch 会额外定位并测量一个相邻结构，已有边缘直接复用。此额外结构不计入主 CD/LER/LWR 或 PSD。周期需满足相邻候选序号和观测周期检查：bright-line 的候选序号差为 1；dark-line 允许跨过一条假暗条（序号差最多 2）；距离须为观测周期的 0.60–1.40 倍。此检查使用自动建议的实际形态，避免手动模式把节距翻倍。不跨被漏检结构，不把两倍节距当作一个 pitch。默认要求同一周期至少 2 个共同有效点，且有效比例达到 minimum-valid-fraction。
+
+背景、裁去的端部、无效边缘及 continuity 的合成补点都不进入 pitch。只有 `edge-continuity=100` 补出来的边缘不会被当作 pitch 的实测数据。
+
+`measurement_summary` 的**最后一列**是 `旋转_pitch_CD_nm`；image_summary 的最后一列同样是 mixed/V13 pitch。逐周期和采样审计也提供该末列。`pitch_count` 是实际采用数，`pitch_requested_count` 是 max-number；不足时保留已有周期均值、`pitch_status=PARTIAL`，图片为 REVIEW；完全没有完整周期则为空值、UNAVAILABLE，绝不填 0。图像背景跳过和 ERROR 仍保留列名。主测量原有指标不因 pitch 不足而丢弃。
+
+例：测带内部暗条的亮线，同时自动平均 3 个 pitch：
+
+```bash
+python sem_cd_measure_200k_batch_V1_16.py --root examples/input_dark_line --pattern line --pixel-size 1 --line-reference-nm 100 --max-number 3 --output result_line_pitch --no-auto-machine-comparison
+```
+
+例：同图测 trench 并自动测相邻周期：
+
+```bash
+python sem_cd_measure_200k_batch_V1_16.py --root examples/input_dark_line --pattern trench --pixel-size 1 --trench-reference-nm 60 --max-number 3 --output result_trench_pitch --no-auto-machine-comparison
+```
+
+完整自检仍用 `python self_check_V1_16.py --output validation_report.json`；新增测试在 `check_line_pitch.py`，包括同图双模式、宽线、内部暗条、自动估宽、反相对称、倾斜和不同采样支持数、max-number=1/2/5、周期不足、背景/合成点排除和 Excel 末列验证。随包样例及新增图均为合成图，尚无用户实测失败 SEM 图用于验证。

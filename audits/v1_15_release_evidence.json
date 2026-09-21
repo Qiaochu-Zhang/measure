@@ -1,7 +1,7 @@
 {
   "documentation": {
     "cli_options": 86,
-    "validated_examples": 18
+    "validated_examples": 16
   },
   "unchanged_algorithm_modules_after_version_rename": [
     "cdsem_locator.py",
@@ -10,14 +10,12 @@
     "cdsem_psd.py"
   ],
   "edge_engine_changed_functions": [
-    "detect_edge_pair",
-    "build_v115_fixed",
     "detect_space_candidates",
     "measure_image"
   ],
   "archive": {
-    "files_verified": 25,
-    "sha256": "131ebf14e7309c955cf08b40c642afeea09a57a5158e8802de059cb78e760a50"
+    "files_verified": 23,
+    "sha256": "533758f707e5515c0e280ef077583f978535d4a3014bff877acec097e3696645"
   },
   "unpacked_quick_self_check": "Analytical/background tests: PASS\nV1_15 SELF-CHECK PASSED",
   "unpacked_full_export": {
@@ -32,34 +30,6 @@
     "machine_rows": 1,
     "psd_curves": 48,
     "png_exports": 36,
-    "mixed_cd_nm": 59.93011584724277,
-    "pitch_count": [
-      3,
-      3,
-      3
-    ],
-    "rotated_pitch_cd_nm": [
-      159.99805972300103,
-      159.99805972300103,
-      159.95499336822374
-    ]
-  },
-  "unpacked_stained_line_export": {
-    "status": "PASS",
-    "viterbi": true,
-    "erf": true,
-    "processing_errors": 0,
-    "psd_curves": 48,
-    "rotated_pitch_cd_nm": [
-      159.99962252813714,
-      159.99962252813714,
-      159.99961711935546
-    ],
-    "pitch_count": [
-      3,
-      3,
-      3
-    ],
-    "mixed_cd_nm": 99.99995275869983
+    "mixed_cd_nm": 59.93011584724277
   }
 }

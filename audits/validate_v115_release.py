@@ -12,7 +12,7 @@ import tempfile
 import zipfile
 
 import pandas as pd
-from openpyxl import Workbook, load_workbook
+from openpyxl import Workbook
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = ROOT / "sem_cd_measure_200k_batch_V1_15_complete_package"
@@ -80,12 +80,7 @@ def main():
     changed = [
         name for name in functions[0] if functions[0][name] != functions[1].get(name)
     ]
-    assert changed == [
-        "detect_edge_pair",
-        "build_v115_fixed",
-        "detect_space_candidates",
-        "measure_image",
-    ], changed
+    assert changed == ["detect_space_candidates", "measure_image"], changed
     report["edge_engine_changed_functions"] = changed
     archive = ROOT / (PACKAGE.name + ".zip")
     with tempfile.TemporaryDirectory(prefix="v115-release-") as temp:
@@ -152,62 +147,6 @@ def main():
             psd_curves=len(psd),
             png_exports=png_count,
             mixed_cd_nm=float(images["旋转_mixed_CD_nm"].iloc[0]),
-        )
-        summary = pd.read_csv(output / "measurement_summary.csv")
-        assert summary.columns[-1] == "旋转_pitch_CD_nm"
-        assert summary.pitch_count.eq(3).all()
-        assert (summary["旋转_pitch_CD_nm"] - 160).abs().lt(1).all()
-        report["unpacked_full_export"]["pitch_count"] = list(summary.pitch_count)
-        report["unpacked_full_export"]["rotated_pitch_cd_nm"] = list(
-            summary["旋转_pitch_CD_nm"]
-        )
-        line_output = unpacked / "line_export_smoke"
-        run(
-            [
-                "sem_cd_measure_200k_batch_V1_15.py",
-                "--root",
-                "examples/input_dark_line",
-                "--output",
-                line_output,
-                "--pattern",
-                "line",
-                "--pixel-size",
-                "1",
-                "--line-reference-nm",
-                "100",
-                "--no-auto-machine-comparison",
-                "--skip-statistics-plots",
-                "--viterbi",
-                "1",
-                "--erf-fit",
-                "1",
-            ],
-            unpacked,
-        )
-        line = pd.read_csv(line_output / "measurement_summary.csv")
-        errors = pd.read_csv(line_output / "processing_errors.csv")
-        psd = pd.read_csv(line_output / "PSD/per_structure_psd_summary.csv")
-        assert line.status.eq("OK").all() and errors.empty
-        assert abs(line.loc[line.method == "V13", "旋转_CD_nm"].iloc[0] - 100) < 1
-        assert (
-            line.pitch_count.eq(3).all()
-            and (line["旋转_pitch_CD_nm"] - 160).abs().lt(1).all()
-        )
-        assert set(psd.engine) == {"V10", "V13"} and psd.status.eq("OK").all()
-        book = load_workbook(
-            line_output / "CD_measurement_200K_V1_15_results.xlsx", read_only=True
-        )
-        assert next(book["measurement_summary"].values)[-1] == "旋转_pitch_CD_nm"
-        book.close()
-        report["unpacked_stained_line_export"] = dict(
-            status="PASS",
-            viterbi=True,
-            erf=True,
-            processing_errors=len(errors),
-            psd_curves=len(psd),
-            rotated_pitch_cd_nm=list(line["旋转_pitch_CD_nm"]),
-            pitch_count=list(line.pitch_count),
-            mixed_cd_nm=float(line.loc[line.method == "mixed", "旋转_CD_nm"].iloc[0]),
         )
     evidence = ROOT / "audits/v1_15_release_evidence.json"
     evidence.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")

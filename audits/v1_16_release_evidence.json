@@ -1,0 +1,86 @@
+{
+  "version_migration": {
+    "original_v115_commit": "41e3294092016a8e6ca44c4d3a6217bda2e6ea90",
+    "original_v115_files_verified": 30,
+    "original_v115_zip_sha256": "533758f707e5515c0e280ef077583f978535d4a3014bff877acec097e3696645",
+    "feature_source_commit": "ae11296b1e09857bf97558a0c395ad5e8fadec06",
+    "preserved_algorithm_modules": [
+      "cdsem_engine.py",
+      "cdsem_localization.py",
+      "cdsem_locator.py",
+      "cdsem_pitch.py",
+      "cdsem_psd.py",
+      "cdsem_refinement.py",
+      "cdsem_regions.py",
+      "cdsem_statistics.py",
+      "sem_cd_measure_200k_batch_V1_16.py"
+    ],
+    "allowed_migration_changes": [
+      "V1_16 release names and output schema",
+      "recognize both V1_15 and V1_16 output directories"
+    ],
+    "status": "PASS"
+  },
+  "documentation": {
+    "cli_options": 86,
+    "validated_examples": 18
+  },
+  "unchanged_algorithm_modules_after_version_rename": [
+    "cdsem_locator.py",
+    "cdsem_refinement.py",
+    "cdsem_statistics.py",
+    "cdsem_psd.py"
+  ],
+  "edge_engine_changed_functions": [
+    "detect_edge_pair",
+    "build_v115_fixed",
+    "detect_space_candidates"
+  ],
+  "archive": {
+    "files_verified": 25,
+    "sha256": "4707da503409e9a305f7731781d18541172750d2c12088a02fb535281f48b73e"
+  },
+  "unpacked_quick_self_check": "Analytical/background tests: PASS\nV1_16 SELF-CHECK PASSED",
+  "unpacked_full_export": {
+    "status": "PASS",
+    "image_statuses": [
+      "OK"
+    ],
+    "locator_modes": [
+      "dark-line"
+    ],
+    "processing_errors": 0,
+    "machine_rows": 1,
+    "psd_curves": 48,
+    "png_exports": 36,
+    "mixed_cd_nm": 59.93011584724277,
+    "pitch_count": [
+      3,
+      3,
+      3
+    ],
+    "rotated_pitch_cd_nm": [
+      159.99805972300103,
+      159.99805972300103,
+      159.95499336822374
+    ]
+  },
+  "unpacked_stained_line_export": {
+    "status": "PASS",
+    "viterbi": true,
+    "erf": true,
+    "processing_errors": 0,
+    "psd_curves": 48,
+    "rotated_pitch_cd_nm": [
+      159.99962252813714,
+      159.99962252813714,
+      159.99961711935546
+    ],
+    "pitch_count": [
+      3,
+      3,
+      3
+    ],
+    "mixed_cd_nm": 99.99995275869983
+  }
+}
