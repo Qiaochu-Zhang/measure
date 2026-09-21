@@ -1,6 +1,6 @@
 # V1_15 完整运行说明与参数手册
 
-适用版本：`sem_cd_measure_200k_batch_V1_15.py`，基于 V1_14 改进，按本次 V1_15 发布的实际参数解析、校验和执行代码编写。本文覆盖主程序全部 **86 个参数选项（包括帮助选项，`-h` 和 `--help` 为同一个选项）**，另列自检脚本参数。没有在命令行开放的内部常量，不应当作可传入参数。
+适用补丁：`V1_15_line_pitch_1`（2026-09-21）。主程序：`sem_cd_measure_200k_batch_V1_15.py`，基于 V1_14 改进，按本次 V1_15 发布的实际参数解析、校验和执行代码编写。本文覆盖主程序全部 **86 个参数选项（包括帮助选项，`-h` 和 `--help` 为同一个选项）**，另列自检脚本参数。没有在命令行开放的内部常量，不应当作可传入参数。
 
 - [完整代码 ZIP](sem_cd_measure_200k_batch_V1_15_complete_package.zip)
 - [版本概述](V1_15_RELEASE_NOTES.md)
@@ -18,7 +18,7 @@
 3. 分别运行 V10、V13 边缘算法。总结表中每张图按 `mixed → V13 → V10` 排列。
 4. 主测量使用 128 个采样位置、32 行灰度平均、3 像素横向平滑；CD/LER 不分组，LWR 使用 group4。
 5. PSD 另外用单行、1 px 沿线步长、无横向平滑重新提取 V10/V13 边缘；逐结构、逐连续段计算，不做 group4、Welch 或跨结构/跨图片频谱平均。
-6. 输出旋转与未旋转两套结果、Excel/CSV、标注图和 PSD；若输入根目录存在 `Data.xlsx`，尝试与其机台数据对比。
+6. 无论 line/trench 都自动测 pitch CD：按 max-number 个相邻完整周期求均值，只输出旋转结果，放在主汇总表最后一列。原 CD/LER/LWR 仍输出旋转与未旋转两套结果、Excel/CSV、标注图和 PSD；若输入根目录存在 `Data.xlsx`，尝试与其机台数据对比。
 
 参考宽度只是检测先验，不是测量真值。像素尺寸必须来自你的图像标定，不能仅凭“200K”倍率推断。
 
@@ -94,10 +94,10 @@ Linux/macOS 把路径替换为 `/path/to/images` 等实际路径。相对路径�
 |---|---|---|
 | `--locator-mode` | `auto` / `dark-line` / `bright-line`；`auto` | trench 粗定位模式。dark-line 保留 V1_14 的盆地定位及跳过 line 内假暗条的周期规则；bright-line 用两个自适应灰度类识别整体亮 line 和整体暗 trench，相邻真实暗区为相邻周期；auto 从整个观测区域的 X 灰度轮廓逐图判断。支持大小写。与测量目标 pattern、边缘引擎 V10/V13 是不同选项，详见第 11 节。 |
 | `--locator-majority` | 浮点数；`0.70` | bright-line 候选核心低于自适应阈值、两侧 line 核心高于该阈值的最小像素比例，范围 `(0.5,1]`。同时使用内部均匀性检查。增大更严格；dark-line 原算法不使用此候选门槛。auto 分析也用该值检查有效列支持比例。不是绝对灰度阈值，也不是边缘交点百分比。 |
-| `--trench-reference-nm` | 浮点数；自动估计 | 暗沟槽参考宽度，必须 >0。不填时从图像灰度轮廓估计，复杂背景可能使估计不准。line 模式也接受此兼容参数。 |
+| `--trench-reference-nm` | 浮点数；自动估计 | 暗沟槽参考宽度，必须 >0。不填时从图像灰度轮廓估计，复杂背景可能使估计不准。line 模式也接受此兼容参数，但数值必须是亮线的参考宽度，不是原 trench 的宽度。 |
 | `--line-reference-nm` | 浮点数；自动估计 | 亮线参考宽度，必须 >0，只能用于 line。若与 trench-reference-nm 同时填写，两者必须相同。 |
 | `--space-reference-nm` | 浮点数；不显式约束 | 目标之间的间隙宽度，必须 >0，**不是中心距**。显式设置后，候选邻居排序会参考“目标宽度 + 间隙宽度”的节距；不设置时估计值可写入元数据，但不启用此显式排序先验。 |
-| `--max-number` | 整数；`3` | 每张图每个引擎最多选取的结构数量，≥1；不是图片数量，也不是采样点数。 |
+| `--max-number` | 整数；`3` | 每张图每个引擎最多选取的结构数量，≥1；同时为 pitch 求平均的目标周期数。N 个完整 pitch 需要 N+1 条同类结构的边缘，额外结构仅用于 pitch。不是图片数量，也不是采样点数。 |
 | `--min-number` | 整数；`min(3,max-number)` | 质量判定要求的最少稳定结构数，≥1 且不能超过 max-number。不足时仍尽可能保留已有结果，但通常标记 REVIEW。 |
 | `--allow-incomplete-triplet` | 开关；默认不启用 | 取消“中心结构及左右邻居齐全”的额外质量要求。不会取消 min-number 要求，也不会凭空增加候选；max-number <3 时原本就不要求完整三条。 |
 | `--candidate-dark-tolerance` | 浮点数；`None` | 可选的候选核心灰度容差，≥0：以中心候选核心灰度为参考，过滤比其更亮且超出容差的候选。line 使用反相后的工作灰度，因此不是按原图直接找暗线。不是左右边缘阈值。 |
@@ -138,7 +138,7 @@ Linux/macOS 把路径替换为 `/path/to/images` 等实际路径。相对路径�
 | `--threshold-search` | `bounded` / `legacy`；`bounded` | bounded 在受限搜索窗口内找正确极性的阈值交点，修复交点在梯度峰外侧导致的漏检；legacy 保留旧搜索逻辑，仅用于复核旧结果。 |
 | `--topology-min-contrast` | 浮点数；`2.5` 灰度级 | 边缘内外侧必须满足的最低明暗拓扑对比度，≥0；太高会漏检，太低可能把内部纹理当作边缘。与 ROI 和候选对比度是不同层次的检查。 |
 
-V10 使用中心暗参考及峰附近参考，V13 使用侧带均值等参考；即使同为 50%，交点也不一定相同。line 模式在反相后的工作图上执行这些暗目标规则。
+V10 通常使用中心暗参考及峰附近参考，V13 使用侧带均值等参考；当中心受内部条带污染、两侧内部平台一致且更暗时，改用两侧内部平台的中位数均值作为暗参考，具体触发常数见第 12 节。即使同为 50%，交点也不一定相同。line 模式在反相后的工作图上执行这些暗目标规则。
 
 主采样槽位间距约为 `(extend-length−1)/(sample-number−1)` px。增加 sample-number 并不增加图像真实分辨率，32 行平均窗口还可能高度重叠。single-row PSD 改用连续整数行，但自动 extend-length 的推导仍会受到上面的 average-range 设置影响。
 
@@ -326,11 +326,12 @@ python sem_cd_measure_200k_batch_V1_15.py --pattern trench --max-number 4 --grou
 
 | 输出 | 主要用途 |
 |---|---|
-| `measurement_summary` 工作表 / CSV | 文件名、status、method 在前；每张图 mixed、V13、V10 三行，均含旋转/未旋转指标。 |
+| `measurement_summary` 工作表 / CSV | 文件名、status、method 在前；每张图 mixed、V13、V10 三行，均含原旋转/未旋转指标；最后一列 `旋转_pitch_CD_nm`，之前为 pitch_source/count/requested_count/status。 |
 | `image_summary` | 每图一行的完整宽表、质量状态与诊断字段。 |
 | `coordinate_results` | 按坐标/方法展开的长表。 |
 | `condition_summary` | 按文件夹汇总，默认仅 OK。 |
 | `trench_objects`、`engine_objects` | 每条结构、每个引擎的值、支持数和实际入选信息。 |
+| `pitch_periods` / `pitch_samples` | 逐周期和逐采样的 pitch 审计，含入选标记、候选编号、实际支持点、背景/补点排除；最后一列均为 `旋转_pitch_CD_nm`。 |
 | `per_sample_results` | 主测量每个采样位置的边缘、有效性、失败原因及补点标记；非 compact 输出还含 average_y0/y1（半开区间）以核查整个平均窗口。 |
 | `ROI/`、`roi_summary.csv` | 背景保留区域图和原图坐标范围；绿色框是包围框，暗化部分为排除背景或端部；roi_summary 记录估计长度、每端裁剪像素数及裁前/裁后边界。 |
 | `locator_summary.csv` / 同名工作表 | 每图请求/实际/建议定位模式，自动判断分数、歧义标志、周期及阈值。V10/V13_locator_threshold_raw 是定位用阈值，profile_threshold 是模式判断用阈值。 |
@@ -471,3 +472,43 @@ python sem_cd_measure_200k_batch_V1_15.py --root input --pattern trench --locato
 ```
 
 若复现的是 V1_14 的 threshold-search=legacy 配方，还需同步加上 `--threshold-search legacy`。其余标定、ROI、采样、参考宽度和统计参数也须一致。开启新区域裁剪会改变参与测量的像素/长度，因此不能要求结果与未裁剪版本数值一致。
+
+
+## 12. line 修复与自动 pitch CD（2026-09-21）
+
+### 12.1 line 失败原因与修复
+
+旧版已在估宽、ROI 和边缘引擎中反相，但定位/灰度模型并非在所有结构上对称：
+
+- 旧盆地宽度限幅实际为 13.5–145 nm，与用户目标宽度无关。180 nm line 被标为 `basin_too_wide`。现使用 `min(30,参考宽度) × 0.45` 至 `max(100,参考宽度) × 1.45` nm，保留既有范围并覆盖目标宽度；双极性采用相同规则。
+- 100 nm line 内有 40 nm 假暗条时，反相后成为中间亮条，两侧亮线被拆成约 30 nm 小段。自动估宽可能估成 33 nm；显式给 100 nm 时背景掩码可能只保留外围，最终无候选。
+- 新增内部条带识别：对测量极性的灰度轮廓做三类划分，动态范围至少 12，两个类间距均至少占动态范围的 20%；仅在至少两个完整区间中，较高阈值恰好连接两个低灰度平台时启用。每个平台至少 3px、至少占区间 12%，中间间隔至少 3px 和区间 8%；已知参考宽度时完整区间须在其 0.65–1.35 倍内。此识别用于估宽、ROI 和定位，原图像素不会被涂改。
+- 边缘阈值的中心参考若比左右 10%–22% 内侧平台均值高出 `max(12,4×两侧差值)`，改用这些平台的中位数均值，保留近边缘真实梯度、跟踪、Viterbi/ERF 和背景约束。逐点 `threshold_reference_mode` 会带 `_edge_interior_reference`。
+
+line 参数填写 line 的参考宽度；同图 trench=60nm、line=100nm 时，不能仅更改 pattern 并仍把参考宽度固定为 60nm。auto/bright-line 的名称按反相后的工作图解释。真实灰度不能区分的结构仍须核查标注。
+
+### 12.2 pitch 定义、旋转和输出
+
+一个 pitch = 一个完整 line + 紧邻的一个完整 trench。使用相邻同类结构的**左边缘到左边缘**定义周期：trench 模式是 trench+line，line 模式是 line+trench。使用实际边缘，不直接相加两个独立平均 CD，也不使用名义参考节距作为测量值。
+
+对周期两边在共同有效 Y 上的边缘中点做 PCA 拟合，沿法向计算 `pitch(y) = (x_next_left(y)-x_left(y)) × |cos(theta)| × pixel_size`。先对一个周期的有效点取均值，再对离测量中心最近的 `max-number` 个不同周期等权平均。仅报告旋转后的 nm 数值。mixed 和 V13 行使用 V13 pitch，V10 行使用 V10 pitch。
+
+主测量选择 N 条结构时通常只有 N−1 个完整周期，所以 pitch 会额外定位并测量一个相邻结构，已有边缘直接复用。此额外结构不计入主 CD/LER/LWR 或 PSD。周期需满足相邻候选序号和观测周期检查：bright-line 的候选序号差为 1；dark-line 允许跨过一条假暗条（序号差最多 2）；距离须为观测周期的 0.60–1.40 倍。此检查使用自动建议的实际形态，避免手动模式把节距翻倍。不跨被漏检结构，不把两倍节距当作一个 pitch。默认要求同一周期至少 2 个共同有效点，且有效比例达到 minimum-valid-fraction。
+
+背景、裁去的端部、无效边缘及 continuity 的合成补点都不进入 pitch。只有 `edge-continuity=100` 补出来的边缘不会被当作 pitch 的实测数据。
+
+`measurement_summary` 的**最后一列**是 `旋转_pitch_CD_nm`；image_summary 的最后一列同样是 mixed/V13 pitch。逐周期和采样审计也提供该末列。`pitch_count` 是实际采用数，`pitch_requested_count` 是 max-number；不足时保留已有周期均值、`pitch_status=PARTIAL`，图片为 REVIEW；完全没有完整周期则为空值、UNAVAILABLE，绝不填 0。图像背景跳过和 ERROR 仍保留列名。主测量原有指标不因 pitch 不足而丢弃。
+
+例：测带内部暗条的亮线，同时自动平均 3 个 pitch：
+
+```bash
+python sem_cd_measure_200k_batch_V1_15.py --root examples/input_dark_line --pattern line --pixel-size 1 --line-reference-nm 100 --max-number 3 --output result_line_pitch --no-auto-machine-comparison
+```
+
+例：同图测 trench 并自动测相邻周期：
+
+```bash
+python sem_cd_measure_200k_batch_V1_15.py --root examples/input_dark_line --pattern trench --pixel-size 1 --trench-reference-nm 60 --max-number 3 --output result_trench_pitch --no-auto-machine-comparison
+```
+
+完整自检仍用 `python self_check_V1_15.py --output validation_report.json`；新增测试在 `check_line_pitch.py`，包括同图双模式、宽线、内部暗条、自动估宽、反相对称、倾斜和不同采样支持数、max-number=1/2/5、周期不足、背景/合成点排除和 Excel 末列验证。随包样例及新增图均为合成图，尚无用户实测失败 SEM 图用于验证。

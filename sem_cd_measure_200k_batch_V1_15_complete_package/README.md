@@ -1,5 +1,7 @@
 # SEM CD / LER / LWR — V1_15
 
+当前补丁 `V1_15_line_pitch_1`（2026-09-21）：修复宽 line 被拒绝、内部暗条造成的定位/估宽失败；自动测量旋转后的 pitch CD，主 Excel 首表最后一列为 `旋转_pitch_CD_nm`。详见 [修改记录](CHANGELOG.md) 与 [手册第 12 节](RUN_GUIDE.md#12-line-修复与自动-pitch-cd2026-09-21)。
+
 基于 V1_14 的独立完整包。新增 trench 定位 `dark-line` / `bright-line` / `auto`，默认排除背景并从 Y 两端各裁去估计平均 trench 长度的 1/20。原 V1_14 文件保留。
 
 **完整运行说明及全部 86 个命令行选项见 [RUN_GUIDE.md](RUN_GUIDE.md)。** 其中列出每个参数的含义、默认值、单位、取值范围、冲突规则和示例，也说明所有新算法内部经验常数。
@@ -46,10 +48,11 @@ python sem_cd_measure_200k_batch_V1_15.py --root /path/to/png_images --pattern t
 
 ## 查看结果
 
-- `CD_measurement_200K_V1_15_results.xlsx`：首表 `measurement_summary` 每图 mixed、V13、V10 三行。
+- `CD_measurement_200K_V1_15_results.xlsx`：首表 `measurement_summary` 每图 mixed、V13、V10 三行；最后一列 `旋转_pitch_CD_nm`。
 - `ROI/`、`roi_summary.csv`：裁后区域、裁前/裁后边界、估计平均长度及每端裁剪像素数。
 - `locator_summary.csv`：请求、实际和建议模式，自动判断分数/歧义标记，周期和自适应阈值。
 - `locator_candidates.csv`：两个引擎的全部定位候选、原图坐标、选择结果、亮度比例和失败原因。
+- `pitch_periods.csv` / `pitch_samples.csv`：相邻周期、逐点边缘和入选记录。按 max-number 个完整周期等权平均；不足时报告实际数和 REVIEW，空值不填 0。mixed pitch 来自 V13。
 - `per_sample_results.csv`：主边缘及 background_excluded；非 compact 模式还记录完整平均窗口的 Y 范围。
 - `PSD/PSD_V10.xlsx`、`PSD/PSD_V13.xlsx` 及 CSV：保持 V1_14 的单行边缘、逐结构/逐连续段 periodogram，不做分组或频谱平均。
 - `settings.json`、`processing_errors.csv`：运行配方和异常。
@@ -73,6 +76,7 @@ python self_check_V1_15.py --output my_validation_report.json
 | 文件 | 职责 |
 |---|---|
 | `sem_cd_measure_200k_batch_V1_15.py` | 参数、区域/模式编排、双引擎、结果导出 |
+| `cdsem_pitch.py` / `check_line_pitch.py` | 旋转 pitch 和 line/pitch 回归 |
 | `cdsem_localization.py` | 新 bright-line、auto、有效灰度轮廓 |
 | `cdsem_locator.py` | 保留的 V1_14 盆地定位及公共亮度工具 |
 | `cdsem_regions.py` | 读图、背景排除、端部裁剪、区域图 |

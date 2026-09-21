@@ -1,0 +1,43 @@
+{
+  "baseline_commit": "41e3294",
+  "pixel_size_nm": 1,
+  "references_nm": {
+    "trench": 60,
+    "stained_line": 100,
+    "wide_line": 180
+  },
+  "results": [
+    {
+      "fixture": "stained_line",
+      "pattern": "trench",
+      "status": "OK",
+      "mixed_cd_nm": 59.93011584724277,
+      "candidate_rejections": []
+    },
+    {
+      "fixture": "stained_line",
+      "pattern": "line",
+      "status": "ERROR",
+      "mixed_cd_nm": null,
+      "candidate_rejections": [
+        "edge_clipped_basin;separator_presence_low;nonuniform_or_not_majority_dark"
+      ]
+    },
+    {
+      "fixture": "wide_line",
+      "pattern": "trench",
+      "status": "OK",
+      "mixed_cd_nm": 59.9082781456954,
+      "candidate_rejections": []
+    },
+    {
+      "fixture": "wide_line",
+      "pattern": "line",
+      "status": "ERROR",
+      "mixed_cd_nm": null,
+      "candidate_rejections": [
+        "basin_too_wide"
+      ]
+    }
+  ]
+}

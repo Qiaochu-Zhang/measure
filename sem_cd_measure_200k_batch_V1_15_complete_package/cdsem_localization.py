@@ -14,6 +14,37 @@ from scipy.ndimage import gaussian_filter1d
 import cdsem_locator as legacy
 
 
+def interior_band_threshold(profile, target_px=None):
+    """Locate repeated bands containing an intermediate-intensity interior.
+
+    Accept three classes only if the upper threshold joins two low plateaus
+    inside at least two bounded intervals. Pixels used for edges stay intact.
+    Operates on measurement polarity, preserving image-inversion symmetry.
+    """
+    profile = np.asarray(profile, float)
+    _, levels, _ = legacy.brightness_kmeans_1d_general(profile, 3, 1, 42)
+    dynamic = levels[2] - levels[0]
+    if dynamic < 12 or np.min(np.diff(levels)) < 0.20 * dynamic:
+        return None
+    lower, upper = (levels[:-1] + levels[1:]) / 2
+    low_runs = legacy._false_runs(profile >= lower)
+    merged = []
+    for start, end in legacy._false_runs(profile >= upper):
+        if start == 0 or end == profile.size:
+            continue
+        children = [(a, b) for a, b in low_runs if start <= a < b <= end and b - a >= 3]
+        if len(children) != 2:
+            continue
+        (a, b), (c, d) = children
+        width = end - start
+        if c - b < max(3, 0.08 * width) or min(b - a, d - c) < 0.12 * width:
+            continue
+        if target_px is not None and not 0.65 * target_px <= width <= 1.35 * target_px:
+            continue
+        merged.append(width)
+    return float(upper) if len(merged) >= 2 else None
+
+
 def observation_mask(mask, target_px):
     """Include actual line interiors between nearby supported trenches.
 
@@ -139,6 +170,13 @@ def analyze_mode(image, mask=None, requested="auto", majority=0.70):
         ),
         locator_profile_valley_count=len(basins),
         locator_period_px=pitch,
+        locator_adjacent_period_px=(
+            float(np.median(periods))
+            if suggested == "dark-line" and periods
+            else float(np.median(np.diff(centers)))
+            if len(centers) > 1
+            else None
+        ),
         locator_profile_threshold_raw=threshold,
         locator_profile_low_raw=float(levels[0]),
         locator_profile_high_raw=float(levels[2]),
@@ -147,7 +185,7 @@ def analyze_mode(image, mask=None, requested="auto", majority=0.70):
 
 
 def select_bright_line_trenches(
-    image, summary, fixed, block_profile_fn, majority=0.70, mask=None
+    image, summary, fixed, block_profile_fn, majority=0.70, mask=None, target_px=None
 ):
     """Two adaptive intensity classes: every complete dark interval is a trench.
 
@@ -163,6 +201,9 @@ def select_bright_line_trenches(
         smooth[observed], 2, fixed.separator_kmeans_restarts, fixed.random_seed
     )
     threshold = float(np.mean(levels))
+    interior_threshold = interior_band_threshold(smooth, target_px)
+    if interior_threshold is not None:
+        threshold = interior_threshold
     dynamic = max(float(levels[1] - levels[0]), 1e-9)
     bright = legacy._remove_short_true_runs(
         legacy._fill_short_false_runs(smooth >= threshold, 1), 2
@@ -216,6 +257,7 @@ def select_bright_line_trenches(
             brightness_true_trench=bool(row["basin_valid"] and uniform),
             brightness_darkness_rank=1.0,
             locator_mode_selected="bright-line",
+            locator_interior_band_merged=interior_threshold is not None,
         )
         if not uniform:
             row["basin_valid"] = False

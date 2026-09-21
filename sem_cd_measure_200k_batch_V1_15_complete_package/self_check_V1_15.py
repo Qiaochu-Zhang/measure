@@ -158,13 +158,16 @@ def analytical_tests():
     from check_localization import analytical_tests as locator_tests
 
     report["v115_localization"] = locator_tests(require, app)
+    from check_line_pitch import analytical_tests as pitch_tests
+
+    report["line_pitch"] = pitch_tests(require, app)
     return report
 
 
 def integration_tests(temp):
     cases, cached = {}, {}
 
-    def execute(name, root=None, extra=(), pattern="trench"):
+    def execute(name, root=None, extra=(), pattern="trench", reference=60):
         output = temp / name
         fixture = root or BASE / f"examples/input_{pattern}"
         args = [
@@ -176,8 +179,11 @@ def integration_tests(temp):
             pattern,
             "--pixel-size",
             "1",
-            f"--{pattern}-reference-nm",
-            "60",
+            *(
+                [f"--{pattern}-reference-nm", str(reference)]
+                if reference is not None
+                else []
+            ),
             "--max-number",
             "4",
             "--no-auto-machine-comparison",
@@ -198,6 +204,10 @@ def integration_tests(temp):
             "summary must be first worksheet",
         )
         summary = book["measurement_summary"]
+        require(
+            next(summary.values)[-1] == "旋转_pitch_CD_nm",
+            "pitch must be last even on failure/blank images",
+        )
         require(
             [c.value for c in next(summary.iter_rows())][:3]
             == ["image", "status", "method"],
@@ -363,6 +373,15 @@ def integration_tests(temp):
         excluded.any() and not sample.loc[excluded, "valid"].any(),
         "continuity must not fill background",
     )
+    pitch_audit = pd.read_csv(output / "pitch_samples.csv")
+    require(
+        pitch_audit.background_excluded.any()
+        and not pitch_audit.loc[pitch_audit.background_excluded, "valid"].any()
+        and pitch_audit.loc[pitch_audit.background_excluded, "旋转_pitch_CD_nm"]
+        .isna()
+        .all(),
+        "pitch cannot use background even with forced continuity",
+    )
     psd_audit = pd.read_csv(output / "PSD/edge_coordinates.csv")
     require(
         not psd_audit.loc[psd_audit.background_excluded, "valid"].any(),
@@ -391,6 +410,7 @@ def integration_tests(temp):
         "both_engines_failure",
         "annotation_failure",
         "psd_failure",
+        "pitch_failure",
         "unmatched_machine",
         "missing_machine",
     ):
@@ -423,6 +443,18 @@ def integration_tests(temp):
                     side_effect=OSError("injected annotation failure"),
                 ):
                     output, result = execute(fault, extra=extras)
+            elif fault == "pitch_failure":
+                with patch.object(
+                    app.pitch,
+                    "measure_pitch",
+                    side_effect=RuntimeError("injected pitch failure"),
+                ):
+                    output, result = execute(fault, extra=extras)
+                require(
+                    result.status.eq("REVIEW").all()
+                    and result["旋转_pitch_CD_nm"].isna().all(),
+                    "pitch failure retains primary metrics and empty pitch",
+                )
             elif fault == "psd_failure":
                 with patch.object(
                     app.PSDBatch,
@@ -486,6 +518,9 @@ def integration_tests(temp):
     from check_localization import integration_tests as locator_tests
 
     cases["v115_localization"] = locator_tests(temp, execute, require)
+    from check_line_pitch import integration_tests as pitch_tests
+
+    cases["line_pitch"] = pitch_tests(temp, execute, require)
     return cases
 
 
@@ -524,7 +559,7 @@ if __name__ == "__main__":
     )
     print("Analytical/background tests: PASS", flush=True)
     if not args.quick:
-        with tempfile.TemporaryDirectory(prefix="measure-v114-check-") as temp:
+        with tempfile.TemporaryDirectory(prefix="measure-v115-check-") as temp:
             result["integration"] = integration_tests(Path(temp))
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)

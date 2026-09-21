@@ -33,6 +33,7 @@ import cdsem_statistics as statistics
 import cdsem_engine as edges
 import cdsem_localization as localization
 from cdsem_psd import PSDBatch
+import cdsem_pitch as pitch
 
 
 SCRIPT_VERSION = "V1_15"
@@ -50,8 +51,8 @@ V13_ALGORITHM_VERSION = "V13_V17_THRESHOLD_V10_STATISTICS"
 METRICS = ("CD", "LER_left", "LER_right", "LWR")
 GROUPS = ("mixed", "V13", "V10")
 MODES = ("rotated", "unrotated")
-OUTPUT_SCHEMA = "metadata_first_methods_raw_psd_v115"
-PATCH_VERSION = "V1_15"
+OUTPUT_SCHEMA = "metadata_first_methods_raw_psd_v115_pitch"
+PATCH_VERSION = "V1_15_line_pitch_1"
 RESULT_COLUMNS = [
     f"{mode}_{group}_{metric}_nm"
     for mode in MODES
@@ -1044,7 +1045,12 @@ def result_first(frame: pd.DataFrame) -> pd.DataFrame:
     ]
     meta = [name for name in meta if name not in leading]
     rest = [name for name in rest if name not in leading]
-    return frame[leading + meta + RESULT_COLUMNS + rest]
+    ordered = frame[leading + meta + RESULT_COLUMNS + rest]
+    if pitch.PITCH_COLUMN in ordered:
+        ordered = ordered[
+            [c for c in ordered if c != pitch.PITCH_COLUMN] + [pitch.PITCH_COLUMN]
+        ]
+    return ordered
 
 
 def corrected_image_row(
@@ -1102,6 +1108,13 @@ def method_summary(image_df):
     ]
     columns += [f"{mode}_{metric}_nm" for mode in MODES for metric in METRICS]
     columns += ["method_complete", "CD_source", "LER_source", "LWR_source", "warning"]
+    columns += [
+        "pitch_source",
+        "pitch_count",
+        "pitch_requested_count",
+        "pitch_status",
+        pitch.PITCH_COLUMN,
+    ]
     rows = []
     for image in image_df.to_dict("records"):
         for method in GROUPS:
@@ -1118,6 +1131,16 @@ def method_summary(image_df):
                     row[f"{mode}_{metric}_nm"] = finite_float(
                         image.get(f"{mode}_{method}_{metric}_nm")
                     )
+            pitch_engine = "V13" if method == "mixed" else method
+            row.update(
+                pitch_source=pitch_engine,
+                pitch_count=image.get(f"{pitch_engine}_pitch_count", 0),
+                pitch_requested_count=image.get("requested_max_number"),
+                pitch_status=image.get(f"{pitch_engine}_pitch_status", "UNAVAILABLE"),
+            )
+            row[pitch.PITCH_COLUMN] = finite_float(
+                image.get(f"{pitch_engine}_rotated_pitch_CD_nm")
+            )
             row["method_complete"] = all(
                 np.isfinite(row[f"{mode}_{metric}_nm"])
                 for mode in MODES
@@ -1441,6 +1464,7 @@ def process_trench(
         [],
         [],
     )
+    pitch_rows, pitch_samples = [], []
     roi_rows = []
     locator_rows = []
     locator_candidates = []
@@ -1594,6 +1618,40 @@ def process_trench(
                 threshold_left_pct=args.threshold_left,
                 threshold_right_pct=args.threshold_right,
             )
+            for engine, measurement, params in (("V10", m10, p10), ("V13", m13, p13)):
+                summary = {
+                    "pitch_count": 0,
+                    "pitch_status": "UNAVAILABLE",
+                    "rotated_pitch_CD_nm": math.nan,
+                }
+                if measurement is not None:
+                    try:
+                        summary, periods, samples = pitch.measure_pitch(
+                            measurement, params, mask
+                        )
+                        pitch_rows.extend(
+                            {"image_key": key, "engine": engine, **r} for r in periods
+                        )
+                        pitch_samples.extend(
+                            {"image_key": key, "engine": engine, **r} for r in samples
+                        )
+                    except Exception as exc:
+                        errors.append(
+                            {
+                                **meta,
+                                "stage": f"{engine}_pitch",
+                                "error_type": type(exc).__name__,
+                                "error_message": str(exc),
+                                "traceback": traceback.format_exc(),
+                            }
+                        )
+                primary.update({f"{engine}_{k}": v for k, v in summary.items()})
+                if summary["pitch_status"] != "OK" and primary["status"] != "ERROR":
+                    primary["status"] = "REVIEW"
+                    primary["warning"] += (
+                        f" | {engine} pitch: {summary['pitch_count']}/{args.max_number} valid periods"
+                    )
+            primary[pitch.PITCH_COLUMN] = primary["V13_rotated_pitch_CD_nm"]
             primary["quality_status_before_synthetic_review"] = primary["status"]
             for engine, samples in (("V10", s10), ("V13", s13)):
                 synthetic = sum(
@@ -1813,6 +1871,9 @@ def process_trench(
             stopped_on_error = True
             break
 
+    for row in image_rows:
+        row.setdefault("requested_max_number", args.max_number)
+        row.setdefault(pitch.PITCH_COLUMN, math.nan)
     image_df = result_first(pd.DataFrame(image_rows))
     object_df = result_first(pd.DataFrame(object_rows))
     measured_images = image_df[image_df["status"].isin(["OK", "REVIEW"])].copy()
@@ -1854,6 +1915,8 @@ def process_trench(
         "condition_summary": condition_df,
         "trench_objects": object_df,
         "engine_objects": engine_df,
+        "pitch_periods": pd.DataFrame(pitch_rows, columns=pitch.PERIOD_COLUMNS),
+        "pitch_samples": pd.DataFrame(pitch_samples, columns=pitch.SAMPLE_COLUMNS),
         "per_sample_results": sample_df,
         "processing_errors": error_df,
         "roi_summary": pd.DataFrame(roi_rows),
@@ -1949,6 +2012,7 @@ def process_trench(
             "LWR": f"3 sigma of group{args.group_size} mean widths, separately for each coordinate system",
             "image_aggregation": "arithmetic mean per selected structure, independently for each engine",
             "rotation": "each engine independently fits a PCA centerline per structure",
+            "pitch_CD": "rotated only; same-side edges of consecutive bands define one band + one adjacent gap; PCA normal projection; mean per period then equal mean of max-number nearest valid periods; mixed uses V13; partial counts marked REVIEW; synthetic samples excluded",
         },
         "group_size": args.group_size,
         "general": jsonable(asdict(general)),

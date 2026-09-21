@@ -710,6 +710,24 @@ def detect_edge_pair(
     dark_start = predicted_left + 0.30 * width
     dark_end = predicted_right - 0.30 * width
     dark_level = safe_median_segment(smoothed_profile, dark_start, dark_end)
+    edge_interior = [
+        safe_median_segment(
+            smoothed_profile,
+            predicted_left + 0.10 * width,
+            predicted_left + 0.22 * width,
+        ),
+        safe_median_segment(
+            smoothed_profile,
+            predicted_right - 0.22 * width,
+            predicted_right - 0.10 * width,
+        ),
+    ]
+    side_dark = float(np.mean(edge_interior))
+    interior_band = np.isfinite(side_dark) and dark_level - side_dark > max(
+        12.0, 4 * abs(edge_interior[0] - edge_interior[1])
+    )
+    if interior_band:
+        dark_level = side_dark
     if not np.isfinite(dark_level):
         return EdgeDetection(valid=False, failure_reason="invalid_dark_level")
 
@@ -791,6 +809,8 @@ def detect_edge_pair(
         right_peak,
         target_cd_px,
     )
+    if interior_band:
+        threshold_dark = side_dark
     if params.engine_kind == "V10":
         threshold_dark, left_bright, right_bright = (
             dark_level,
@@ -802,6 +822,8 @@ def detect_edge_pair(
         if params.engine_kind == "V13"
         else "v10_center40_peak3_median"
     )
+    if interior_band:
+        threshold_mode += "_edge_interior_reference"
     if not all(np.isfinite(v) for v in (threshold_dark, left_bright, right_bright)):
         return EdgeDetection(
             valid=False,
@@ -1165,8 +1187,12 @@ def build_v115_fixed(
         extend_length_nm=params.extend_length_px * params.pixel_size_nm,
         preferred_trenches=min(3, params.max_number),
         min_candidate_trenches=min(3, params.min_number),
-        adaptive_min_width_nm=params.locator_adaptive_min_width_nm,
-        adaptive_max_width_nm=params.locator_adaptive_max_width_nm,
+        adaptive_min_width_nm=min(
+            params.locator_adaptive_min_width_nm, params.target_cd_nm
+        ),
+        adaptive_max_width_nm=max(
+            params.locator_adaptive_max_width_nm, params.target_cd_nm
+        ),
         random_seed=params.random_seed,
         brightness_samples=params.locator_brightness_samples,
         brightness_block_height_px=params.locator_brightness_block_height_px,
@@ -1339,6 +1365,7 @@ def detect_space_candidates(
                 block_profile_fn,
                 params.locator_majority,
                 mask,
+                params.target_cd_nm / params.pixel_size_nm,
             )
         else:
             selected_rows, all_rows, v115_summary = (

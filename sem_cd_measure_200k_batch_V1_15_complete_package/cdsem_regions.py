@@ -180,7 +180,14 @@ def estimate_trench_references_nm(
     threshold, _ = cv2.threshold(
         normalized, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU
     )
-    dark_mask = normalized.ravel() <= threshold
+    from cdsem_localization import interior_band_threshold
+
+    interior_threshold = interior_band_threshold(smooth)
+    dark_mask = (
+        smooth < interior_threshold
+        if interior_threshold is not None
+        else normalized.ravel() <= threshold
+    )
     runs = _binary_run_lengths(dark_mask)
     dark_widths = [
         length
@@ -383,6 +390,9 @@ def find_pattern_region(
     solid backgrounds, horizontal bands, and nonpersistent texture. This is a
     geometric heuristic, not a semantic classifier of arbitrary SEM patterns.
     """
+    from cdsem_localization import interior_band_threshold
+    from cdsem_locator import _false_runs
+
     raw = np.asarray(gray, dtype=float)
     if raw.ndim != 2 or not np.isfinite(raw).all():
         raise ValueError("背景识别要求有限的二维灰度图")
@@ -406,9 +416,19 @@ def find_pattern_region(
         peaks, properties = find_peaks(
             -profile, prominence=threshold, distance=max(3, int(0.6 * target_px))
         )
-        if not len(peaks):
-            continue
         widths, _, lefts, rights = peak_widths(-profile, peaks, rel_height=0.5)
+        envelope_threshold = interior_band_threshold(profile, target_px)
+        if envelope_threshold is not None:
+            intervals = [
+                (a, b)
+                for a, b in _false_runs(profile >= envelope_threshold)
+                if a > 0 and b < width and 0.65 * target_px <= b - a <= 1.35 * target_px
+            ]
+            if intervals:
+                lefts = np.array([a - 0.5 for a, b in intervals])
+                rights = np.array([b - 0.5 for a, b in intervals])
+                widths = rights - lefts
+                peaks = (lefts + rights) / 2
         for peak, size, left, right in zip(peaks, widths, lefts, rights):
             checked += 1
             if not 0.45 * target_px <= size <= 1.8 * target_px:

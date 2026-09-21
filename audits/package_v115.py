@@ -57,7 +57,7 @@ def main():
         for path in package_files():
             info = zipfile.ZipInfo(
                 (Path(PACKAGE.name) / path.relative_to(PACKAGE)).as_posix(),
-                date_time=(2026, 9, 19, 0, 0, 0),
+                date_time=(2026, 9, 21, 0, 0, 0),
             )
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = (0o100755 if path.suffix == ".sh" else 0o100644) << 16
