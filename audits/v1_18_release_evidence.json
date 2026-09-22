@@ -1,0 +1,410 @@
+{
+  "version_migration": {
+    "status": "PASS",
+    "baseline_commit": "2301b355b08765397d386ad33f7412eaa4b376c6",
+    "old_version_files_verified": 98,
+    "old_zip_sha256": {
+      "V1_15": "533758f707e5515c0e280ef077583f978535d4a3014bff877acec097e3696645",
+      "V1_16": "4707da503409e9a305f7731781d18541172750d2c12088a02fb535281f48b73e",
+      "V1_17": "d35811f57e926718ebad4ee160db16914dd4d7e2272f3a6b6f8207afe38375b4"
+    }
+  },
+  "documentation": {
+    "cli_options": 86,
+    "validated_examples": 19
+  },
+  "unchanged_algorithm_modules_after_version_rename": [
+    "cdsem_locator.py",
+    "cdsem_localization.py",
+    "cdsem_lines.py",
+    "cdsem_refinement.py",
+    "cdsem_statistics.py",
+    "cdsem_psd.py"
+  ],
+  "edge_engine_changed_functions": [
+    "measure_image"
+  ],
+  "unchanged_main_statistics_functions": [
+    "coordinate_metrics_by_space",
+    "aggregate_coordinate_metrics"
+  ],
+  "numerical_compatibility": {
+    "line_default": {
+      "status": "PASS",
+      "exact_tables": {
+        "per_sample_results.csv": 768,
+        "line_trench_pairs.csv": 8,
+        "line_source_samples.csv": 1280,
+        "pitch_periods.csv": 8,
+        "pitch_samples.csv": 1024
+      },
+      "exact_summary_columns": [
+        "status",
+        "method",
+        "旋转_CD_nm",
+        "旋转_LER_left_nm",
+        "旋转_LER_right_nm",
+        "旋转_LWR_nm",
+        "未旋转_CD_nm",
+        "未旋转_LER_left_nm",
+        "未旋转_LER_right_nm",
+        "未旋转_LWR_nm",
+        "pitch_source",
+        "pitch_count",
+        "pitch_requested_count",
+        "pitch_status",
+        "旋转_pitch_CD_nm"
+      ]
+    },
+    "line_optional": {
+      "status": "PASS",
+      "exact_tables": {
+        "per_sample_results.csv": 192,
+        "line_trench_pairs.csv": 8,
+        "line_source_samples.csv": 320,
+        "pitch_periods.csv": 8,
+        "pitch_samples.csv": 256
+      },
+      "exact_summary_columns": [
+        "status",
+        "method",
+        "旋转_CD_nm",
+        "旋转_LER_left_nm",
+        "旋转_LER_right_nm",
+        "旋转_LWR_nm",
+        "未旋转_CD_nm",
+        "未旋转_LER_left_nm",
+        "未旋转_LER_right_nm",
+        "未旋转_LWR_nm",
+        "pitch_source",
+        "pitch_count",
+        "pitch_requested_count",
+        "pitch_status",
+        "旋转_pitch_CD_nm"
+      ]
+    },
+    "trench_healthy": {
+      "status": "PASS",
+      "exact_common_source_edges": [
+        {
+          "engine": "V10",
+          "source_trench_id": 2,
+          "old_space_index": 2,
+          "samples": 128,
+          "qualified": true
+        },
+        {
+          "engine": "V10",
+          "source_trench_id": 4,
+          "old_space_index": 1,
+          "samples": 128,
+          "qualified": true
+        },
+        {
+          "engine": "V10",
+          "source_trench_id": 6,
+          "old_space_index": 3,
+          "samples": 128,
+          "qualified": true
+        },
+        {
+          "engine": "V13",
+          "source_trench_id": 2,
+          "old_space_index": 2,
+          "samples": 128,
+          "qualified": true
+        },
+        {
+          "engine": "V13",
+          "source_trench_id": 4,
+          "old_space_index": 1,
+          "samples": 128,
+          "qualified": true
+        },
+        {
+          "engine": "V13",
+          "source_trench_id": 6,
+          "old_space_index": 3,
+          "samples": 128,
+          "qualified": true
+        }
+      ],
+      "old_summary": [
+        {
+          "method": "mixed",
+          "status": "OK",
+          "旋转_CD_nm": 59.9301158472,
+          "旋转_pitch_CD_nm": 159.998059723
+        },
+        {
+          "method": "V13",
+          "status": "OK",
+          "旋转_CD_nm": 59.9301158472,
+          "旋转_pitch_CD_nm": 159.998059723
+        },
+        {
+          "method": "V10",
+          "status": "OK",
+          "旋转_CD_nm": 58.1272382156,
+          "旋转_pitch_CD_nm": 159.9549933682
+        }
+      ],
+      "new_summary": [
+        {
+          "method": "mixed",
+          "status": "OK",
+          "旋转_CD_nm": 59.9301158472,
+          "旋转_pitch_CD_nm": 160.0001424488
+        },
+        {
+          "method": "V13",
+          "status": "OK",
+          "旋转_CD_nm": 59.9301158472,
+          "旋转_pitch_CD_nm": 160.0001424488
+        },
+        {
+          "method": "V10",
+          "status": "OK",
+          "旋转_CD_nm": 58.1272382156,
+          "旋转_pitch_CD_nm": 160.0146714331
+        }
+      ]
+    },
+    "trench_legacy_quality": {
+      "status": "PASS",
+      "exact_common_source_edges": [
+        {
+          "engine": "V10",
+          "source_trench_id": 1,
+          "old_space_index": 2,
+          "samples": 128,
+          "qualified": true
+        },
+        {
+          "engine": "V10",
+          "source_trench_id": 2,
+          "old_space_index": 1,
+          "samples": 128,
+          "qualified": true
+        },
+        {
+          "engine": "V10",
+          "source_trench_id": 3,
+          "old_space_index": 3,
+          "samples": 128,
+          "qualified": true
+        },
+        {
+          "engine": "V13",
+          "source_trench_id": 1,
+          "old_space_index": 2,
+          "samples": 128,
+          "qualified": false
+        },
+        {
+          "engine": "V13",
+          "source_trench_id": 2,
+          "old_space_index": 1,
+          "samples": 128,
+          "qualified": false
+        },
+        {
+          "engine": "V13",
+          "source_trench_id": 3,
+          "old_space_index": 3,
+          "samples": 128,
+          "qualified": false
+        }
+      ],
+      "old_summary": [
+        {
+          "method": "mixed",
+          "status": "REVIEW",
+          "旋转_CD_nm": 59.8193558903,
+          "旋转_pitch_CD_nm": null
+        },
+        {
+          "method": "V13",
+          "status": "REVIEW",
+          "旋转_CD_nm": 59.8193558903,
+          "旋转_pitch_CD_nm": null
+        },
+        {
+          "method": "V10",
+          "status": "REVIEW",
+          "旋转_CD_nm": 57.6448566365,
+          "旋转_pitch_CD_nm": 99.9998679457
+        }
+      ],
+      "new_summary": [
+        {
+          "method": "mixed",
+          "status": "REVIEW",
+          "旋转_CD_nm": null,
+          "旋转_pitch_CD_nm": null
+        },
+        {
+          "method": "V13",
+          "status": "REVIEW",
+          "旋转_CD_nm": null,
+          "旋转_pitch_CD_nm": null
+        },
+        {
+          "method": "V10",
+          "status": "REVIEW",
+          "旋转_CD_nm": 57.6442330683,
+          "旋转_pitch_CD_nm": 99.9998679457
+        }
+      ]
+    },
+    "trench_false_center": {
+      "status": "PASS",
+      "exact_common_source_edges": [
+        {
+          "engine": "V10",
+          "source_trench_id": 4,
+          "old_space_index": 2,
+          "samples": 128,
+          "qualified": true
+        },
+        {
+          "engine": "V10",
+          "source_trench_id": 6,
+          "old_space_index": 3,
+          "samples": 128,
+          "qualified": true
+        },
+        {
+          "engine": "V13",
+          "source_trench_id": 4,
+          "old_space_index": 2,
+          "samples": 128,
+          "qualified": true
+        },
+        {
+          "engine": "V13",
+          "source_trench_id": 6,
+          "old_space_index": 3,
+          "samples": 128,
+          "qualified": true
+        }
+      ],
+      "old_summary": [
+        {
+          "method": "mixed",
+          "status": "OK",
+          "旋转_CD_nm": 53.2607461974,
+          "旋转_pitch_CD_nm": 160.0001424488
+        },
+        {
+          "method": "V13",
+          "status": "OK",
+          "旋转_CD_nm": 53.2607461974,
+          "旋转_pitch_CD_nm": 160.0001424488
+        },
+        {
+          "method": "V10",
+          "status": "OK",
+          "旋转_CD_nm": 51.4489228883,
+          "旋转_pitch_CD_nm": 160.0146714331
+        }
+      ],
+      "new_summary": [
+        {
+          "method": "mixed",
+          "status": "OK",
+          "旋转_CD_nm": 59.9309032262,
+          "旋转_pitch_CD_nm": 160.0001424488
+        },
+        {
+          "method": "V13",
+          "status": "OK",
+          "旋转_CD_nm": 59.9309032262,
+          "旋转_pitch_CD_nm": 160.0001424488
+        },
+        {
+          "method": "V10",
+          "status": "OK",
+          "旋转_CD_nm": 58.1173884143,
+          "旋转_pitch_CD_nm": 160.0146714331
+        }
+      ]
+    }
+  },
+  "archive": {
+    "files_verified": 29,
+    "sha256": "e83d9a32a10f1daf7ff9fac2951dfd9017ec820899051fdb562beaf74d629777"
+  },
+  "unpacked_quick_self_check": "Analytical/background tests: PASS\nV1_18 SELF-CHECK PASSED",
+  "unpacked_full_export": {
+    "status": "PASS",
+    "viterbi": true,
+    "erf": true,
+    "image_statuses": [
+      "OK"
+    ],
+    "locator_modes": [
+      "dark-line"
+    ],
+    "processing_errors": 0,
+    "machine_rows": 1,
+    "psd_curves": 48,
+    "png_exports": 36,
+    "mixed_cd_nm": 60.00015185673092,
+    "qualified_trenches": {
+      "status": "PASS",
+      "measured_trenches": {
+        "V10": 5,
+        "V13": 5
+      },
+      "qualified_trenches": {
+        "V10": 5,
+        "V13": 5
+      },
+      "selected_trenches": {
+        "V10": 3,
+        "V13": 3
+      },
+      "exact_source_sample_rows": 768
+    },
+    "pitch_count": [
+      3,
+      3,
+      3
+    ],
+    "rotated_pitch_cd_nm": [
+      160.0001046169654,
+      160.0001046169654,
+      160.00010622478314
+    ]
+  },
+  "unpacked_stained_line_export": {
+    "status": "PASS",
+    "shared_edges": {
+      "valid_shared_samples": 768,
+      "source_trenches": {
+        "V10": 5,
+        "V13": 5
+      },
+      "selected_lines": {
+        "V10": 3,
+        "V13": 3
+      }
+    },
+    "viterbi": false,
+    "erf": false,
+    "processing_errors": 0,
+    "psd_curves": 48,
+    "rotated_pitch_cd_nm": [
+      160.00014244876596,
+      160.00014244876596,
+      160.0146714331235
+    ],
+    "pitch_count": [
+      3,
+      3,
+      3
+    ],
+    "mixed_cd_nm": 100.07002636995212
+  }
+}
