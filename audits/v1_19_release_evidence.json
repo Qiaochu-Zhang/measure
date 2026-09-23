@@ -1,0 +1,101 @@
+{
+  "version": "V1_19",
+  "preserved_files": {
+    "status": "PASS",
+    "baseline_commit": "6c4ea0bf75534835ee187120b68a9eea611ce34f",
+    "old_files_verified": 162
+  },
+  "algorithms": {
+    "unchanged_modules": [
+      "cdsem_engine.py",
+      "cdsem_locator.py",
+      "cdsem_localization.py",
+      "cdsem_refinement.py",
+      "cdsem_lines.py",
+      "cdsem_trenches.py",
+      "cdsem_pitch.py",
+      "cdsem_statistics.py"
+    ],
+    "unchanged_main_statistics": [
+      "coordinate_metrics_by_space",
+      "aggregate_coordinate_metrics"
+    ],
+    "grayscale_and_normalization": "unchanged",
+    "psd_change": "output path only"
+  },
+  "documentation": {
+    "cli_options": 86,
+    "validated_examples": 19
+  },
+  "png_compatibility": {
+    "trench": {
+      "status": "PASS",
+      "exact_tables": {
+        "per_sample_results.csv": 192,
+        "pitch_periods.csv": 8,
+        "pitch_samples.csv": 256,
+        "trench_selection.csv": 10,
+        "trench_source_samples.csv": 320
+      },
+      "exact_summary_columns": [
+        "status",
+        "method",
+        "image_key",
+        "旋转_CD_nm",
+        "旋转_LER_left_nm",
+        "旋转_LER_right_nm",
+        "旋转_LWR_nm",
+        "未旋转_CD_nm",
+        "未旋转_LER_left_nm",
+        "未旋转_LER_right_nm",
+        "未旋转_LWR_nm",
+        "pitch_source",
+        "pitch_count",
+        "pitch_requested_count",
+        "pitch_status",
+        "旋转_pitch_CD_nm"
+      ]
+    },
+    "line": {
+      "status": "PASS",
+      "exact_tables": {
+        "per_sample_results.csv": 192,
+        "pitch_periods.csv": 8,
+        "pitch_samples.csv": 256,
+        "line_trench_pairs.csv": 8,
+        "line_source_samples.csv": 320
+      },
+      "exact_summary_columns": [
+        "status",
+        "method",
+        "image_key",
+        "旋转_CD_nm",
+        "旋转_LER_left_nm",
+        "旋转_LER_right_nm",
+        "旋转_LWR_nm",
+        "未旋转_CD_nm",
+        "未旋转_LER_left_nm",
+        "未旋转_LER_right_nm",
+        "未旋转_LWR_nm",
+        "pitch_source",
+        "pitch_count",
+        "pitch_requested_count",
+        "pitch_status",
+        "旋转_pitch_CD_nm"
+      ]
+    }
+  },
+  "archive": {
+    "status": "PASS",
+    "files_verified": 30,
+    "sha256": "546f301d323e73daf386b55ccd7795359c64dc9f0422660fadf0daa5d150a46e",
+    "quick_self_check": "Analytical/background tests: PASS\nV1_19 SELF-CHECK PASSED",
+    "mixed_images": 4,
+    "mixed_cd_nm": [
+      59.92850125704829,
+      59.92850125704829,
+      59.93011584724277,
+      59.93011584724277
+    ]
+  }
+}
