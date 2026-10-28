@@ -1,0 +1,54 @@
+{
+  "preservation": {
+    "status": "PASS",
+    "baseline_commit": "3629670330d358fa028a0dcf384fd286b9055321",
+    "files_verified": 207
+  },
+  "measurement_compatibility": {
+    "trench": {
+      "status": "PASS",
+      "exact_rows": {
+        "measurement_summary.csv": 3,
+        "per_sample_results.csv": 192,
+        "pitch_periods.csv": 8,
+        "pitch_samples.csv": 256,
+        "trench_selection.csv": 10,
+        "trench_source_samples.csv": 320
+      }
+    },
+    "line": {
+      "status": "PASS",
+      "exact_rows": {
+        "measurement_summary.csv": 3,
+        "per_sample_results.csv": 192,
+        "pitch_periods.csv": 8,
+        "pitch_samples.csv": 256,
+        "line_trench_pairs.csv": 8,
+        "line_source_samples.csv": 320
+      }
+    }
+  },
+  "psd_contract": {
+    "status": "PASS",
+    "image_count": 1,
+    "png_count": 2,
+    "engines": [
+      "V10",
+      "V13"
+    ],
+    "signals": [
+      "LER",
+      "LWR"
+    ],
+    "all_qualified_structures": 6,
+    "main_max_number": 1
+  },
+  "standalone_archive": {
+    "status": "PASS",
+    "archive": "sem_cd_measure_200k_batch_V1_20_complete_package.zip",
+    "files": 34,
+    "sha256": "a5aef82fcd8320c36329cba8c1bf1a26c3fb13d6a9771ed7806c2f8495bce362",
+    "manifest_files": 33,
+    "quick_self_check": "PASS"
+  }
+}
